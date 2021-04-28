@@ -9,7 +9,7 @@ export default ({}: Props) => (
     <span className={'text-2xl text-center'}>
       FP-curious | λ-affected Wanna be rustacean 🦀 and/or secops guy 🔒
     </span>
-    <span className={'text-lg text-center text-gray-500 font-light'}>
+    <span className={'text-lg text-center text-gray-500 font-light pt-4'}>
       Now <Link href="https://www.samsungnext.com/">@SamsungNEXT</Link> (
       <Link href="https://whisk.com/">Whisk product team</Link>). Previously{' '}
       <Link href="https://www.visualthreat.com/">@VisualThreat.</Link>
