@@ -7,7 +7,7 @@ import Title from './elements/Title';
 type Props = {};
 
 export default ({}: Props) => (
-  <div className={'flex flex-col sm mx-auto  lg:w-1/3 '}>
+  <div className={'flex flex-col sm mx-auto lg:w-1/3'}>
     <Avatar imgUrl="./avatar.jpg" />
     <Title />
     <Description />

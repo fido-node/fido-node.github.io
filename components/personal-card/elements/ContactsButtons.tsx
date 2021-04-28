@@ -6,7 +6,8 @@ import {
   faTwitter,
   faGithub,
   faLinkedin,
-  faTwitch
+  faTwitch,
+  faTelegramPlane
 } from '@fortawesome/free-brands-svg-icons';
 
 import { IconDefinition, IconName, IconPrefix } from '@fortawesome/fontawesome-svg-core';
@@ -18,7 +19,7 @@ type Props = {
 };
 
 const typeToIcon: { [key in ContactType]: [IconDefinition, string?] } = {
-  tg: [faTelegram],
+  tg: [faTelegramPlane],
   mail: [faEnvelope],
   twitter: [faTwitter],
   github: [faGithub],
