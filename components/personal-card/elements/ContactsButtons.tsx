@@ -30,7 +30,7 @@ const typeToIcon: { [key in ContactType]: [IconDefinition, string?] } = {
 const ContactComp = ({ id, type }: Contact) => {
   const iconDescr = typeToIcon[type];
   return (
-    <div className={'p-3 '}>
+    <div className={'p-3'}>
       <a
         className={'text-5xl text-gray-600' + ' ' + iconDescr[1]}
         href={contactToLink({ id, type })}

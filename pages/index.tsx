@@ -4,7 +4,7 @@ import PersonalCard from '../components/personal-card/PersonalCard';
 
 const Home = () => {
   return (
-    <div className="bg-gray-50 flex flex-col h-auto justify-between">
+    <div className="bg-gray-50 flex flex-col md:h-screen sm:h-full  justify-between">
       <PersonalCard />
       <Footer />
     </div>
