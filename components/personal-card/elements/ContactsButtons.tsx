@@ -30,15 +30,17 @@ const typeToIcon: { [key in ContactType]: [IconDefinition, string?] } = {
 const ContactComp = ({ id, type }: Contact) => {
   const iconDescr = typeToIcon[type];
   return (
-    <a
-      className={'text-5xl p-3 text-gray-600' + ' ' + iconDescr[1]}
-      href={contactToLink({ id, type })}
-      target="_blank">
-      <FontAwesomeIcon key={type} icon={iconDescr[0]} />
-    </a>
+    <div className={'p-3 '}>
+      <a
+        className={'text-5xl text-gray-600' + ' ' + iconDescr[1]}
+        href={contactToLink({ id, type })}
+        target="_blank">
+        <FontAwesomeIcon key={type} icon={iconDescr[0]} />
+      </a>
+    </div>
   );
 };
 
 export default ({ contacts }: Props) => (
-  <div className={'text-center'}>{contacts.map((c) => ContactComp(c))}</div>
+  <div className={'flex flex-row  justify-center'}>{contacts.map((c) => ContactComp(c))}</div>
 );
