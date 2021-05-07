@@ -2,7 +2,6 @@ import * as React from 'react';
 import '@fortawesome/fontawesome-svg-core';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import {
-  faTelegram,
   faTwitter,
   faGithub,
   faLinkedin,
@@ -32,7 +31,7 @@ const ContactComp = ({ id, type }: Contact) => {
   return (
     <div className={'p-3'}>
       <a
-        className={'text-5xl text-gray-600' + ' ' + iconDescr[1]}
+        className={'text-5xl text-gray-500' + ' ' + iconDescr[1]}
         href={contactToLink({ id, type })}
         target="_blank">
         <FontAwesomeIcon key={type} icon={iconDescr[0]} />
