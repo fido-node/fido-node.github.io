@@ -10,7 +10,7 @@ import Tags from './elements/Tags';
 
 export type PostOverviewCardProps = {
   createdAt: DateTime;
-  createdBy: User;
+  createdBy?: User;
   path: string;
   title: string;
   preview: Preview;
@@ -26,10 +26,13 @@ export default ({ createdBy, createdAt, title, tags, path, preview }: PostOvervi
         className={'object-cover h-52 w-full'}></img>
     ) : null}
 
-    <div className={'flex flex-row pt-2 pl-2'}>
-      <Avatar imgUrl={createdBy.avatar} />
-      <NameAndData name={createdBy.name} date={createdAt} />
-    </div>
+    {isDefined(createdBy) ? (
+      <div className={'flex flex-row pt-2 pl-2'}>
+        <Avatar imgUrl={createdBy.avatar} />
+        <NameAndData name={createdBy.name} date={createdAt} />
+      </div>
+    ):  <div className={'flex flex-row pt-16'}></div>}
+  
     <div className={'flex flex-row px-16'}>
       <a className={'text-4xl font-bold hover:text-purple-500 '} href={path}>
         {title}

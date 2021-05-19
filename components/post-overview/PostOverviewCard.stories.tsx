@@ -44,6 +44,28 @@ storiesOf('Components/Post Overview Card', module)
 
     return <PostOverviewCard {...defaultPreview} />;
   })
+  .add('with preview/without avatar', () => {
+    const defaultPreview: PostOverviewCardProps = {
+      createdAt: DateTime.now(),  
+      path: '/blog/asdasdasdasd',
+      title: 'How to create your personal static blog and do not lost your mind. 🔥',
+      preview: {
+        headerMedia: {
+          key: 'Image',
+          url: './pattern.png',
+          alt: 'awesome pattern'
+        }
+      },
+      tags: [
+        { text: 'next.js' },
+        { text: 'typescript' },
+        { text: 'tailwind' },
+        { text: 'storybook' }
+      ]
+    };
+
+    return <PostOverviewCard {...defaultPreview} />;
+  })
   .add('without tags', () => {
     const defaultPreview: PostOverviewCardProps = {
       createdAt: DateTime.now(),
