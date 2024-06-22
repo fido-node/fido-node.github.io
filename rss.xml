@@ -12,11 +12,10 @@
   <title>rss</title>
   <atom:link href="https://fidonode.me/rss.xml" rel="self" type="application/rss+xml" />
   <link>https://fidonode.me</link>
-  <description><![CDATA[Blog post about publishing my blog with Org Mode...
-  Blog post about my keyboards...]]></description>
+  <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sat, 22 Jun 2024 18:22:56 +0000</pubDate>
-  <lastBuildDate>Sat, 22 Jun 2024 18:22:56 +0000</lastBuildDate>
+  <pubDate>Sat, 22 Jun 2024 18:49:23 +0000</pubDate>
+  <lastBuildDate>Sat, 22 Jun 2024 18:49:23 +0000</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -40,7 +39,7 @@
     <link>https://fidonode.me/posts/keeb.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/keeb.html</guid>
-    <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
