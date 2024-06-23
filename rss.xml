@@ -14,8 +14,8 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sat, 22 Jun 2024 18:49:23 +0000</pubDate>
-  <lastBuildDate>Sat, 22 Jun 2024 18:49:23 +0000</lastBuildDate>
+  <pubDate>Sun, 23 Jun 2024 18:44:00 +0000</pubDate>
+  <lastBuildDate>Sun, 23 Jun 2024 18:44:00 +0000</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -25,6 +25,15 @@
   </image>
 
 
+  <item>
+    <title>Org blog with RSS</title>
+    <link>https://fidonode.me/posts/add_rss_to_blog.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/posts/add_rss_to_blog.html</guid>
+    <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
   <item>
     <title>Org to HTML and back</title>
     <link>https://fidonode.me/posts/about_blog.html</link>
