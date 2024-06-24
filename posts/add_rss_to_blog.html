@@ -1,138 +1,128 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add RSS feed to blog"/><meta name="og:description" content="Let&apos;s add RSS feed to blog"/><meta name="twitter:description" content="Let&apos;s add RSS feed to blog"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="og:title" content="Org blog with RSS"/><meta name="twitter:title" content="Org blog with RSS"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Org blog with RSS</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Org blog with RSS</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add RSS feed to blog"/><meta name="og:description" content="Let&apos;s add RSS feed to blog"/><meta name="twitter:description" content="Let&apos;s add RSS feed to blog"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="og:title" content="Org blog with RSS"/><meta name="twitter:title" content="Org blog with RSS"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link rel="stylesheet" type="text/css" href="/resources/css/quirks.css"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script></nil><title>Org blog with RSS</title></head><body class="line-numbers"><main class="container"><header class="header"><nav><ul><li><strong>Org blog with RSS</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgae3bcfc">Why do you even need RSS?</a></li>
-<li><a href="#org9d3aef3">Add RSS feed</a>
+<li><a href="#org4f74f6a">Why do you even need RSS?</a></li>
+<li><a href="#orga6d6788">Add RSS feed</a>
 <ul>
-<li><a href="#org41dcd5c">Use sitemap backend in the build</a></li>
-<li><a href="#org1dba26e">Publishing and formatting functions</a></li>
+<li><a href="#org090269f">Use sitemap backend in the build</a></li>
+<li><a href="#org401a2ad">Publishing and formatting functions</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgae3bcfc" class="outline-2">
-<h2 id="orgae3bcfc">Why do you even need RSS?</h2>
-<div class="outline-text-2" id="text-orgae3bcfc">
+<div id="outline-container-org4f74f6a" class="outline-2">
+<h2 id="org4f74f6a">Why do you even need RSS?</h2>
+<div class="outline-text-2" id="text-org4f74f6a">
 <p>
 RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
 </p>
 </div>
 </div>
-<div id="outline-container-org9d3aef3" class="outline-2">
-<h2 id="org9d3aef3">Add RSS feed</h2>
-<div class="outline-text-2" id="text-org9d3aef3">
+<div id="outline-container-orga6d6788" class="outline-2">
+<h2 id="orga6d6788">Add RSS feed</h2>
+<div class="outline-text-2" id="text-orga6d6788">
 <p>
 So, what's happening here? Let's start by integrating our templating functions into the build.
 </p>
 </div>
-<div id="outline-container-org41dcd5c" class="outline-3">
-<h3 id="org41dcd5c">Use sitemap backend in the build</h3>
-<div class="outline-text-3" id="text-org41dcd5c">
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">setq</span> org-publish-project-alist
+<div id="outline-container-org090269f" class="outline-3">
+<h3 id="org090269f">Use sitemap backend in the build</h3>
+<div class="outline-text-3" id="text-org090269f">
+<pre><code class="language-elisp">(setq org-publish-project-alist
       (list
-       (list <span style="font-style: italic;">"blog-rss"</span>
-             <span style="font-weight: bold;">:author</span> <span style="font-style: italic;">"Alex M"</span>
-             <span style="font-weight: bold;">:email</span> <span style="font-style: italic;">"iam@fidonode.me"</span>
-             <span style="font-weight: bold;">:base-directory</span> my/blog-src-path
-             <span style="font-weight: bold;">:base-extension</span> <span style="font-style: italic;">"org"</span>
-             <span style="font-weight: bold;">:recursive</span> t
-             <span style="font-weight: bold;">:exclude</span> (regexp-opt '(<span style="font-style: italic;">"rss.org"</span> <span style="font-style: italic;">"index.org"</span> <span style="font-style: italic;">"404.org"</span> <span style="font-style: italic;">"posts.org"</span>))
-             <span style="font-weight: bold;">:publishing-function</span> 'my/publish-to-rss
-             <span style="font-weight: bold;">:publishing-directory</span> my/web-export-path
-             <span style="font-weight: bold;">:rss-extension</span> <span style="font-style: italic;">"xml"</span>
-             <span style="font-weight: bold;">:html-link-home</span> my/url
-             <span style="font-weight: bold;">:html-link-use-abs-url</span> t
-             <span style="font-weight: bold;">:html-link-org-files-as-html</span> t
-             <span style="font-weight: bold;">:auto-sitemap</span> t
-             <span style="font-weight: bold;">:sitemap-filename</span> <span style="font-style: italic;">"rss.org"</span>
-             <span style="font-weight: bold;">:sitemap-title</span> <span style="font-style: italic;">"rss"</span>
-             <span style="font-weight: bold;">:sitemap-style</span> 'list
-             <span style="font-weight: bold;">:sitemap-sort-files</span> 'anti-chronologically
-             <span style="font-weight: bold;">:sitemap-function</span> 'my/format-rss-feed
-             <span style="font-weight: bold;">:sitemap-format-entry</span> 'my/format-rss-feed-entry)
+       (list &quot;blog-rss&quot;
+	     :author &quot;Alex M&quot;
+	     :email &quot;iam@fidonode.me&quot;
+	     :base-directory my/blog-src-path
+	     :base-extension &quot;org&quot;
+	     :recursive t
+	     :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
+	     :publishing-function &apos;my/publish-to-rss
+	     :publishing-directory my/web-export-path
+	     :rss-extension &quot;xml&quot;
+	     :html-link-home my/url
+	     :html-link-use-abs-url t
+	     :html-link-org-files-as-html t
+	     :auto-sitemap t
+	     :sitemap-filename &quot;rss.org&quot;
+	     :sitemap-title &quot;rss&quot;
+	     :sitemap-style &apos;list
+	     :sitemap-sort-files &apos;anti-chronologically
+	     :sitemap-function &apos;my/format-rss-feed
+	     :sitemap-format-entry &apos;my/format-rss-feed-entry)
        ))
-</pre>
-</div>
+</code></pre>
 <p>
 How does it work? As you can see, we use the default sitemap generator from Org Export with some additional steps. By default, the sitemap generator collects all org files from <code>:base-directory</code>. It then places links to these files as separate entries into an intermediate org file and publishes this org file. We use custom functions for collecting entries, formatting entries, and publishing the org file.
 </p>
 </div>
 </div>
-<div id="outline-container-org1dba26e" class="outline-3">
-<h3 id="org1dba26e">Publishing and formatting functions</h3>
-<div class="outline-text-3" id="text-org1dba26e">
+<div id="outline-container-org401a2ad" class="outline-3">
+<h3 id="org401a2ad">Publishing and formatting functions</h3>
+<div class="outline-text-3" id="text-org401a2ad">
 <p>
 We need a mandatory dependency because we don't want to mess with forming correct XML by ourselves.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-rss</span>)
-</pre>
-</div>
+<pre><code class="language-elisp">(require &apos;ox-rss)
+</code></pre>
 <p>
 Here's the core of the process. We need to prepare entries before feeding them to the <code>org-rss-publish-to-rss</code> function. Since we're doing it our own way, we need to start by creating a bullet with a link to the post, and then add <code>RSS_PERMALINK</code>, <code>RSS_TITLE</code>, and <code>PUBDATE</code>. I also add the first two lines of the blog post instead of a description. This is the native way to do a preview in the RSS world.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/format-rss-feed-entry</span> (entry style project)
-  <span style="font-style: italic;">"Format ENTRY for the RSS feed.</span>
-<span style="font-style: italic;">ENTRY is a file name.  STYLE is either 'list' or 'tree'.</span>
-<span style="font-style: italic;">PROJECT is the current project."</span>
-  (<span style="font-weight: bold;">cond</span> ((not (directory-name-p entry))
-         (<span style="font-weight: bold;">let*</span> ((file (org-publish--expand-file-name entry project))
-                (title (org-publish-find-title entry project))
-                (date (format-time-string <span style="font-style: italic;">"%Y-%m-%d"</span> (org-publish-find-date entry project)))
-                (link (concat (file-name-sans-extension entry) <span style="font-style: italic;">".html"</span>)))
-           (<span style="font-weight: bold;">with-temp-buffer</span>
-             (org-mode)
-             (insert (format <span style="font-style: italic;">"* [[file:%s][%s]]\n"</span> file title))
-             (org-set-property <span style="font-style: italic;">"RSS_PERMALINK"</span> link)
-             (org-set-property <span style="font-style: italic;">"RSS_TITLE"</span> title)
-             (org-set-property <span style="font-style: italic;">"PUBDATE"</span> date)
-             (<span style="font-weight: bold;">let</span> ((first-two-lines (<span style="font-weight: bold;">with-temp-buffer</span>
-                                      (insert-file-contents file)
-                                      (buffer-substring-no-properties
-                                       (point-min)
-                                       (<span style="font-weight: bold;">progn</span> (forward-line 2) (point))))))
-               (<span style="font-weight: bold;">if</span> (string-suffix-p <span style="font-style: italic;">"\n"</span> first-two-lines)
-                   (<span style="font-weight: bold;">setq</span> first-two-lines (substring first-two-lines 0 -1)))
-               (insert first-two-lines))
-             (goto-char (point-max))
-             (insert <span style="font-style: italic;">"..."</span>)
-             (buffer-string))))
-        ((eq style 'tree)
-         <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Return only last subdir.</span>
-         (file-name-nondirectory (directory-file-name entry)))
-        (t entry)))
+<pre><code class="language-elisp">(defun my/format-rss-feed-entry (entry style project)
+  &quot;Format ENTRY for the RSS feed.
+ENTRY is a file name.  STYLE is either &apos;list&apos; or &apos;tree&apos;.
+PROJECT is the current project.&quot;
+  (cond ((not (directory-name-p entry))
+	 (let* ((file (org-publish--expand-file-name entry project))
+		(title (org-publish-find-title entry project))
+		(date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
+		(link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
+	   (with-temp-buffer
+	     (org-mode)
+	     (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
+	     (org-set-property &quot;RSS_PERMALINK&quot; link)
+	     (org-set-property &quot;RSS_TITLE&quot; title)
+	     (org-set-property &quot;PUBDATE&quot; date)
+	     (let ((first-two-lines (with-temp-buffer
+				      (insert-file-contents file)
+				      (buffer-substring-no-properties
+				       (point-min)
+				       (progn (forward-line 2) (point))))))
+	       (if (string-suffix-p &quot;\n&quot; first-two-lines)
+		   (setq first-two-lines (substring first-two-lines 0 -1)))
+	       (insert first-two-lines))
+	     (goto-char (point-max))
+	     (insert &quot;...&quot;)
+	     (buffer-string))))
+	((eq style &apos;tree)
+	 ;; Return only last subdir.
+	 (file-name-nondirectory (directory-file-name entry)))
+	(t entry)))
 
-</pre>
-</div>
+</code></pre>
 <p>
 This function creates the content of the intermediate org file. Mostly a rudimentary title, and then we ask Org to unwind the list of collected files with the <code>my/format-rss-feed-entry</code> function.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/format-rss-feed</span> (title list)
-  <span style="font-style: italic;">"Generate RSS feed, as a string.</span>
-<span style="font-style: italic;">TITLE is the title of the RSS feed.  LIST is an internal</span>
-<span style="font-style: italic;">representation for the files to include, as returned by</span>
-<span style="font-style: italic;">`</span><span style="font-weight: bold; font-style: italic; text-decoration: underline;">org-list-to-lisp</span><span style="font-style: italic;">'.  PROJECT is the current project."</span>
-  (concat <span style="font-style: italic;">"#+TITLE: "</span> title <span style="font-style: italic;">"\n"</span>
-          <span style="font-style: italic;">"#+STARTUP: showall \n\n"</span>
-          (org-list-to-subtree list 1 '(<span style="font-weight: bold;">:icount</span> <span style="font-style: italic;">""</span> <span style="font-weight: bold;">:istart</span> <span style="font-style: italic;">""</span>))))
-</pre>
-</div>
+<pre><code class="language-elisp">(defun my/format-rss-feed (title list)
+  &quot;Generate RSS feed, as a string.
+TITLE is the title of the RSS feed.  LIST is an internal
+representation for the files to include, as returned by
+`org-list-to-lisp&apos;.  PROJECT is the current project.&quot;
+  (concat &quot;#+TITLE: &quot; title &quot;\n&quot;
+	  &quot;#+STARTUP: showall \n\n&quot;
+	  (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
+</code></pre>
 <p>
 This function replaces the default publishing function to filter everything except the intermediate file before publishing.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/publish-to-rss</span> (plist filename pub-dir)
-  <span style="font-style: italic;">"Publish RSS with PLIST, only when FILENAME is 'rss.org'.</span>
-<span style="font-style: italic;">PUB-DIR is when the output will be placed."</span>
-  (<span style="font-weight: bold;">if</span> (equal <span style="font-style: italic;">"rss.org"</span> (file-name-nondirectory filename))
+<pre><code class="language-elisp">(defun my/publish-to-rss (plist filename pub-dir)
+  &quot;Publish RSS with PLIST, only when FILENAME is &apos;rss.org&apos;.
+PUB-DIR is when the output will be placed.&quot;
+  (if (equal &quot;rss.org&quot; (file-name-nondirectory filename))
       (org-rss-publish-to-rss plist filename pub-dir)))
-</pre>
-</div>
+</code></pre>
 <p>
 Voila! Now you have an <code>rss.xml</code> in your export path.
 </p>

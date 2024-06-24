@@ -1,45 +1,45 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Blog post about publishing my blog with Org Mode"/><meta name="og:description" content="Blog post about publishing my blog with Org Mode"/><meta name="twitter:description" content="Blog post about publishing my blog with Org Mode"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/about_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/about_blog.org.png"/><meta name="og:title" content="Org to HTML and back"/><meta name="twitter:title" content="Org to HTML and back"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Org to HTML and back</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Org to HTML and back</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Blog post about publishing my blog with Org Mode"/><meta name="og:description" content="Blog post about publishing my blog with Org Mode"/><meta name="twitter:description" content="Blog post about publishing my blog with Org Mode"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/about_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/about_blog.org.png"/><meta name="og:title" content="Org to HTML and back"/><meta name="twitter:title" content="Org to HTML and back"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link rel="stylesheet" type="text/css" href="/resources/css/quirks.css"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.css"/><link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js"></script></nil><title>Org to HTML and back</title></head><body class="line-numbers"><main class="container"><header class="header"><nav><ul><li><strong>Org to HTML and back</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaddca29">Disclaimer</a></li>
-<li><a href="#org4f5e8ad">What is Org?</a></li>
-<li><a href="#org0e06c6e">Why Org Mode?</a></li>
-<li><a href="#org25ea74d">Render Org to blog or whatever</a>
+<li><a href="#org6b12015">Disclaimer</a></li>
+<li><a href="#org82bbe6a">What is Org?</a></li>
+<li><a href="#org0f40ba1">Why Org Mode?</a></li>
+<li><a href="#org067c652">Render Org to blog or whatever</a>
 <ul>
-<li><a href="#org3727520">Render HTML</a></li>
-<li><a href="#org66cd08d">Static files</a></li>
-<li><a href="#org2d50f8e">Whole build script</a></li>
+<li><a href="#orge432482">Render HTML</a></li>
+<li><a href="#orgbe39baf">Static files</a></li>
+<li><a href="#org4c2b7df">Whole build script</a></li>
 </ul>
 </li>
-<li><a href="#orgf5d456b">Publish through GitHub Action</a>
+<li><a href="#org720a634">Publish through GitHub Action</a>
 <ul>
-<li><a href="#org16be392">Install Emacs</a></li>
-<li><a href="#orgd9561a3">Just bring everything</a></li>
-<li><a href="#org4da44cb">BTW I use GNU Emacs</a></li>
+<li><a href="#org8358f01">Install Emacs</a></li>
+<li><a href="#orgda4c3da">Just bring everything</a></li>
+<li><a href="#orgd494432">BTW I use GNU Emacs</a></li>
 </ul>
 </li>
-<li><a href="#orgeb3b53c">What is next</a>
+<li><a href="#orgb2469f9">What is next</a>
 <ul>
-<li><a href="#orgef929fb">RSS Feed</a></li>
-<li><a href="#orgd92b3bd">Open Graph</a></li>
-<li><a href="#orge558f1c">Code highlighting</a></li>
+<li><a href="#org44a2efc">RSS Feed</a></li>
+<li><a href="#org7be84da">Open Graph</a></li>
+<li><a href="#org2eccbc3">Code highlighting</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgaddca29" class="outline-2">
-<h2 id="orgaddca29">Disclaimer</h2>
-<div class="outline-text-2" id="text-orgaddca29">
+<div id="outline-container-org6b12015" class="outline-2">
+<h2 id="org6b12015">Disclaimer</h2>
+<div class="outline-text-2" id="text-org6b12015">
 <p>
 I'm neither proficient in Org Mode (further on "Org"), nor a good front-end engineer. I think that a simple solution is better than no solution. If you see a mistake, you can contact me via <a href="mailto:iam@fidonode.me">iam@fidonode.me</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-org4f5e8ad" class="outline-2">
-<h2 id="org4f5e8ad">What is Org?</h2>
-<div class="outline-text-2" id="text-org4f5e8ad">
+<div id="outline-container-org82bbe6a" class="outline-2">
+<h2 id="org82bbe6a">What is Org?</h2>
+<div class="outline-text-2" id="text-org82bbe6a">
 <blockquote>
 <p>
 Your life in plain text
@@ -55,9 +55,9 @@ Everything you can do in Org is to write a text. With a special markup, of cours
 </div>
 </div>
 
-<div id="outline-container-org0e06c6e" class="outline-2">
-<h2 id="org0e06c6e">Why Org Mode?</h2>
-<div class="outline-text-2" id="text-org0e06c6e">
+<div id="outline-container-org0f40ba1" class="outline-2">
+<h2 id="org0f40ba1">Why Org Mode?</h2>
+<div class="outline-text-2" id="text-org0f40ba1">
 <ol class="org-ol">
 <li>Plain text.
 Plain text as a data source offers significant versatility. You can read and understand what happens in org files without needing Emacs.</li>
@@ -69,316 +69,305 @@ I do not have a habit of collecting and keeping information. I believe that disc
 </div>
 </div>
 
-<div id="outline-container-org25ea74d" class="outline-2">
-<h2 id="org25ea74d">Render Org to blog or whatever</h2>
-<div class="outline-text-2" id="text-org25ea74d">
+<div id="outline-container-org067c652" class="outline-2">
+<h2 id="org067c652">Render Org to blog or whatever</h2>
+<div class="outline-text-2" id="text-org067c652">
 <p>
 Org already has a way to render files into HTML, allowing you to create simple HTML files with minimal styling. I'm not interesting in styling from org, so I decide to use <a href="https://picocss.com">picocss</a> framework.
 </p>
 </div>
-<div id="outline-container-org3727520" class="outline-3">
-<h3 id="org3727520">Render HTML</h3>
-<div class="outline-text-3" id="text-org3727520">
+<div id="outline-container-orge432482" class="outline-3">
+<h3 id="orge432482">Render HTML</h3>
+<div class="outline-text-3" id="text-orge432482">
 <p>
 I want to change some templates here and there. I've found <code>esxml</code> package. It is a decent DSL for writing XML/HTML.
 Here is how page header and footer look in this DSL.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/header</span> (info)
-  `(header (@ (class <span style="font-style: italic;">"header"</span>))
+<pre><code class="language-elisp">(defun my/header (info)
+  `(header (@ (class &quot;header&quot;))
     (nav
      (ul
       (li
        (strong
-        ,(org-export-data (plist-get info <span style="font-weight: bold;">:title</span>) info))))
+	,(org-export-data (plist-get info :title) info))))
      (ul
-      (li (a (@ (href <span style="font-style: italic;">"/index.html"</span>)) <span style="font-style: italic;">"About"</span>))
-      (li (a (@ (href <span style="font-style: italic;">"/blog.html"</span>)) <span style="font-style: italic;">"Blog"</span>))
-      (li (a (@ (href <span style="font-style: italic;">"/rss.xml"</span>)) <span style="font-style: italic;">"RSS"</span>))
+      (li (a (@ (href &quot;/index.html&quot;)) &quot;About&quot;))
+      (li (a (@ (href &quot;/blog.html&quot;)) &quot;Blog&quot;))
+      (li (a (@ (href &quot;/rss.xml&quot;)) &quot;RSS&quot;))
       )
      ))
   )
 
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/footer</span> (info)
-  `(footer (@ (class <span style="font-style: italic;">"footer"</span>))
+(defun my/footer (info)
+  `(footer (@ (class &quot;footer&quot;))
     (hr)
-    (p <span style="font-style: italic;">"Alex Mikhailov"</span>)
-    (p <span style="font-style: italic;">"Built with: "</span>
-       (a (@ (href <span style="font-style: italic;">"https://www.gnu.org/software/emacs/"</span>)) <span style="font-style: italic;">"GNU Emacs"</span>) <span style="font-style: italic;">" "</span>
-       (a (@ (href <span style="font-style: italic;">"https://orgmode.org/"</span>)) <span style="font-style: italic;">"Org Mode"</span>) <span style="font-style: italic;">" "</span>
-       (a (@ (href <span style="font-style: italic;">"https://picocss.com/"</span>)) <span style="font-style: italic;">"picocss"</span>)
+    (p &quot;Alex Mikhailov&quot;)
+    (p &quot;Built with: &quot;
+       (a (@ (href &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
+       (a (@ (href &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
+       (a (@ (href &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
        )
     ))
 
-</pre>
-</div>
+</code></pre>
 <p>
 Looks neat for me. At least I don't need to mess with string concatenation.
 Whole template wiring looks like that. Not much, but it works and easy to maintain.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/template</span> (contents info)
+<pre><code class="language-elisp">(defun my/template (contents info)
   (concat
-   <span style="font-style: italic;">"&lt;!DOCTYPE html&gt;"</span>
+   &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;
    (sxml-to-xml
-    `(html (@ (lang <span style="font-style: italic;">"en"</span>))
+    `(html (@ (lang &quot;en&quot;))
       (head
-       (meta (@ (charset <span style="font-style: italic;">"utf-8"</span>)))
-       (meta (@ (author <span style="font-style: italic;">"Alex Mikhailov"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"viewport"</span>)
-                (content <span style="font-style: italic;">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"color-scheme"</span>) (content <span style="font-style: italic;">"light dark"</span>)))
-       (meta (@ (http-equiv <span style="font-style: italic;">"content-language"</span>) (content <span style="font-style: italic;">"en-us"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"description"</span>) (content <span style="font-style: italic;">"Personal page with a blog about my technical adventures"</span>)))
-       (link (@ (rel <span style="font-style: italic;">"icon"</span>) (type <span style="font-style: italic;">"image/x-icon"</span>) (href <span style="font-style: italic;">"/resources/favicon.ico"</span>)))
-       (link (@ (rel <span style="font-style: italic;">"stylesheet"</span>) (href <span style="font-style: italic;">"/resources/css/pico.sand.min.css"</span>)))
+       (meta (@ (charset &quot;utf-8&quot;)))
+       (meta (@ (author &quot;Alex Mikhailov&quot;)))
+       (meta (@ (name &quot;viewport&quot;)
+		(content &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
+       (meta (@ (name &quot;color-scheme&quot;) (content &quot;light dark&quot;)))
+       (meta (@ (http-equiv &quot;content-language&quot;) (content &quot;en-us&quot;)))
+       (meta (@ (name &quot;description&quot;) (content &quot;Personal page with a blog about my technical adventures&quot;)))
+       (link (@ (rel &quot;icon&quot;) (type &quot;image/x-icon&quot;) (href &quot;/resources/favicon.ico&quot;)))
+       (link (@ (rel &quot;stylesheet&quot;) (href &quot;/resources/css/pico.sand.min.css&quot;)))
 
-       (script (@ (defer <span style="font-style: italic;">"true"</span>) (src <span style="font-style: italic;">"https://umami.dokutsu.xyz/script.js"</span>) (data-website-id <span style="font-style: italic;">"d52d9af1-0c7d-4531-84c6-0b9c2850011f"</span>)) ())
-       (title ,(org-export-data (plist-get info <span style="font-weight: bold;">:title</span>) info)))
+       (script (@ (defer &quot;true&quot;) (src &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
+       (title ,(org-export-data (plist-get info :title) info)))
 
       (body
-       (main (@ (class <span style="font-style: italic;">"container"</span>))
-             ,(my/header info)
-             (*RAW-STRING* ,contents)
-             ,(my/footer info)
-             )
+       (main (@ (class &quot;container&quot;))
+	     ,(my/header info)
+	     (*RAW-STRING* ,contents)
+	     ,(my/footer info)
+	     )
        ))
     ))
   )
-</pre>
-</div>
+</code></pre>
 <p>
 Ok, now we need some additional steps to wire these templating function.
 </p>
 
-<div class="org-src-container">
-<pre class="src src-elisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Derive new backend with our custom tepmplating function</span>
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">We derive it from regular HTML backend</span>
+<pre><code class="language-elisp">;; Derive new backend with our custom tepmplating function
+;; We derive it from regular HTML backend
 
-(org-export-define-derived-backend 'my-html 'html
-  <span style="font-weight: bold;">:translate-alist</span> '((template . my/template)
-                     ))
+(org-export-define-derived-backend &apos;my-html &apos;html
+  :translate-alist &apos;((template . my/template)
+		     ))
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Define publish function which uses our freshly derived backend</span>
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/publish-to-html</span> (plist filename pub-dir)
-  <span style="font-style: italic;">"Publish an Org file to HTML using the custom backend."</span>
-  (org-publish-org-to 'my-html filename <span style="font-style: italic;">".html"</span> plist pub-dir))
-</pre>
-</div>
+;; Define publish function which uses our freshly derived backend
+(defun my/publish-to-html (plist filename pub-dir)
+  &quot;Publish an Org file to HTML using the custom backend.&quot;
+  (org-publish-org-to &apos;my-html filename &quot;.html&quot; plist pub-dir))
+</code></pre>
 
 <p>
 So everything is almost done. Time to use our custom publishing function in projects list.
 </p>
 
-<div class="org-src-container">
-<pre class="src src-elisp">(<span style="font-weight: bold;">setq</span> org-publish-project-alist
+<pre><code class="language-elisp">(setq org-publish-project-alist
       (list
-       (list <span style="font-style: italic;">"blog"</span>
-             <span style="font-weight: bold;">:recursive</span> t
-             <span style="font-weight: bold;">:base-directory</span> my/blog-src-path
-             <span style="font-weight: bold;">:publishing-directory</span> my/web-export-path
-             <span style="font-weight: bold;">:publishing-function</span> 'my/publish-to-html
-             <span style="font-weight: bold;">:html-html5-fancy</span> t
-             <span style="font-weight: bold;">:htmlized-source</span> t
-             <span style="font-weight: bold;">:with-author</span> nil
-             <span style="font-weight: bold;">:with-creator</span> t
-             <span style="font-weight: bold;">:with-toc</span> t
-             <span style="font-weight: bold;">:section-numbers</span> nil
-             <span style="font-weight: bold;">:time-stamp-file</span> nil
-             )
+       (list &quot;blog&quot;
+	     :recursive t
+	     :base-directory my/blog-src-path
+	     :publishing-directory my/web-export-path
+	     :publishing-function &apos;my/publish-to-html
+	     :html-html5-fancy t
+	     :htmlized-source t
+	     :with-author nil
+	     :with-creator t
+	     :with-toc t
+	     :section-numbers nil
+	     :time-stamp-file nil
+	     )
        ))
-</pre>
+</code></pre>
 </div>
 </div>
-</div>
-<div id="outline-container-org66cd08d" class="outline-3">
-<h3 id="org66cd08d">Static files</h3>
-<div class="outline-text-3" id="text-org66cd08d">
+<div id="outline-container-orgbe39baf" class="outline-3">
+<h3 id="orgbe39baf">Static files</h3>
+<div class="outline-text-3" id="text-orgbe39baf">
 <p>
 Yep, you may want to publish some photos with your blog or any other static files.
 </p>
-<pre class="example">
-(setq org-publish-project-alist
+<pre><code class="language-nil">(setq org-publish-project-alist
       (list
-       (list "static"
+       (list &quot;static&quot;
 	     :base-directory my/blog-src-path
-	     :base-extension "css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt"
+	     :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
 	     :publishing-directory my/web-export-path
 	     :recursive t
-	     :publishing-function 'org-publish-attachment
+	     :publishing-function &apos;org-publish-attachment
 	     )
       ))
-</pre>
+</code></pre>
 <p>
 Looks self explanatory.
 </p>
 </div>
 </div>
-<div id="outline-container-org2d50f8e" class="outline-3">
-<h3 id="org2d50f8e">Whole build script</h3>
-<div class="outline-text-3" id="text-org2d50f8e">
+<div id="outline-container-org4c2b7df" class="outline-3">
+<h3 id="org4c2b7df">Whole build script</h3>
+<div class="outline-text-3" id="text-org4c2b7df">
 <p>
 Here is the whole elisp script which I use to publish my blog. It have some additional quirks to work with <code class="src src-sh">doomscript ./build-site.el</code>.
 </p>
-<div class="org-src-container">
-<pre class="src src-elisp"><span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Load the publishing system</span>
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Configure environment</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">setq</span> debug-on-error t)
+<pre><code class="language-elisp">;; Load the publishing system
+;; Configure environment
+;;
+(setq debug-on-error t)
 
-(<span style="font-weight: bold;">let</span> ((default-directory  (concat <span style="font-style: italic;">"~/.config/emacs/.local/straight/build-"</span> emacs-version <span style="font-style: italic;">"/"</span>)))
+(let ((default-directory  (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/&quot;)))
   (normal-top-level-add-subdirs-to-load-path))
 
-(add-to-list 'custom-theme-load-path
-             (concat <span style="font-style: italic;">"~/.config/emacs/.local/straight/build-"</span> emacs-version <span style="font-style: italic;">"/doom-themes"</span>))
-(add-to-list 'custom-theme-load-path (concat <span style="font-style: italic;">"~/.config/emacs/.local/straight/build-"</span> emacs-version <span style="font-style: italic;">"/base16-theme"</span>))
-(add-to-list 'custom-theme-load-path (concat <span style="font-style: italic;">"~/.config/emacs/.local/straight/build-"</span> emacs-version <span style="font-style: italic;">"/moe-theme"</span>))
+(add-to-list &apos;custom-theme-load-path
+	     (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
+(add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/base16-theme&quot;))
+(add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/moe-theme&quot;))
 
 
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">xml</span>)
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">dom</span>)
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-publish</span>)
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">ox-rss</span>)
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">org</span>)
-(<span style="font-weight: bold;">require</span> '<span style="font-weight: bold; text-decoration: underline;">esxml</span>)
+(require &apos;xml)
+(require &apos;dom)
+(require &apos;ox-publish)
+(require &apos;ox-rss)
+(require &apos;org)
+(require &apos;esxml)
 
-<span style="font-weight: bold; font-style: italic;">;;</span>
-<span style="font-weight: bold; font-style: italic;">;;</span><span style="font-weight: bold; font-style: italic;">Variables</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">setq</span>
- my/url <span style="font-style: italic;">"https://fidonode.me"</span>
- my/web-export-path <span style="font-style: italic;">"./public"</span>
- my/blog-src-path <span style="font-style: italic;">"./home/05 Blog"</span>
- org-html-validation-link nil            <span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Don't show validation link</span>
- org-html-htmlize-output-type 'inline-css
+;;
+;;Variables
+;;
+(setq
+ my/url &quot;https://fidonode.me&quot;
+ my/web-export-path &quot;./public&quot;
+ my/blog-src-path &quot;./home/05 Blog&quot;
+ org-html-validation-link nil            ;; Don&apos;t show validation link
+ org-html-htmlize-output-type &apos;inline-css
  org-src-fontify-natively t)
 
-<span style="font-weight: bold; font-style: italic;">;;</span>
-<span style="font-weight: bold; font-style: italic;">;;</span><span style="font-weight: bold; font-style: italic;">Templates</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/footer</span> (info)
-  `(footer (@ (class <span style="font-style: italic;">"footer"</span>))
+;;
+;;Templates
+;;
+(defun my/footer (info)
+  `(footer (@ (class &quot;footer&quot;))
     (hr)
-    (p <span style="font-style: italic;">"Alex Mikhailov"</span>)
-    (p <span style="font-style: italic;">"Built with: "</span>
-       (a (@ (href <span style="font-style: italic;">"https://www.gnu.org/software/emacs/"</span>)) <span style="font-style: italic;">"GNU Emacs"</span>) <span style="font-style: italic;">" "</span>
-       (a (@ (href <span style="font-style: italic;">"https://orgmode.org/"</span>)) <span style="font-style: italic;">"Org Mode"</span>) <span style="font-style: italic;">" "</span>
-       (a (@ (href <span style="font-style: italic;">"https://picocss.com/"</span>)) <span style="font-style: italic;">"picocss"</span>)
+    (p &quot;Alex Mikhailov&quot;)
+    (p &quot;Built with: &quot;
+       (a (@ (href &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
+       (a (@ (href &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
+       (a (@ (href &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
        )
     ))
 
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/header</span> (info)
-  `(header (@ (class <span style="font-style: italic;">"header"</span>))
+(defun my/header (info)
+  `(header (@ (class &quot;header&quot;))
     (nav
      (ul
       (li
        (strong
-        ,(org-export-data (plist-get info <span style="font-weight: bold;">:title</span>) info))))
+	,(org-export-data (plist-get info :title) info))))
      (ul
-      (li (a (@ (href <span style="font-style: italic;">"/index.html"</span>)) <span style="font-style: italic;">"About"</span>))
-      (li (a (@ (href <span style="font-style: italic;">"/blog.html"</span>)) <span style="font-style: italic;">"Blog"</span>))
-      (li (a (@ (href <span style="font-style: italic;">"/rss.xml"</span>)) <span style="font-style: italic;">"RSS"</span>))
+      (li (a (@ (href &quot;/index.html&quot;)) &quot;About&quot;))
+      (li (a (@ (href &quot;/blog.html&quot;)) &quot;Blog&quot;))
+      (li (a (@ (href &quot;/rss.xml&quot;)) &quot;RSS&quot;))
       )
      ))
   )
 
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/template</span> (contents info)
+(defun my/template (contents info)
   (concat
-   <span style="font-style: italic;">"&lt;!DOCTYPE html&gt;"</span>
+   &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;
    (sxml-to-xml
-    `(html (@ (lang <span style="font-style: italic;">"en"</span>))
+    `(html (@ (lang &quot;en&quot;))
       (head
-       (meta (@ (charset <span style="font-style: italic;">"utf-8"</span>)))
-       (meta (@ (author <span style="font-style: italic;">"Alex Mikhailov"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"viewport"</span>)
-                (content <span style="font-style: italic;">"width=device-width, initial-scale=1, shrink-to-fit=no"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"color-scheme"</span>) (content <span style="font-style: italic;">"light dark"</span>)))
-       (meta (@ (http-equiv <span style="font-style: italic;">"content-language"</span>) (content <span style="font-style: italic;">"en-us"</span>)))
-       (meta (@ (name <span style="font-style: italic;">"description"</span>) (content <span style="font-style: italic;">"Personal page with a blog about my technical adventures"</span>)))
-       (link (@ (rel <span style="font-style: italic;">"icon"</span>) (type <span style="font-style: italic;">"image/x-icon"</span>) (href <span style="font-style: italic;">"/resources/favicon.ico"</span>)))
-       (link (@ (rel <span style="font-style: italic;">"stylesheet"</span>) (href <span style="font-style: italic;">"/resources/css/pico.sand.min.css"</span>)))
+       (meta (@ (charset &quot;utf-8&quot;)))
+       (meta (@ (author &quot;Alex Mikhailov&quot;)))
+       (meta (@ (name &quot;viewport&quot;)
+		(content &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
+       (meta (@ (name &quot;color-scheme&quot;) (content &quot;light dark&quot;)))
+       (meta (@ (http-equiv &quot;content-language&quot;) (content &quot;en-us&quot;)))
+       (meta (@ (name &quot;description&quot;) (content &quot;Personal page with a blog about my technical adventures&quot;)))
+       (link (@ (rel &quot;icon&quot;) (type &quot;image/x-icon&quot;) (href &quot;/resources/favicon.ico&quot;)))
+       (link (@ (rel &quot;stylesheet&quot;) (href &quot;/resources/css/pico.sand.min.css&quot;)))
 
-       (script (@ (defer <span style="font-style: italic;">"true"</span>) (src <span style="font-style: italic;">"https://umami.dokutsu.xyz/script.js"</span>) (data-website-id <span style="font-style: italic;">"d52d9af1-0c7d-4531-84c6-0b9c2850011f"</span>)) ())
-       (title ,(org-export-data (plist-get info <span style="font-weight: bold;">:title</span>) info)))
+       (script (@ (defer &quot;true&quot;) (src &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
+       (title ,(org-export-data (plist-get info :title) info)))
 
       (body
-       (main (@ (class <span style="font-style: italic;">"container"</span>))
-             ,(my/header info)
-             (*RAW-STRING* ,contents)
-             ,(my/footer info)
-             )
+       (main (@ (class &quot;container&quot;))
+	     ,(my/header info)
+	     (*RAW-STRING* ,contents)
+	     ,(my/footer info)
+	     )
        ))
     ))
   )
 
 
-(org-export-define-derived-backend 'my-html 'html
-  <span style="font-weight: bold;">:translate-alist</span> '((template . my/template)
-                     ))
+(org-export-define-derived-backend &apos;my-html &apos;html
+  :translate-alist &apos;((template . my/template)
+		     ))
 
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/publish-to-html</span> (plist filename pub-dir)
-  <span style="font-style: italic;">"Publish an Org file to HTML using the custom backend."</span>
-  (org-publish-org-to 'my-html filename <span style="font-style: italic;">".html"</span> plist pub-dir))
+(defun my/publish-to-html (plist filename pub-dir)
+  &quot;Publish an Org file to HTML using the custom backend.&quot;
+  (org-publish-org-to &apos;my-html filename &quot;.html&quot; plist pub-dir))
 
-<span style="font-weight: bold; font-style: italic;">;;</span>
-<span style="font-weight: bold; font-style: italic;">;;</span><span style="font-weight: bold; font-style: italic;">Helpers</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">defun</span> <span style="font-weight: bold;">my/format-date-subtitle</span> (file project)
-  <span style="font-style: italic;">"Format the date found in FILE of PROJECT."</span>
-  (format-time-string <span style="font-style: italic;">"posted on %Y-%m-%d"</span> (org-publish-find-date file project)))
+;;
+;;Helpers
+;;
+(defun my/format-date-subtitle (file project)
+  &quot;Format the date found in FILE of PROJECT.&quot;
+  (format-time-string &quot;posted on %Y-%m-%d&quot; (org-publish-find-date file project)))
 
 
 
-<span style="font-weight: bold; font-style: italic;">;;</span>
-<span style="font-weight: bold; font-style: italic;">;;</span><span style="font-weight: bold; font-style: italic;">Clear folder with results</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">when</span> (file-directory-p my/web-export-path)
+;;
+;;Clear folder with results
+;;
+(when (file-directory-p my/web-export-path)
   (delete-directory my/web-export-path t))
 (mkdir my/web-export-path)
 
 
-<span style="font-weight: bold; font-style: italic;">;;</span>
-<span style="font-weight: bold; font-style: italic;">;;</span><span style="font-weight: bold; font-style: italic;">Main blog configuration</span>
-<span style="font-weight: bold; font-style: italic;">;;</span>
-(<span style="font-weight: bold;">setq</span> org-publish-project-alist
+;;
+;;Main blog configuration
+;;
+(setq org-publish-project-alist
       (list
-       (list <span style="font-style: italic;">"static"</span>
-             <span style="font-weight: bold;">:base-directory</span> my/blog-src-path
-             <span style="font-weight: bold;">:base-extension</span> <span style="font-style: italic;">"css</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">js</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">png</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">jpg</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">jpeg</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">gif</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">pdf</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">ico</span><span style="font-weight: bold; font-style: italic;">\\</span><span style="font-weight: bold; font-style: italic;">|</span><span style="font-style: italic;">txt"</span>
-             <span style="font-weight: bold;">:publishing-directory</span> my/web-export-path
-             <span style="font-weight: bold;">:recursive</span> t
-             <span style="font-weight: bold;">:publishing-function</span> 'org-publish-attachment
-             )
-       (list <span style="font-style: italic;">"blog"</span>
-             <span style="font-weight: bold;">:recursive</span> t
-             <span style="font-weight: bold;">:base-directory</span> my/blog-src-path
-             <span style="font-weight: bold;">:publishing-directory</span> my/web-export-path
-             <span style="font-weight: bold;">:publishing-function</span> 'my/publish-to-html
-             <span style="font-weight: bold;">:html-html5-fancy</span> t
-             <span style="font-weight: bold;">:htmlized-source</span> t
-             <span style="font-weight: bold;">:with-author</span> nil
-             <span style="font-weight: bold;">:with-creator</span> t
-             <span style="font-weight: bold;">:with-toc</span> t
-             <span style="font-weight: bold;">:section-numbers</span> nil
-             <span style="font-weight: bold;">:time-stamp-file</span> nil
-             )
+       (list &quot;static&quot;
+	     :base-directory my/blog-src-path
+	     :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
+	     :publishing-directory my/web-export-path
+	     :recursive t
+	     :publishing-function &apos;org-publish-attachment
+	     )
+       (list &quot;blog&quot;
+	     :recursive t
+	     :base-directory my/blog-src-path
+	     :publishing-directory my/web-export-path
+	     :publishing-function &apos;my/publish-to-html
+	     :html-html5-fancy t
+	     :htmlized-source t
+	     :with-author nil
+	     :with-creator t
+	     :with-toc t
+	     :section-numbers nil
+	     :time-stamp-file nil
+	     )
        ))
 
 
-<span style="font-weight: bold; font-style: italic;">;; </span><span style="font-weight: bold; font-style: italic;">Generate the site output</span>
+;; Generate the site output
 (org-publish-all t)
 
-(message <span style="font-style: italic;">"Build complete!"</span>)
+(message &quot;Build complete!&quot;)
 
-</pre>
-</div>
+</code></pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgf5d456b" class="outline-2">
-<h2 id="orgf5d456b">Publish through GitHub Action</h2>
-<div class="outline-text-2" id="text-orgf5d456b">
+<div id="outline-container-org720a634" class="outline-2">
+<h2 id="org720a634">Publish through GitHub Action</h2>
+<div class="outline-text-2" id="text-org720a634">
 <p>
 With all previous preparations, this step sounds simple like: <code class="src src-sh">emacs -Q --script ./build-site.el</code>
 I've chosen a pretty standard way to publish static sites through GitHub Pages. Since I keep my Org files in a private repo, I need some additional steps to address it. I use the <code>peaceiris/actions-gh-pages@v3</code> action to publish from my Org repo to the Pages repo.
@@ -386,24 +375,22 @@ However, since I use <code>Doom Emacs</code> as my configuration framework, we n
 </p>
 </div>
 
-<div id="outline-container-org16be392" class="outline-3">
-<h3 id="org16be392">Install Emacs</h3>
-<div class="outline-text-3" id="text-org16be392">
+<div id="outline-container-org8358f01" class="outline-3">
+<h3 id="org8358f01">Install Emacs</h3>
+<div class="outline-text-3" id="text-org8358f01">
 <p>
 If you want to run <code>Emacs Lisp</code>, you need the whole Emacs, at least without GUI. In a GitHub Action, you can simply run:
 </p>
-<div class="org-src-container">
-<pre class="src src-sh">sudo apt install emacs-nox --yes
-</pre>
-</div>
+<pre><code class="language-sh">sudo apt install emacs-nox --yes
+</code></pre>
 <p>
 This way has a downside - you will install Emacs on each action run since the system state is disposable.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd9561a3" class="outline-3">
-<h3 id="orgd9561a3">Just bring everything</h3>
-<div class="outline-text-3" id="text-orgd9561a3">
+<div id="outline-container-orgda4c3da" class="outline-3">
+<h3 id="orgda4c3da">Just bring everything</h3>
+<div class="outline-text-3" id="text-orgda4c3da">
 <p>
 I need to take extra steps since I use Doom Emacs and have my configs in Org. You may also need to install dependencies for your configuration.
 </p>
@@ -411,60 +398,51 @@ I need to take extra steps since I use Doom Emacs and have my configs in Org. Yo
 <p>
 Fetch doom guts
 </p>
-<div class="org-src-container">
-<pre class="src src-sh">git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
-</pre>
-</div>
+<pre><code class="language-sh">git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+</code></pre>
 
 <p>
 Prepare minimal config for rendering Org file to config.
 </p>
-<div class="org-src-container">
-<pre class="src src-sh"><span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'(doom! :config literate)'</span> &gt; ~/.config/doom/init.el
-<span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'(setq +literate-config-file "'</span>$(<span style="font-weight: bold;">pwd</span>)<span style="font-style: italic;">'/config/config.org")'</span> &gt; ~/.config/doom/cli.el
-</pre>
-</div>
+<pre><code class="language-sh">echo &apos;(doom! :config literate)&apos; &amp;gt; ~/.config/doom/init.el
+echo &apos;(setq +literate-config-file &quot;&apos;$(pwd)&apos;/config/config.org&quot;)&apos; &amp;gt; ~/.config/doom/cli.el
+</code></pre>
 
 <p>
 Finally, install all dependencies according to my config. Yes, it is overhead, but I can be sure that I have the same dependencies as on my dev machine.
 </p>
-<div class="org-src-container">
-<pre class="src src-sh">~/.config/emacs/bin/doom sync -B
-</pre>
-</div>
+<pre><code class="language-sh">~/.config/emacs/bin/doom sync -B
+</code></pre>
 <p>
 Of course, I use a caching step to make the whole process faster:
 </p>
-<div class="org-src-container">
-<pre class="src src-yaml">- name: Cache doom-emacs
+<pre><code class="language-yaml">- name: Cache doom-emacs
   uses: actions/cache@v4
   id: cache-doom-save
   with:
     path: ~/.config/emacs
     key: ${{ runner.os }}-doom
-</pre>
-</div>
+</code></pre>
 </div>
 </div>
 
-<div id="outline-container-org4da44cb" class="outline-3">
-<h3 id="org4da44cb">BTW I use GNU Emacs</h3>
-<div class="outline-text-3" id="text-org4da44cb">
+<div id="outline-container-orgd494432" class="outline-3">
+<h3 id="orgd494432">BTW I use GNU Emacs</h3>
+<div class="outline-text-3" id="text-orgd494432">
 <p>
 Here's the whole publishing workflow.
 </p>
-<div class="org-src-container">
-<pre class="src src-yaml">name: pages
+<pre><code class="language-yaml">name: pages
 on:
   push:
     branches:
-      - "main"
+      - &quot;main&quot;
     # Do not trigger build on changes in other folders
     paths-ignore:
-      - "./home/02 Action"
-      - "./home/03 PKM"
-      - "./home/04 Log"
-      - "./home/06 Projects"
+      - &quot;./home/02 Action&quot;
+      - &quot;./home/03 PKM&quot;
+      - &quot;./home/04 Log&quot;
+      - &quot;./home/06 Projects&quot;
   workflow_dispatch:
 
 jobs:
@@ -495,11 +473,11 @@ jobs:
 
 	# I use literate config, so we need some extra steps to botstrap my config
       - name: Put template for literate config
-	run: echo '(doom! :config literate)' &gt; ~/.config/doom/init.el
+	run: echo &apos;(doom! :config literate)&apos; &amp;gt; ~/.config/doom/init.el
 
 	# Yep. I also keep my emacs config in org in my org repo
       - name: Propagate org conf
-	run: echo '(setq +literate-config-file "'$(pwd)'/config/config.org")' &gt; ~/.config/doom/cli.el
+	run: echo &apos;(setq +literate-config-file &quot;&apos;$(pwd)&apos;/config/config.org&quot;)&apos; &amp;gt; ~/.config/doom/cli.el
 
 	# Build doomemacs deps. Should be relativelly fast, cause almost everything cached.
       - name: Sync doom
@@ -525,32 +503,31 @@ jobs:
 	  publish_branch: gh-pages
 	  publish_dir: ./public
 
-</pre>
+</code></pre>
 </div>
 </div>
 </div>
-</div>
-<div id="outline-container-orgeb3b53c" class="outline-2">
-<h2 id="orgeb3b53c">What is next</h2>
-<div class="outline-text-2" id="text-orgeb3b53c">
+<div id="outline-container-orgb2469f9" class="outline-2">
+<h2 id="orgb2469f9">What is next</h2>
+<div class="outline-text-2" id="text-orgb2469f9">
 <p>
 I have a plans to make posts about next features:
 </p>
 </div>
-<div id="outline-container-orgef929fb" class="outline-3">
-<h3 id="orgef929fb"><a href="./add_rss_to_blog.html">RSS Feed</a></h3>
+<div id="outline-container-org44a2efc" class="outline-3">
+<h3 id="org44a2efc"><a href="./add_rss_to_blog.html">RSS Feed</a></h3>
 </div>
-<div id="outline-container-orgd92b3bd" class="outline-3">
-<h3 id="orgd92b3bd">Open Graph</h3>
-<div class="outline-text-3" id="text-orgd92b3bd">
+<div id="outline-container-org7be84da" class="outline-3">
+<h3 id="org7be84da">Open Graph</h3>
+<div class="outline-text-3" id="text-org7be84da">
 <p>
 Already implemented. Need to document process.
 </p>
 </div>
 </div>
-<div id="outline-container-orge558f1c" class="outline-3">
-<h3 id="orge558f1c">Code highlighting</h3>
-<div class="outline-text-3" id="text-orge558f1c">
+<div id="outline-container-org2eccbc3" class="outline-3">
+<h3 id="org2eccbc3">Code highlighting</h3>
+<div class="outline-text-3" id="text-org2eccbc3">
 <p>
 Only rudimentary highlight. Want something fancier.
 </p>
