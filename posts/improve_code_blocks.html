@@ -1,34 +1,55 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use prime.js for code syntax highlighting"/><meta name="og:description" content="Use prime.js for code syntax highlighting"/><meta name="twitter:description" content="Use prime.js for code syntax highlighting"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/improve_code_blocks.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/improve_code_blocks.org.png"/><meta name="og:title" content="Improve code blocks"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></nil><title>Improve code blocks</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Improve code blocks</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use highlight.js for code syntax highlighting"/><meta name="og:description" content="Use highlight.js for code syntax highlighting"/><meta name="twitter:description" content="Use highlight.js for code syntax highlighting"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/improve_code_blocks.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/improve_code_blocks.org.png"/><meta name="og:title" content="Improve code blocks"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></nil><title>Improve code blocks</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Improve code blocks</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org506f58f">What is the problem with default highlighting?</a></li>
-<li><a href="#orgbf2207a">Prism.js</a>
+<li><a href="#orgc3b762f">What is the problem with default highlighting?</a></li>
+<li><a href="#org278adbf">Highlight.js</a>
 <ul>
-<li><a href="#orgb19a9c7">Change code block template</a></li>
-<li><a href="#orge91c35a">Plug Prism.js</a></li>
-<li><a href="#orgbaa05e2">Respect prefers-color-scheme</a></li>
+<li><a href="#org7c1ed5f">Change code block template</a></li>
+<li><a href="#orgcc44ae9">Plug Highlight.js</a></li>
+<li><a href="#org68b092c">Respect prefers-color-scheme</a></li>
 </ul>
 </li>
-<li><a href="#org8ecf679">Whole config</a></li>
+<li><a href="#org66c91f8">Whole config</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org506f58f" class="outline-2">
-<h2 id="org506f58f">What is the problem with default highlighting?</h2>
+<div id="outline-container-orgc3b762f" class="outline-2">
+<h2 id="orgc3b762f">What is the problem with default highlighting?</h2>
+<div class="outline-text-2" id="text-orgc3b762f">
+<p>
+Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
+</p>
 </div>
-<div id="outline-container-orgbf2207a" class="outline-2">
-<h2 id="orgbf2207a">Prism.js</h2>
-<div class="outline-text-2" id="text-orgbf2207a">
 </div>
-<div id="outline-container-orgb19a9c7" class="outline-3">
-<h3 id="orgb19a9c7">Change code block template</h3>
-<div class="outline-text-3" id="text-orgb19a9c7">
-<pre><code class="language-lisp">(defun my/src-block (src-block contents info)
+<div id="outline-container-org278adbf" class="outline-2">
+<h2 id="org278adbf">Highlight.js</h2>
+<div class="outline-text-2" id="text-org278adbf">
+</div>
+<div id="outline-container-org7c1ed5f" class="outline-3">
+<h3 id="org7c1ed5f">Change code block template</h3>
+<div class="outline-text-3" id="text-org7c1ed5f">
+<p>
+We need to make small changes in how code blocks are rendered. By default, Org Export exports code blocks as <code>&lt;pre&gt;&lt;/pre&gt;</code>. For Highlight.js, we need <code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code>. Additionally, we need to set the correct language name in the class attribute. Since Highlight.js does not support <code>elisp</code>, I rewrite it to regular <code>lisp</code> using the <code>my/replace-substring</code> function.
+</p>
+<pre><code class="language-lisp">(setq
+  my/lang-substitution-map &apos;((&quot;elisp&quot; . &quot;lisp&quot;)))
+
+(defun my/replace-substrings (input-string)
+  &quot;Replace substrings in INPUT-STRING according to SUBSTITUTION-MAP.&quot;
+  (let ((output-string input-string))
+    (dolist (pair my/lang-substitution-map)
+      (let ((old (regexp-quote (car pair)))
+	    (new (cdr pair)))
+	(setq output-string (replace-regexp-in-string old new output-string))))
+    output-string))
+
+(defun my/src-block (src-block contents info)
   &quot;Translate SRC-BLOCK element into HTML.
 CONTENTS is nil. INFO is a plist holding contextual information.&quot;
   (let* (
-	 (language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+	 (language (my/replace-substrings org-language))
 	 (code (org-element-property :value src-block)))
     (esxml-to-xml
      `(pre ()
@@ -48,9 +69,12 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orge91c35a" class="outline-3">
-<h3 id="orge91c35a">Plug Prism.js</h3>
-<div class="outline-text-3" id="text-orge91c35a">
+<div id="outline-container-orgcc44ae9" class="outline-3">
+<h3 id="orgcc44ae9">Plug Highlight.js</h3>
+<div class="outline-text-3" id="text-orgcc44ae9">
+<p>
+I do not want to load Highlight.js on every page, so I need to check if the initial Org file contains code blocks. Depending on this, we will render the part of the tree with JavaScript or not.
+</p>
 <pre><code class="language-lisp">(defun my/org-has-src-blocks-p (info)
   &quot;Return t if the Org document represented by INFO has source code blocks.&quot;
   (org-element-map (plist-get info :parse-tree) &apos;src-block
@@ -65,53 +89,62 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 ...
 
 (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
+
 ,(when has-src-blocks
-  `(nil ()
-     (link ((id . &quot;prism-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
-     (link ((rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;) (href . &quot;/resources/css/quirks.css&quot;)))
-     (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js&quot;)) ())
-     (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js&quot;)) ())
-     (script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
-))
+`(nil ()
+	(link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+	(script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+	(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+	(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
+	(script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
+	)
+)
+
 (title () ,title-str)
 
 </code></pre>
 </div>
 </div>
-<div id="outline-container-orgbaa05e2" class="outline-3">
-<h3 id="orgbaa05e2">Respect prefers-color-scheme</h3>
-<div class="outline-text-3" id="text-orgbaa05e2">
-<pre><code class="language-javascript">function setPrismTheme() {
-  const prismThemeLink = document.getElementById(&quot;prism-theme&quot;);
+<div id="outline-container-org68b092c" class="outline-3">
+<h3 id="org68b092c">Respect prefers-color-scheme</h3>
+<div class="outline-text-3" id="text-org68b092c">
+<p>
+Additionally, I think it's a good idea to respect the <code>prefers-color-scheme</code> property of the user's browser. We can switch CSS files based on this property. We should also subscribe to changes in this property to handle the edge case when it switches while reading the page.
+</p>
+<pre><code class="language-javascript">hljs.highlightAll(); // Initialize highlight.js
+
+// Function to set the theme based on the preferred color scheme
+function setHighlightTheme() {
+  const highlightThemeLink = document.getElementById(&quot;highlight-theme&quot;);
   const darkTheme =
-    &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css&quot;;
+    &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-dark.min.css&quot;;
   const lightTheme =
-    &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-solarizedlight.min.css&quot;;
+    &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/solarized-light.min.css&quot;;
   if (
     window.matchMedia &amp;amp;&amp;amp;
     window.matchMedia(&quot;(prefers-color-scheme: dark)&quot;).matches
   ) {
-    prismThemeLink.href = darkTheme;
+    highlightThemeLink.href = darkTheme;
   } else {
-    prismThemeLink.href = lightTheme;
+    highlightThemeLink.href = lightTheme;
   }
 }
 
 // Initial theme set
-setPrismTheme();
+setHighlightTheme();
 
 // Listen for changes in the preferred color scheme
 window
   .matchMedia(&quot;(prefers-color-scheme: dark)&quot;)
-  .addEventListener(&quot;change&quot;, setPrismTheme);
+  .addEventListener(&quot;change&quot;, setHighlightTheme);
 </code></pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8ecf679" class="outline-2">
-<h2 id="org8ecf679">Whole config</h2>
-<div class="outline-text-2" id="text-org8ecf679">
+<div id="outline-container-org66c91f8" class="outline-2">
+<h2 id="org66c91f8">Whole config</h2>
+<div class="outline-text-2" id="text-org66c91f8">
 <p>
 In between posts I've switched from <code>sxml</code> to <code>esxml</code> so here is the current config.
 </p>
@@ -185,7 +218,8 @@ In between posts I've switched from <code>sxml</code> to <code>esxml</code> so h
   &quot;Translate SRC-BLOCK element into HTML.
 CONTENTS is nil. INFO is a plist holding contextual information.&quot;
   (let* (
-	 (language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+	 (language (my/replace-substrings org-language))
 	 (code (org-element-property :value src-block)))
     (esxml-to-xml
      `(pre ()
@@ -241,16 +275,16 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 	      (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
 	      ,(when has-src-blocks
 		 `(nil ()
-		   (link ((id . &quot;prism-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
-		   (link ((rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;) (href . &quot;/resources/css/quirks.css&quot;)))
-		   (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js&quot;)) ())
-		   (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/autoloader/prism-autoloader.min.js&quot;)) ())
+		   (link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+		   (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+		   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+		   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
 		   (script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
 		   )
 		 )
 	      (title () ,title-str)
 	      )
-	(body ((class . &quot;line-numbers&quot;))
+	(body ()
 	      (main ((class . &quot;container&quot;))
 		    ,(my/header info)
 		    (raw-string ,contents)

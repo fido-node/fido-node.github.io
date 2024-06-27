@@ -2,44 +2,44 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orge2d9a8f">Disclaimer</a></li>
-<li><a href="#orgfa64efa">What is Org?</a></li>
-<li><a href="#org833356c">Why Org Mode?</a></li>
-<li><a href="#org5fe0620">Render Org to blog or whatever</a>
+<li><a href="#orgc2373d5">Disclaimer</a></li>
+<li><a href="#orgaafa168">What is Org?</a></li>
+<li><a href="#org2989ffd">Why Org Mode?</a></li>
+<li><a href="#org225f78b">Render Org to blog or whatever</a>
 <ul>
-<li><a href="#orga0df592">Render HTML</a></li>
-<li><a href="#org97d3eeb">Static files</a></li>
-<li><a href="#org8c17fc5">Whole build script</a></li>
+<li><a href="#orge431bd6">Render HTML</a></li>
+<li><a href="#org3cee6ca">Static files</a></li>
+<li><a href="#orge0ca483">Whole build script</a></li>
 </ul>
 </li>
-<li><a href="#org2ced1ef">Publish through GitHub Action</a>
+<li><a href="#org7c124f7">Publish through GitHub Action</a>
 <ul>
-<li><a href="#org04285d2">Install Emacs</a></li>
-<li><a href="#org2d0af99">Just bring everything</a></li>
-<li><a href="#org2ad5512">BTW I use GNU Emacs</a></li>
+<li><a href="#org9fd7143">Install Emacs</a></li>
+<li><a href="#orge30487d">Just bring everything</a></li>
+<li><a href="#orgf0b57aa">BTW I use GNU Emacs</a></li>
 </ul>
 </li>
-<li><a href="#org9df4250">What is next</a>
+<li><a href="#org808a7c1">What is next</a>
 <ul>
-<li><a href="#org7e8fa0b">RSS Feed</a></li>
-<li><a href="#org22534a3">Open Graph</a></li>
-<li><a href="#orgebf2b85">Code highlighting</a></li>
+<li><a href="#org8b7149f">RSS Feed</a></li>
+<li><a href="#org0997bc3">Open Graph</a></li>
+<li><a href="#orgdcdcceb">Code highlighting</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orge2d9a8f" class="outline-2">
-<h2 id="orge2d9a8f">Disclaimer</h2>
-<div class="outline-text-2" id="text-orge2d9a8f">
+<div id="outline-container-orgc2373d5" class="outline-2">
+<h2 id="orgc2373d5">Disclaimer</h2>
+<div class="outline-text-2" id="text-orgc2373d5">
 <p>
 I'm neither proficient in Org Mode (further on "Org"), nor a good front-end engineer. I think that a simple solution is better than no solution. If you see a mistake, you can contact me via <a href="mailto:iam@fidonode.me">iam@fidonode.me</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgfa64efa" class="outline-2">
-<h2 id="orgfa64efa">What is Org?</h2>
-<div class="outline-text-2" id="text-orgfa64efa">
+<div id="outline-container-orgaafa168" class="outline-2">
+<h2 id="orgaafa168">What is Org?</h2>
+<div class="outline-text-2" id="text-orgaafa168">
 <blockquote>
 <p>
 Your life in plain text
@@ -55,9 +55,9 @@ Everything you can do in Org is to write a text. With a special markup, of cours
 </div>
 </div>
 
-<div id="outline-container-org833356c" class="outline-2">
-<h2 id="org833356c">Why Org Mode?</h2>
-<div class="outline-text-2" id="text-org833356c">
+<div id="outline-container-org2989ffd" class="outline-2">
+<h2 id="org2989ffd">Why Org Mode?</h2>
+<div class="outline-text-2" id="text-org2989ffd">
 <ol class="org-ol">
 <li>Plain text.
 Plain text as a data source offers significant versatility. You can read and understand what happens in org files without needing Emacs.</li>
@@ -69,16 +69,16 @@ I do not have a habit of collecting and keeping information. I believe that disc
 </div>
 </div>
 
-<div id="outline-container-org5fe0620" class="outline-2">
-<h2 id="org5fe0620">Render Org to blog or whatever</h2>
-<div class="outline-text-2" id="text-org5fe0620">
+<div id="outline-container-org225f78b" class="outline-2">
+<h2 id="org225f78b">Render Org to blog or whatever</h2>
+<div class="outline-text-2" id="text-org225f78b">
 <p>
 Org already has a way to render files into HTML, allowing you to create simple HTML files with minimal styling. I'm not interesting in styling from org, so I decide to use <a href="https://picocss.com">picocss</a> framework.
 </p>
 </div>
-<div id="outline-container-orga0df592" class="outline-3">
-<h3 id="orga0df592">Render HTML</h3>
-<div class="outline-text-3" id="text-orga0df592">
+<div id="outline-container-orge431bd6" class="outline-3">
+<h3 id="orge431bd6">Render HTML</h3>
+<div class="outline-text-3" id="text-orge431bd6">
 <p>
 I want to change some templates here and there. I've found <code>esxml</code> package. It is a decent DSL for writing XML/HTML.
 Here is how page header and footer look in this DSL.
@@ -183,9 +183,9 @@ So everything is almost done. Time to use our custom publishing function in proj
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org97d3eeb" class="outline-3">
-<h3 id="org97d3eeb">Static files</h3>
-<div class="outline-text-3" id="text-org97d3eeb">
+<div id="outline-container-org3cee6ca" class="outline-3">
+<h3 id="org3cee6ca">Static files</h3>
+<div class="outline-text-3" id="text-org3cee6ca">
 <p>
 Yep, you may want to publish some photos with your blog or any other static files.
 </p>
@@ -205,9 +205,9 @@ Looks self explanatory.
 </p>
 </div>
 </div>
-<div id="outline-container-org8c17fc5" class="outline-3">
-<h3 id="org8c17fc5">Whole build script</h3>
-<div class="outline-text-3" id="text-org8c17fc5">
+<div id="outline-container-orge0ca483" class="outline-3">
+<h3 id="orge0ca483">Whole build script</h3>
+<div class="outline-text-3" id="text-orge0ca483">
 <p>
 Here is the whole elisp script which I use to publish my blog. It have some additional quirks to work with <code class="src src-sh">doomscript ./build-site.el</code>.
 </p>
@@ -365,9 +365,9 @@ Here is the whole elisp script which I use to publish my blog. It have some addi
 </div>
 </div>
 
-<div id="outline-container-org2ced1ef" class="outline-2">
-<h2 id="org2ced1ef">Publish through GitHub Action</h2>
-<div class="outline-text-2" id="text-org2ced1ef">
+<div id="outline-container-org7c124f7" class="outline-2">
+<h2 id="org7c124f7">Publish through GitHub Action</h2>
+<div class="outline-text-2" id="text-org7c124f7">
 <p>
 With all previous preparations, this step sounds simple like: <code class="src src-sh">emacs -Q --script ./build-site.el</code>
 I've chosen a pretty standard way to publish static sites through GitHub Pages. Since I keep my Org files in a private repo, I need some additional steps to address it. I use the <code>peaceiris/actions-gh-pages@v3</code> action to publish from my Org repo to the Pages repo.
@@ -375,9 +375,9 @@ However, since I use <code>Doom Emacs</code> as my configuration framework, we n
 </p>
 </div>
 
-<div id="outline-container-org04285d2" class="outline-3">
-<h3 id="org04285d2">Install Emacs</h3>
-<div class="outline-text-3" id="text-org04285d2">
+<div id="outline-container-org9fd7143" class="outline-3">
+<h3 id="org9fd7143">Install Emacs</h3>
+<div class="outline-text-3" id="text-org9fd7143">
 <p>
 If you want to run <code>Emacs Lisp</code>, you need the whole Emacs, at least without GUI. In a GitHub Action, you can simply run:
 </p>
@@ -388,9 +388,9 @@ This way has a downside - you will install Emacs on each action run since the sy
 </p>
 </div>
 </div>
-<div id="outline-container-org2d0af99" class="outline-3">
-<h3 id="org2d0af99">Just bring everything</h3>
-<div class="outline-text-3" id="text-org2d0af99">
+<div id="outline-container-orge30487d" class="outline-3">
+<h3 id="orge30487d">Just bring everything</h3>
+<div class="outline-text-3" id="text-orge30487d">
 <p>
 I need to take extra steps since I use Doom Emacs and have my configs in Org. You may also need to install dependencies for your configuration.
 </p>
@@ -426,9 +426,9 @@ Of course, I use a caching step to make the whole process faster:
 </div>
 </div>
 
-<div id="outline-container-org2ad5512" class="outline-3">
-<h3 id="org2ad5512">BTW I use GNU Emacs</h3>
-<div class="outline-text-3" id="text-org2ad5512">
+<div id="outline-container-orgf0b57aa" class="outline-3">
+<h3 id="orgf0b57aa">BTW I use GNU Emacs</h3>
+<div class="outline-text-3" id="text-orgf0b57aa">
 <p>
 Here's the whole publishing workflow.
 </p>
@@ -507,31 +507,26 @@ jobs:
 </div>
 </div>
 </div>
-<div id="outline-container-org9df4250" class="outline-2">
-<h2 id="org9df4250">What is next</h2>
-<div class="outline-text-2" id="text-org9df4250">
+<div id="outline-container-org808a7c1" class="outline-2">
+<h2 id="org808a7c1">What is next</h2>
+<div class="outline-text-2" id="text-org808a7c1">
 <p>
 I have a plans to make posts about next features:
 </p>
 </div>
-<div id="outline-container-org7e8fa0b" class="outline-3">
-<h3 id="org7e8fa0b"><a href="./add_rss_to_blog.html">RSS Feed</a></h3>
+<div id="outline-container-org8b7149f" class="outline-3">
+<h3 id="org8b7149f"><a href="./add_rss_to_blog.html">RSS Feed</a></h3>
 </div>
-<div id="outline-container-org22534a3" class="outline-3">
-<h3 id="org22534a3">Open Graph</h3>
-<div class="outline-text-3" id="text-org22534a3">
+<div id="outline-container-org0997bc3" class="outline-3">
+<h3 id="org0997bc3">Open Graph</h3>
+<div class="outline-text-3" id="text-org0997bc3">
 <p>
 Already implemented. Need to document process.
 </p>
 </div>
 </div>
-<div id="outline-container-orgebf2b85" class="outline-3">
-<h3 id="orgebf2b85">Code highlighting</h3>
-<div class="outline-text-3" id="text-orgebf2b85">
-<p>
-Only rudimentary highlight. Want something fancier.
-</p>
-</div>
+<div id="outline-container-orgdcdcceb" class="outline-3">
+<h3 id="orgdcdcceb"><a href="./improve_code_blocks.html">Code highlighting</a></h3>
 </div>
 </div>
 <footer class="footer"><hr/><small><p>Alex Mikhailov</p><p>Built with: <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> <a href="https://orgmode.org/">Org Mode</a> <a href="https://picocss.com/">picocss</a></p></small></footer></main></body></html>
