@@ -2,23 +2,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1a7ec4e">What is imagemagick</a></li>
-<li><a href="#orgbbad3f3">Basic idea of this process</a></li>
-<li><a href="#orgac55f14">Integrate into build</a></li>
+<li><a href="#org6152676">What is imagemagick</a></li>
+<li><a href="#orgec42e10">Basic idea of this process</a></li>
+<li><a href="#org990c44a">Integrate into build</a></li>
+<li><a href="#org25ecaf4">Whats next?</a>
+<ul>
+<li><a href="#orgd843928">Tags</a></li>
+<li><a href="#org99f48ef">Post series</a></li>
+<li><a href="#org13c1b57">Adopt/fix htmlize.el</a></li>
+<li><a href="#org090c81c">Show more meta on posts index page.</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1a7ec4e" class="outline-2">
-<h2 id="org1a7ec4e">What is imagemagick</h2>
-<div class="outline-text-2" id="text-org1a7ec4e">
+<div id="outline-container-org6152676" class="outline-2">
+<h2 id="org6152676">What is imagemagick</h2>
+<div class="outline-text-2" id="text-org6152676">
 <p>
 <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbbad3f3" class="outline-2">
-<h2 id="orgbbad3f3">Basic idea of this process</h2>
-<div class="outline-text-2" id="text-orgbbad3f3">
+<div id="outline-container-orgec42e10" class="outline-2">
+<h2 id="orgec42e10">Basic idea of this process</h2>
+<div class="outline-text-2" id="text-orgec42e10">
 <p>
 I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:
 </p>
@@ -40,9 +48,9 @@ So I with all these data I can generate my previews with simple script:
 </div>
 </div>
 
-<div id="outline-container-orgac55f14" class="outline-2">
-<h2 id="orgac55f14">Integrate into build</h2>
-<div class="outline-text-2" id="text-orgac55f14">
+<div id="outline-container-org990c44a" class="outline-2">
+<h2 id="org990c44a">Integrate into build</h2>
+<div class="outline-text-2" id="text-org990c44a">
 <p>
 As I already mention I gonna skip file generation when file already here. Here is the whole function. Pretty simple. Just prepare pathes, check some dependencies, create pathes and execute script which calls imagemagick.
 </p>
@@ -103,6 +111,43 @@ And here is the part of <code>my/template</code> function related to OpenGraph m
 <p>
 You can check whole function in previous post <a href="./improve_code_blocks.html">Improve code blocks.</a>
 </p>
+</div>
+</div>
+<div id="outline-container-org25ecaf4" class="outline-2">
+<h2 id="org25ecaf4">Whats next?</h2>
+<div class="outline-text-2" id="text-org25ecaf4">
+</div>
+<div id="outline-container-orgd843928" class="outline-3">
+<h3 id="orgd843928">Tags</h3>
+<div class="outline-text-3" id="text-orgd843928">
+<p>
+Show tags, show posts by tag.
+</p>
+</div>
+</div>
+<div id="outline-container-org99f48ef" class="outline-3">
+<h3 id="org99f48ef">Post series</h3>
+<div class="outline-text-3" id="text-org99f48ef">
+<p>
+Dunno how, but I'll figure out something.
+</p>
+</div>
+</div>
+<div id="outline-container-org13c1b57" class="outline-3">
+<h3 id="org13c1b57">Adopt/fix htmlize.el</h3>
+<div class="outline-text-3" id="text-org13c1b57">
+<p>
+I want to highlight code during publishing step.
+</p>
+</div>
+</div>
+<div id="outline-container-org090c81c" class="outline-3">
+<h3 id="org090c81c">Show more meta on posts index page.</h3>
+<div class="outline-text-3" id="text-org090c81c">
+<p>
+Creation date, preview, tags, whatever.
+</p>
+</div>
 </div>
 </div>
 <footer class="footer"><hr/><small><p>Alex Mikhailov</p><p>Built with: <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> <a href="https://orgmode.org/">Org Mode</a> <a href="https://picocss.com/">picocss</a></p></small></footer></main></body></html>
