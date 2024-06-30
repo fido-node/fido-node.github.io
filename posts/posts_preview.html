@@ -2,23 +2,23 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd7c2008">What is imagemagick</a></li>
-<li><a href="#org55a3d5e">Basic idea of this process</a></li>
-<li><a href="#orgd10e366">Integrate into build</a></li>
+<li><a href="#org1a7ec4e">What is imagemagick</a></li>
+<li><a href="#orgbbad3f3">Basic idea of this process</a></li>
+<li><a href="#orgac55f14">Integrate into build</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd7c2008" class="outline-2">
-<h2 id="orgd7c2008">What is imagemagick</h2>
-<div class="outline-text-2" id="text-orgd7c2008">
+<div id="outline-container-org1a7ec4e" class="outline-2">
+<h2 id="org1a7ec4e">What is imagemagick</h2>
+<div class="outline-text-2" id="text-org1a7ec4e">
 <p>
 <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
 </p>
 </div>
 </div>
-<div id="outline-container-org55a3d5e" class="outline-2">
-<h2 id="org55a3d5e">Basic idea of this process</h2>
-<div class="outline-text-2" id="text-org55a3d5e">
+<div id="outline-container-orgbbad3f3" class="outline-2">
+<h2 id="orgbbad3f3">Basic idea of this process</h2>
+<div class="outline-text-2" id="text-orgbbad3f3">
 <p>
 I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:
 </p>
@@ -40,9 +40,9 @@ So I with all these data I can generate my previews with simple script:
 </div>
 </div>
 
-<div id="outline-container-orgd10e366" class="outline-2">
-<h2 id="orgd10e366">Integrate into build</h2>
-<div class="outline-text-2" id="text-orgd10e366">
+<div id="outline-container-orgac55f14" class="outline-2">
+<h2 id="orgac55f14">Integrate into build</h2>
+<div class="outline-text-2" id="text-orgac55f14">
 <p>
 As I already mention I gonna skip file generation when file already here. Here is the whole function. Pretty simple. Just prepare pathes, check some dependencies, create pathes and execute script which calls imagemagick.
 </p>
