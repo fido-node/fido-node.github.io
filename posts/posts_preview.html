@@ -1,0 +1,108 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Add post preview for OpenGraph cards"/><meta name="og:description" content="Add post preview for OpenGraph cards"/><meta name="twitter:description" content="Add post preview for OpenGraph cards"/><meta name="og:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta name="og:title" content="Posts preview"/><meta name="twitter:title" content="Posts preview"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></nil><title>Posts preview</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Posts preview</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd7c2008">What is imagemagick</a></li>
+<li><a href="#org55a3d5e">Basic idea of this process</a></li>
+<li><a href="#orgd10e366">Integrate into build</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd7c2008" class="outline-2">
+<h2 id="orgd7c2008">What is imagemagick</h2>
+<div class="outline-text-2" id="text-orgd7c2008">
+<p>
+<a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
+</p>
+</div>
+</div>
+<div id="outline-container-org55a3d5e" class="outline-2">
+<h2 id="org55a3d5e">Basic idea of this process</h2>
+<div class="outline-text-2" id="text-org55a3d5e">
+<p>
+I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:
+</p>
+<pre><code class="language-plaintext">#+TITLE: Posts preview
+#+DATE: &amp;lt;2024-06-28 Fri&amp;gt;
+#+DESCRIPTION: Add post preview for OpenGraph cards
+#+TAGS: @blogging @org-mode @elisp @imagemagick
+</code></pre>
+<p>
+So I with all these data I can generate my previews with simple script:
+</p>
+<pre><code class="language-bash"> #!/bin/bash
+ magick $4/with_profile.png \
+     \( -size 850x150 \-background none -font Roboto-Regular -fill &apos;#FEFEFE&apos; label:&quot;$1&quot; -trim -gravity center -extent 850x150 \) \
+     -gravity northeast -geometry +50+75 -composite /tmp/text_main.png
+ magick /tmp/text_main.png \( -size 1100x300 -background none -font Roboto-Regular -pointsize 50 -fill &apos;#FFFFFF&apos; pango:&quot;$2&quot; -trim -gravity center -extent 1100x300 \) -gravity east -geometry +40+140 -composite &quot;$3&quot;
+ #
+</code></pre>
+</div>
+</div>
+
+<div id="outline-container-orgd10e366" class="outline-2">
+<h2 id="orgd10e366">Integrate into build</h2>
+<div class="outline-text-2" id="text-orgd10e366">
+<p>
+As I already mention I gonna skip file generation when file already here. Here is the whole function. Pretty simple. Just prepare pathes, check some dependencies, create pathes and execute script which calls imagemagick.
+</p>
+<pre><code class="language-lisp">(defun my/render-preview (file-name title description)
+  (let* ((has-imagemagick (executable-find &quot;magick&quot;))
+	 (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
+	 (file-dir (file-name-directory full-file-path))
+	 (has-dir (file-directory-p file-dir))
+	 (has-file (file-exists-p full-file-path))
+	 (path-to-script-root (format &quot;%shelpers&quot; script-directory))
+	 (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
+    (if (and has-imagemagick
+	     (and description (not (string= description &quot;&quot;))))
+	(progn
+	  (when (not has-file)
+	    (progn
+	      (when (not has-dir)
+		(make-directory file-dir t))
+	      (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
+	      )
+	    ))
+      (message &quot;Imagemagick is not installed. Preview generation skipped.&quot;)
+      )))
+</code></pre>
+
+<p>
+And here is the part of <code>my/template</code> function related to OpenGraph meta tags.
+</p>
+<pre><code class="language-lisp">(defun my/template (contents info)
+
+  (let* ((title-str (org-export-data (plist-get info :title) info))
+	 (description-str (org-export-data (plist-get info :description) info))
+	 (file-path-str (org-export-data (plist-get info :input-file) info))
+	 (base-directory-str (org-export-data (plist-get info :base-directory) info))
+	 (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
+	 (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
+
+    (my/render-preview file-name-str title-str description-str)
+
+    (set-text-properties 0 (length title-str) nil title-str)
+    (set-text-properties 0 (length description-str) nil description-str)
+    (set-text-properties 0 (length img-link-str) nil img-link-str)
+...
+	      ;; OG block
+	      (meta ((name . &quot;description&quot;) (content .  ,description-str)))
+	      (meta ((name . &quot;og:description&quot;) (content . ,description-str)))
+	      (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
+
+	      (meta ((name . &quot;og:image&quot;) (content . ,img-link-str)))
+	      (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
+
+	      (meta ((name . &quot;og:title&quot;) (content . ,title-str)))
+	      (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
+
+	      (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
+
+</code></pre>
+<p>
+You can check whole function in previous post <a href="./improve_code_blocks.html">Improve code blocks.</a>
+</p>
+</div>
+</div>
+<footer class="footer"><hr/><small><p>Alex Mikhailov</p><p>Built with: <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> <a href="https://orgmode.org/">Org Mode</a> <a href="https://picocss.com/">picocss</a></p></small></footer></main></body></html>

@@ -1,35 +1,35 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add RSS feed to blog"/><meta name="og:description" content="Let&apos;s add RSS feed to blog"/><meta name="twitter:description" content="Let&apos;s add RSS feed to blog"/><meta name="og:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/posts/add_rss_to_blog.org.png"/><meta name="og:title" content="Org blog with RSS"/><meta name="twitter:title" content="Org blog with RSS"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></nil><title>Org blog with RSS</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Org blog with RSS</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add RSS feed to blog"/><meta name="og:description" content="Let&apos;s add RSS feed to blog"/><meta name="twitter:description" content="Let&apos;s add RSS feed to blog"/><meta name="og:image" content="https://fidonode.me/resources/images/preview/posts/add_rss_to_blog.org.png"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/add_rss_to_blog.org.png"/><meta name="og:title" content="Org blog with RSS"/><meta name="twitter:title" content="Org blog with RSS"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><nil><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></nil><title>Org blog with RSS</title></head><body><main class="container"><header class="header"><nav><ul><li><strong>Org blog with RSS</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></header><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd578467">Why do you even need RSS?</a></li>
-<li><a href="#org613d4b1">Add RSS feed</a>
+<li><a href="#orgd64607d">Why do you even need RSS?</a></li>
+<li><a href="#org657bd5f">Add RSS feed</a>
 <ul>
-<li><a href="#orgfc8daa1">Use sitemap backend in the build</a></li>
-<li><a href="#org834eb0d">Publishing and formatting functions</a></li>
+<li><a href="#org173d5b2">Use sitemap backend in the build</a></li>
+<li><a href="#org0198df3">Publishing and formatting functions</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd578467" class="outline-2">
-<h2 id="orgd578467">Why do you even need RSS?</h2>
-<div class="outline-text-2" id="text-orgd578467">
+<div id="outline-container-orgd64607d" class="outline-2">
+<h2 id="orgd64607d">Why do you even need RSS?</h2>
+<div class="outline-text-2" id="text-orgd64607d">
 <p>
 RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
 </p>
 </div>
 </div>
-<div id="outline-container-org613d4b1" class="outline-2">
-<h2 id="org613d4b1">Add RSS feed</h2>
-<div class="outline-text-2" id="text-org613d4b1">
+<div id="outline-container-org657bd5f" class="outline-2">
+<h2 id="org657bd5f">Add RSS feed</h2>
+<div class="outline-text-2" id="text-org657bd5f">
 <p>
 So, what's happening here? Let's start by integrating our templating functions into the build.
 </p>
 </div>
-<div id="outline-container-orgfc8daa1" class="outline-3">
-<h3 id="orgfc8daa1">Use sitemap backend in the build</h3>
-<div class="outline-text-3" id="text-orgfc8daa1">
+<div id="outline-container-org173d5b2" class="outline-3">
+<h3 id="org173d5b2">Use sitemap backend in the build</h3>
+<div class="outline-text-3" id="text-org173d5b2">
 <pre><code class="language-lisp">(setq org-publish-project-alist
       (list
        (list &quot;blog-rss&quot;
@@ -59,9 +59,9 @@ How does it work? As you can see, we use the default sitemap generator from Org 
 </p>
 </div>
 </div>
-<div id="outline-container-org834eb0d" class="outline-3">
-<h3 id="org834eb0d">Publishing and formatting functions</h3>
-<div class="outline-text-3" id="text-org834eb0d">
+<div id="outline-container-org0198df3" class="outline-3">
+<h3 id="org0198df3">Publishing and formatting functions</h3>
+<div class="outline-text-3" id="text-org0198df3">
 <p>
 We need a mandatory dependency because we don't want to mess with forming correct XML by ourselves.
 </p>
