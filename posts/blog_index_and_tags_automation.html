@@ -1,13 +1,709 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Blog index and tags automation</title></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li></ul></nav></hgroup><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Blog index and tags automation</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@tags.html" class="secondary">@tags</a></mark></li></ul></nav></hgroup><div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2da4f9e">Tag</a></li>
+<li><a href="#org88e0d89">Tags.</a>
+<ul>
+<li><a href="#org5a69793">Automate tags.</a></li>
+</ul>
+</li>
+<li><a href="#org4ba32cd">Posts index.</a>
+<ul>
+<li><a href="#org225174c">Posts index automation.</a></li>
+</ul>
+</li>
+<li><a href="#org4b0c84f">Cons.</a></li>
+<li><a href="#orgbc11995">Whole config.</a></li>
 </ul>
 </div>
 </div>
+<div id="outline-container-org88e0d89" class="outline-2">
+<h2 id="org88e0d89">Tags.</h2>
+<div class="outline-text-2" id="text-org88e0d89">
+<p>
+Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
+</p>
+</div>
+<div id="outline-container-org5a69793" class="outline-3">
+<h3 id="org5a69793">Automate tags.</h3>
+<div class="outline-text-3" id="text-org5a69793">
+<p>
+Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy.
+Let me show you parts of function body.
+Prepare required pathes, list needed org files, map to collect data.
+</p>
+<pre><code class="language-lisp">(let* ((base-dir (plist-get plist :base-directory) )
+       (tag-dir (concat base-dir &quot;/tags/&quot;))
+       (posts-dir (concat base-dir &quot;/posts&quot;))
+       (post-org-files (directory-files-recursively posts-dir &quot;\\.org$&quot;))
+       (tag-map (make-hash-table :test &apos;equal))
+       (posts-list (list))
+       )
+</code></pre>
+<p>
+Create folder for tags files. Than we go through each file and collect plists with data required to render tags files
+</p>
+<pre><code class="language-lisp">
+(unless (file-directory-p tag-dir)
+  (make-directory tag-dir t))
 
-<div id="outline-container-org2da4f9e" class="outline-2">
-<h2 id="org2da4f9e">Tag</h2>
+(dolist (file post-org-files)
+  (with-temp-buffer
+    (insert-file-contents file)
+    (let* ((parsed-info (list :parse-tree (org-element-parse-buffer)))
+	   (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
+	   (title (my/org-get-property &quot;TITLE&quot; parsed-info))
+	   (date (my/org-get-property &quot;DATE&quot; parsed-info))
+	   (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
+	   (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
+	   (preview (with-temp-buffer
+		      (insert-file-contents file)
+		      (my/get-first-two-meaningful-lines)))
+	   )
+      (if (and published (string= published &quot;true&quot;))
+	  (progn
+	    (setq link-plist
+		  (list
+		   :title title
+		   :description description
+		   :preview preview
+		   :file file
+		   :date date))
+
+	    (push link-plist posts-list)
+
+	    (dolist (tag tags)
+	      (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
+
+	    (setq posts-list
+		  (sort posts-list
+			(lambda (a b)
+			  (date-less-p (plist-get b :date) (plist-get a :date))))))))))
+</code></pre>
+<p>
+Go through resulting map and render org files for each tag.
+</p>
+<pre><code class="language-lisp">
+(maphash
+ (lambda (tag link-plists)
+   (let
+       ((tag-file (concat tag-dir tag &quot;.org&quot;)))
+     (with-temp-file tag-file
+       (insert (format &quot;#+TITLE: Tag: %s\n&quot; tag))
+       (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+       (insert (format &quot;* %s\n&quot; tag))
+
+       (dolist (link-plist link-plists)
+	 (let*
+	     ((title (plist-get link-plist :title))
+	      (description (plist-get link-plist :description))
+	      (file (plist-get link-plist :file))
+	      (date (plist-get link-plist :date))
+	      (preview (plist-get link-plist :preview))
+	      (relative-file (file-relative-name file (file-name-directory tag-file))))
+	   (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
+	   (insert (format &quot;%s\n&quot; description))
+	   (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+	   (insert (format &quot;%s\n&quot; (my/date-format date))))))))
+ tag-map)
+</code></pre>
+<p>
+Resulting page example: <a href="https://fidonode.me/tags/@org-mode">@org-mode</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4ba32cd" class="outline-2">
+<h2 id="org4ba32cd">Posts index.</h2>
+<div class="outline-text-2" id="text-org4ba32cd">
+<p>
+Previously, I maintained a list of posts manually. Now that I have more than 5 posts, I no longer want to do it by hand. So, after introducing tags, I've decided to automate the page with the list of posts. The same idea, almost the same data, will be integrated into the same file. Pagination has not yet been implemented and is not planned.
+</p>
+</div>
+<div id="outline-container-org225174c" class="outline-3">
+<h3 id="org225174c">Posts index automation.</h3>
+<div class="outline-text-3" id="text-org225174c">
+<p>
+Here is the part of function which renders list of posts and list of tags with number of posts in each tag category.
+</p>
+<pre><code class="language-lisp">(let
+	((index-file (concat base-dir &quot;/posts.org&quot;)))
+      (with-temp-file index-file
+	(org-mode)
+
+	(insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
+	(insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
+	(insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
+	(insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+
+	(insert &quot;* Posts\n&quot;)
+
+	(dolist (post posts-list)
+	  (let*
+	      ((title (plist-get post :title))
+	       (description (plist-get post :description))
+	       (file (plist-get post :file))
+	       (date (plist-get post :date))
+	       (preview (plist-get post :preview))
+	       (relative-file (file-relative-name file (file-name-directory file))))
+
+	    (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
+	    (insert (format &quot;%s\n&quot; description))
+	    (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+	    (insert (format &quot;%s\n&quot; (my/date-format date)))
+	    )
+	  )
+
+	(insert &quot;* Tags\n&quot;)
+	(maphash
+	 (lambda (tag posts)
+	   (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
+	 tag-map
+	 )
+	)
+
+      )
+</code></pre>
+<p>
+Here is an example of resulting page: <a href="https://fidonode.me/posts">Posts</a>
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org4b0c84f" class="outline-2">
+<h2 id="org4b0c84f">Cons.</h2>
+<div class="outline-text-2" id="text-org4b0c84f">
+<p>
+Now, with the way the rendering function is integrated into the process, it is called when going through each Org file found by Org-Export. This introduces O(n<sup>n</sup>) complexity. It's not ideal, but never mind, I will redo it before reaching the 100th post.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbc11995" class="outline-2">
+<h2 id="orgbc11995">Whole config.</h2>
+<div class="outline-text-2" id="text-orgbc11995">
+<p>
+As usual, between posts, I decided to tackle a whole bunch of small tasks, so here is the entire config. I'm thinking about splitting the exporter into modules and maybe open-sourcing it properly.
+A neat thing I've implemented is a way to filter out unpublished posts using a <code>PUBLISHED</code> property. This allows me to work on drafts without affecting the blog's current state.
+</p>
+<pre><code class="language-org">#+TITLE: Blog index and tags automation
+#+DATE: &amp;lt;2024-07-05 Fri&amp;gt;
+#+DESCRIPTION: Let&apos;s add tags to blog posts
+#+PUBLISHED: false
+#+TAGS: @org-mode @elisp @tags
+</code></pre>
+
+<pre><code class="language-lisp">;; Load the publishing system
+;; Configure environment
+;;
+(setq debug-on-error t)
+
+(let ((default-directory  (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/&quot;)))
+  (normal-top-level-add-subdirs-to-load-path))
+
+(add-to-list &apos;custom-theme-load-path
+	     (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
+(add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/base16-theme&quot;))
+(add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/moe-theme&quot;))
+
+
+(require &apos;xml)
+(require &apos;dom)
+(require &apos;ox-publish)
+(require &apos;ox-rss)
+(require &apos;org)
+(require &apos;esxml)
+;; (require &apos;esxml-html)
+
+;;
+;;Variables
+;;
+(setq
+ my/url &quot;https://fidonode.me&quot;
+ my/web-export-path &quot;./public&quot;
+ my/blog-src-path &quot;./home/05 Blog&quot;
+ my/lang-substitution-map &apos;((&quot;elisp&quot; . &quot;lisp&quot;))
+ org-html-validation-link nil            ;; Don&apos;t show validation link
+ org-html-htmlize-output-type nil
+ org-src-fontify-natively t)
+
+;;
+;;Templates
+;;
+(defun my/footer (info)
+  `(footer ((class .  &quot;footer&quot;))
+    (div ((class . &quot;container&quot;))
+	 (hr () )
+	 (small ()
+		(p () &quot;Alex Mikhailov&quot;)
+		(p () &quot;Built with: &quot;
+		   (a ((href . &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
+		   (a ((href . &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
+		   (a ((href . &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
+		   )))))
+
+(defun my/header (info)
+  (let ((title-str (org-export-data (plist-get info :title) info)))
+    `(header ((class . &quot;header&quot;))
+      (div ((class . &quot;container&quot;))
+	   (nav ()
+		(ul ()
+		    (li ()
+			(strong () ,&quot;Alex Mikhailov&quot;)))
+		(ul ()
+		    (li () (a ((href . &quot;/index.html&quot;)) &quot;About&quot;))
+		    (li () (a ((href . &quot;/posts.html&quot;)) &quot;Blog&quot;))
+		    (li () (a ((href . &quot;/rss.xml&quot;)) &quot;RSS&quot;))
+		    ))))))
+
+(defun my/src-block (src-block contents info)
+  &quot;Translate SRC-BLOCK element into HTML.
+ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
+  (let* (
+	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+	 (language (my/replace-substrings org-language))
+	 (code (org-element-property :value src-block)))
+    (esxml-to-xml
+     `(pre ()
+       (code ((class . ,language))
+	     ,(org-html-encode-plain-text code)
+	     )))))
+
+(defun my/render-preview (file-name title description)
+  (let* ((has-imagemagick (executable-find &quot;magick&quot;))
+	 (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
+	 (file-dir (file-name-directory full-file-path))
+	 (has-dir (file-directory-p file-dir))
+	 (has-file (file-exists-p full-file-path))
+	 (path-to-script-root (format &quot;%shelpers&quot; script-directory))
+	 (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
+    (if (and has-imagemagick
+	     (and description (not (string= description &quot;&quot;))))
+	(progn
+	  (when (not has-file)
+	    (progn
+	      (when (not has-dir)
+		(make-directory file-dir t))
+	      (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
+	      )
+	    ))
+      (message &quot;Imagemagick is not installed. Preview generation skipped.&quot;)
+      )))
+
+(defun my/html-header (info)
+  (let* ((title-str (org-export-data (plist-get info :title) info))
+	 (description-str (org-export-data (plist-get info :description) info))
+	 (file-path-str (org-export-data (plist-get info :input-file) info))
+	 (base-directory-str (org-export-data (plist-get info :base-directory) info))
+	 (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
+	 (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
+	 (has-src-blocks (my/org-has-src-blocks-p info)))
+
+    (my/render-preview file-name-str title-str description-str)
+
+    (set-text-properties 0 (length title-str) nil title-str)
+    (set-text-properties 0 (length description-str) nil description-str)
+    (set-text-properties 0 (length img-link-str) nil img-link-str)
+
+
+    `(head ()
+      (meta ((charset . &quot;utf-8&quot;)))
+      (meta ((author . &quot;Alex Mikhailov&quot;)))
+      (meta ((name . &quot;viewport&quot;)
+	     (content . &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
+      (meta ((name . &quot;color-scheme&quot;) (content . &quot;light dark&quot;)))
+      (meta ((http-equiv . &quot;content-language&quot;) (content . &quot;en-us&quot;)))
+      ;; OG block
+      (meta ((name . &quot;description&quot;) (content .  ,description-str)))
+      (meta ((property . &quot;og:description&quot;) (content . ,description-str)))
+      (meta ((property . &quot;og:image&quot;) (content . ,img-link-str)))
+      (meta ((property . &quot;og:title&quot;) (content . ,title-str)))
+
+      (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
+      (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
+      (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
+      (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
+
+      (link ((rel . &quot;icon&quot;) (type . &quot;image/x-icon&quot;) (href . &quot;/resources/favicon.ico&quot;)))
+      (link ((rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;) (href . &quot;/resources/css/pico.sand.min.css&quot;)))
+      (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
+      (title () ,title-str)
+
+      ,@(when has-src-blocks
+	  (list
+	   `(link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+	   `(script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+	   `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+	   `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
+	   `(script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
+	   )))))
+
+(defun my/regular-template (contents info)
+  `(main ((class . &quot;container&quot;))
+    (raw-string ,contents)))
+
+(defun my/blog-post-template (contents info)
+  (let* ((title-str (org-export-data (plist-get info :title) info))
+	 (description-str (org-export-data (plist-get info :description) info))
+	 (tags (split-string  (my/org-get-property &quot;TAGS&quot; info)))
+	 (tags-html (cl-map &apos;list (lambda (tag)
+				    `(li () (mark () (a ((href . ,(format  &quot;/tags/%s.html&quot; tag)) (class . &quot;secondary&quot;)) ,(format &quot;%s&quot; tag))))) tags))
+	 )
+    `(main ((class . &quot;container blog-post&quot;))
+      (hgroup ()
+	      (h1 () ,title-str)
+	      (p () ,description-str)
+	      (nav () (ul () (li () &quot;Tags:&quot;) ,@tags-html))
+
+	      )
+      (raw-string ,contents)
+      )))
+
+(defun my/template (contents info)
+  (let
+      ((file-path-str (org-export-data (plist-get info :input-file) info)))
+
+    (concat
+     &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;
+     (esxml-to-xml
+      `(html ((lang . &quot;en&quot;))
+	,(my/html-header info)
+	(body ()
+	      ,(my/header info)
+	      ,(if (string-match-p &quot;\/posts\/&quot; file-path-str)
+		   (my/blog-post-template contents info)
+		 (my/regular-template contents info))
+	      ,(my/footer info)
+	      ))))))
+
+
+(org-export-define-derived-backend &apos;my-html &apos;html
+  :translate-alist &apos;(
+		     (template . my/template)
+		     (src-block . my/src-block)
+		     ))
+
+(defun my/publish-to-html (plist filename pub-dir)
+  &quot;Publish an Org file to HTML using the custom backend.&quot;
+  (org-publish-org-to &apos;my-html filename &quot;.html&quot; plist pub-dir))
+
+;;
+;;Build blog index
+;;
+
+(defun my/publish-blog-index (plist FF FFFF)
+  &quot;Process all Org files in &apos;posts&apos; and &apos;tags&apos; directories, create index file, and insert links.&quot;
+
+  (let* ((base-dir (plist-get plist :base-directory) )
+	 (tag-dir (concat base-dir &quot;/tags/&quot;))
+	 (posts-dir (concat base-dir &quot;/posts&quot;))
+	 (post-org-files (directory-files-recursively posts-dir &quot;\\.org$&quot;))
+	 (tag-map (make-hash-table :test &apos;equal))
+	 (posts-list (list))
+	 )
+
+    ;; Ensure tag directory exists
+    (unless (file-directory-p tag-dir)
+      (make-directory tag-dir t))
+
+    ;; Scan all org files and collect tags
+    (dolist (file post-org-files)
+      (with-temp-buffer
+	(insert-file-contents file)
+	(let* ((parsed-info (list :parse-tree (org-element-parse-buffer)))
+	       (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
+	       (title (my/org-get-property &quot;TITLE&quot; parsed-info))
+	       (date (my/org-get-property &quot;DATE&quot; parsed-info))
+	       (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
+	       (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
+	       (preview (with-temp-buffer
+			  (insert-file-contents file)
+			  (my/get-first-two-meaningful-lines)))
+	       )
+	  (if (and published (string= published &quot;true&quot;))
+	      (progn
+		(setq link-plist
+		      (list
+		       :title title
+		       :description description
+		       :preview preview
+		       :file file
+		       :date date))
+
+		(push link-plist posts-list)
+
+		(dolist (tag tags)
+		  (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
+
+		(setq posts-list
+		      (sort posts-list
+			    (lambda (a b)
+			      (date-less-p (plist-get b :date) (plist-get a :date))))))))))
+
+    (let
+	((index-file (concat base-dir &quot;/posts.org&quot;)))
+      (with-temp-file index-file
+	(org-mode)
+
+	(insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
+	(insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
+	(insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
+	(insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+
+	(insert &quot;* Posts\n&quot;)
+
+	(dolist (post posts-list)
+	  (let*
+	      ((title (plist-get post :title))
+	       (description (plist-get post :description))
+	       (file (plist-get post :file))
+	       (date (plist-get post :date))
+	       (preview (plist-get post :preview))
+	       (relative-file (file-relative-name file (file-name-directory file))))
+
+	    (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
+	    (insert (format &quot;%s\n&quot; description))
+	    (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+	    (insert (format &quot;%s\n&quot; (my/date-format date)))
+	    )
+	  )
+
+	(insert &quot;* Tags\n&quot;)
+	(maphash
+	 (lambda (tag posts)
+	   (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
+	 tag-map
+	 )
+	)
+
+      )
+
+    ;; Create tag files and insert links
+    (maphash
+     (lambda (tag link-plists)
+       (let
+	   ((tag-file (concat tag-dir tag &quot;.org&quot;)))
+	 (with-temp-file tag-file
+	   (insert (format &quot;#+TITLE: Tag: %s\n&quot; tag))
+	   (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+	   (insert (format &quot;* %s\n&quot; tag))
+
+	   (dolist (link-plist link-plists)
+	     (let*
+		 ((title (plist-get link-plist :title))
+		  (description (plist-get link-plist :description))
+		  (file (plist-get link-plist :file))
+		  (date (plist-get link-plist :date))
+		  (preview (plist-get link-plist :preview))
+		  (relative-file (file-relative-name file (file-name-directory tag-file))))
+	       (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
+	       (insert (format &quot;%s\n&quot; description))
+	       (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+	       (insert (format &quot;%s\n&quot; (my/date-format date))))))))
+     tag-map)
+    )
+  )
+
+;;
+;;Sitemap/RSS
+;;
+(defun my/format-rss-feed-entry (entry style project)
+  &quot;Format ENTRY for the RSS feed.
+ ENTRY is a file name.  STYLE is either &apos;list&apos; or &apos;tree&apos;.
+ PROJECT is the current project.&quot;
+  (cond ((not (directory-name-p entry))
+	 (let* ((file (org-publish--expand-file-name entry project))
+		(title (org-publish-find-title entry project))
+		(date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
+		(link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
+	   (with-temp-buffer
+	     (org-mode)
+	     (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
+	     (org-set-property &quot;RSS_PERMALINK&quot; link)
+	     (org-set-property &quot;RSS_TITLE&quot; title)
+	     (org-set-property &quot;PUBDATE&quot; date)
+	     (let ((first-two-lines (with-temp-buffer
+				      (insert-file-contents file)
+				      (buffer-substring-no-properties
+				       (point-min)
+				       (progn (forward-line 2) (point))))))
+	       (if (string-suffix-p &quot;\n&quot; first-two-lines)
+		   (setq first-two-lines (substring first-two-lines 0 -1)))
+	       (insert first-two-lines))
+	     (goto-char (point-max))
+	     (insert &quot;...&quot;)
+	     (buffer-string))))
+	((eq style &apos;tree)
+	 ;; Return only last subdir.
+	 (file-name-nondirectory (directory-file-name entry)))
+	(t entry)))
+
+(defun my/format-rss-feed (title list)
+  &quot;Generate RSS feed, as a string.
+ TITLE is the title of the RSS feed.  LIST is an internal
+ representation for the files to include, as returned by
+ `org-list-to-lisp&apos;.  PROJECT is the current project.&quot;
+  (concat &quot;#+TITLE: &quot; title &quot;\n&quot;
+	  &quot;#+STARTUP: showall \n\n&quot;
+	  (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
+
+(defun my/publish-to-rss (plist filename pub-dir)
+  &quot;Publish RSS with PLIST, only when FILENAME is &apos;rss.org&apos;.
+ PUB-DIR is when the output will be placed.&quot;
+  (if (equal &quot;rss.org&quot; (file-name-nondirectory filename))
+      (org-rss-publish-to-rss plist filename pub-dir)))
+
+;;
+;;Helpers
+;;
+
+(defun cleanup-org-line (line)
+  &quot;Clean up Org-mode formatting from a single LINE.&quot;
+  (let ((cleaned-line (org-no-properties line)))
+    (setq cleaned-line (replace-regexp-in-string &quot;^\\*+ &quot; &quot;&quot; cleaned-line)) ; Remove heading stars
+    (string-trim cleaned-line))) ; Remove leading/trailing whitespace
+
+(defun my/get-first-two-meaningful-lines ()
+  &quot;Extracts the first two meaningful lines from an Org-mode buffer.&quot;
+  (interactive)
+  (save-excursion  ; Do not change the cursor position permanently
+    (goto-char (point-min))  ; Start at the beginning of the buffer
+    ;; Loop to skip comments and properties
+    (while (looking-at &quot;^[#*]&quot;)
+      (forward-line 1))  ; Move to the next line until a meaningful line is found
+    ;; Now read and return the first two meaningful lines
+
+    (cleanup-org-line (buffer-substring-no-properties
+		       (point)
+		       (progn (forward-line 2) (point)))
+		      ))
+  )
+
+(defun date-less-p (date1 date2)
+  &quot;Return t if DATE1 is less than DATE2.
+ DATE1 and DATE2 should be strings in the format &amp;lt;YYYY-MM-DD Day&amp;gt;.&quot;
+  (let* ((date1 (substring date1 1 11))  ; Extract the date part
+	 (date2 (substring date2 1 11))
+	 (time1 (apply &apos;encode-time (parse-time-string (concat date1 &quot; 00:00:00&quot;))))
+	 (time2 (apply &apos;encode-time (parse-time-string (concat date2 &quot; 00:00:00&quot;)))))
+    (time-less-p time1 time2)))
+
+(defun my/date-format (org-date)
+  &quot;Convert an Org-mode date string ORG-DATE to a formatted date string.&quot;
+  (let* ((parsed-time (org-parse-time-string org-date))
+	 (time (apply &apos;encode-time parsed-time)))
+    (format-time-string &quot;posted on %Y-%m-%d&quot; time)))
+
+(defun my/format-date-subtitle (file project)
+  &quot;Format the date found in FILE of PROJECT.&quot;
+  (my/date-format (org-publish-find-date file project)))
+
+(defun my/pt (var)
+  &quot;Print the value and type of VAR.&quot;
+  (message &quot;Value: %S, Type: %s&quot; var (type-of var)))
+
+(defun plist-keys (plist)
+  &quot;Return a list of keys in the property list PLIST.&quot;
+  (let (keys)
+    (while plist
+      (setq keys (cons (car plist) keys))
+      (setq plist (cddr plist)))
+    (nreverse keys)))
+
+(defvar script-directory
+  (file-name-directory (or load-file-name buffer-file-name))
+  &quot;The directory where the current script is located.&quot;)
+
+(defun my/org-get-property (property info)
+  &quot;Get the value of a PROPERTY in the Org document represented by INFO.&quot;
+  (org-element-map (plist-get info :parse-tree) &apos;keyword
+    (lambda (keyword)
+      (when (string= (org-element-property :key keyword) property)
+	(org-element-property :value keyword)))
+    nil t))
+
+(defun my/org-has-src-blocks-p (info)
+  &quot;Return t if the Org document represented by INFO has source code blocks.&quot;
+  (org-element-map (plist-get info :parse-tree) &apos;src-block
+    (lambda (src-block) t)
+    nil t))
+
+(defun my/replace-substrings (input-string)
+  &quot;Replace substrings in INPUT-STRING according to SUBSTITUTION-MAP.&quot;
+  (let ((output-string input-string))
+    (dolist (pair my/lang-substitution-map)
+      (let ((old (regexp-quote (car pair)))
+	    (new (cdr pair)))
+	(setq output-string (replace-regexp-in-string old new output-string))))
+    output-string))
+
+;;
+;;Clear folder with results
+;;
+(when (file-directory-p my/web-export-path)
+  (delete-directory my/web-export-path t))
+(mkdir my/web-export-path)
+
+
+;;
+;;Main blog configuration
+;;
+(setq org-publish-project-alist
+      (list
+       (list &quot;blog-index&quot;
+	     :base-directory my/blog-src-path
+	     :base-extension &quot;org&quot;
+	     :recursive t
+	     :publishing-directory my/web-export-path
+	     :publishing-function &apos;my/publish-blog-index)
+       (list &quot;static&quot;
+	     :base-directory my/blog-src-path
+	     :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
+	     :publishing-directory my/web-export-path
+	     :recursive t
+	     :publishing-function &apos;org-publish-attachment
+	     )
+       (list &quot;blog&quot;
+	     :recursive t
+	     :base-directory my/blog-src-path
+	     :publishing-directory my/web-export-path
+	     :publishing-function &apos;my/publish-to-html
+	     :html-html5-fancy t
+	     :htmlized-source t
+	     :with-author nil
+	     :with-creator t
+	     :with-toc t
+	     :section-numbers nil
+	     :time-stamp-file nil
+	     )
+       (list &quot;blog-rss&quot;
+	     :author &quot;Alex M&quot;
+	     :email &quot;iam@fidonode.me&quot;
+	     :base-directory my/blog-src-path
+	     :base-extension &quot;org&quot;
+	     :recursive t
+	     :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
+	     :publishing-function &apos;my/publish-to-rss
+	     :publishing-directory my/web-export-path
+	     :rss-extension &quot;xml&quot;
+	     :html-link-home my/url
+	     :html-link-use-abs-url t
+	     :html-link-org-files-as-html t
+	     :auto-sitemap t
+	     :sitemap-filename &quot;rss.org&quot;
+	     :sitemap-title &quot;rss&quot;
+	     :sitemap-style &apos;list
+	     :sitemap-sort-files &apos;anti-chronologically
+	     :sitemap-function &apos;my/format-rss-feed
+	     :sitemap-format-entry &apos;my/format-rss-feed-entry)
+       ))
+
+
+;; Generate the site output
+(org-publish-all t)
+
+(message &quot;Build complete!&quot;)
+
+</code></pre>
+</div>
 </div>
 </main><footer class="footer"><div class="container"><hr/><small><p>Alex Mikhailov</p><p>Built with: <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> <a href="https://orgmode.org/">Org Mode</a> <a href="https://picocss.com/">picocss</a></p></small></div></footer></body></html>
