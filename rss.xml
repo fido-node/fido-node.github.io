@@ -14,8 +14,8 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Fri, 05 Jul 2024 20:35:16 +0000</pubDate>
-  <lastBuildDate>Fri, 05 Jul 2024 20:35:16 +0000</lastBuildDate>
+  <pubDate>Sat, 06 Jul 2024 14:43:23 +0000</pubDate>
+  <lastBuildDate>Sat, 06 Jul 2024 14:43:23 +0000</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -30,7 +30,7 @@
     <link>https://fidonode.me/tags/@diy.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@diy.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -39,34 +39,7 @@
     <link>https://fidonode.me/tags/@imagemagick.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@imagemagick.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @keeb</title>
-    <link>https://fidonode.me/tags/@keeb.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@keeb.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @highlightjs</title>
-    <link>https://fidonode.me/tags/@highlightjs.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@highlightjs.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @elisp</title>
-    <link>https://fidonode.me/tags/@elisp.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@elisp.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -75,15 +48,42 @@
     <link>https://fidonode.me/tags/@org-mode.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>Tags in posts</title>
-    <link>https://fidonode.me/posts/add_tags_to_blog.html</link>
+    <title>Tag: @keeb</title>
+    <link>https://fidonode.me/tags/@keeb.html</link>
     <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/posts/add_tags_to_blog.html</guid>
+    <guid isPermaLink="false">https://fidonode.me/tags/@keeb.html</guid>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>Tag: @highlightjs</title>
+    <link>https://fidonode.me/tags/@highlightjs.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/tags/@highlightjs.html</guid>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>Tag: @elisp</title>
+    <link>https://fidonode.me/tags/@elisp.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/tags/@elisp.html</guid>
+    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>Blog index and tags automation</title>
+    <link>https://fidonode.me/posts/blog_index_and_tags_automation.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/posts/blog_index_and_tags_automation.html</guid>
     <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
