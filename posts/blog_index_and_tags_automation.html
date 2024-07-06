@@ -2,31 +2,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org88e0d89">Tags.</a>
+<li><a href="#org891f96e">Tags.</a>
 <ul>
-<li><a href="#org5a69793">Automate tags.</a></li>
+<li><a href="#org8a859fb">Automate tags.</a></li>
 </ul>
 </li>
-<li><a href="#org4ba32cd">Posts index.</a>
+<li><a href="#orgb5207eb">Posts index.</a>
 <ul>
-<li><a href="#org225174c">Posts index automation.</a></li>
+<li><a href="#org6ce1dc0">Posts index automation.</a></li>
 </ul>
 </li>
-<li><a href="#org4b0c84f">Cons.</a></li>
-<li><a href="#orgbc11995">Whole config.</a></li>
+<li><a href="#orgfe0a4d6">Cons.</a></li>
+<li><a href="#org6cea35e">Whole config.</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org88e0d89" class="outline-2">
-<h2 id="org88e0d89">Tags.</h2>
-<div class="outline-text-2" id="text-org88e0d89">
+<div id="outline-container-org891f96e" class="outline-2">
+<h2 id="org891f96e">Tags.</h2>
+<div class="outline-text-2" id="text-org891f96e">
 <p>
 Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
 </p>
 </div>
-<div id="outline-container-org5a69793" class="outline-3">
-<h3 id="org5a69793">Automate tags.</h3>
-<div class="outline-text-3" id="text-org5a69793">
+<div id="outline-container-org8a859fb" class="outline-3">
+<h3 id="org8a859fb">Automate tags.</h3>
+<div class="outline-text-3" id="text-org8a859fb">
 <p>
 Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy.
 Let me show you parts of function body.
@@ -113,16 +113,16 @@ Resulting page example: <a href="https://fidonode.me/tags/@org-mode">@org-mode</
 </div>
 </div>
 </div>
-<div id="outline-container-org4ba32cd" class="outline-2">
-<h2 id="org4ba32cd">Posts index.</h2>
-<div class="outline-text-2" id="text-org4ba32cd">
+<div id="outline-container-orgb5207eb" class="outline-2">
+<h2 id="orgb5207eb">Posts index.</h2>
+<div class="outline-text-2" id="text-orgb5207eb">
 <p>
 Previously, I maintained a list of posts manually. Now that I have more than 5 posts, I no longer want to do it by hand. So, after introducing tags, I've decided to automate the page with the list of posts. The same idea, almost the same data, will be integrated into the same file. Pagination has not yet been implemented and is not planned.
 </p>
 </div>
-<div id="outline-container-org225174c" class="outline-3">
-<h3 id="org225174c">Posts index automation.</h3>
-<div class="outline-text-3" id="text-org225174c">
+<div id="outline-container-org6ce1dc0" class="outline-3">
+<h3 id="org6ce1dc0">Posts index automation.</h3>
+<div class="outline-text-3" id="text-org6ce1dc0">
 <p>
 Here is the part of function which renders list of posts and list of tags with number of posts in each tag category.
 </p>
@@ -170,17 +170,17 @@ Here is an example of resulting page: <a href="https://fidonode.me/posts">Posts<
 </div>
 </div>
 </div>
-<div id="outline-container-org4b0c84f" class="outline-2">
-<h2 id="org4b0c84f">Cons.</h2>
-<div class="outline-text-2" id="text-org4b0c84f">
+<div id="outline-container-orgfe0a4d6" class="outline-2">
+<h2 id="orgfe0a4d6">Cons.</h2>
+<div class="outline-text-2" id="text-orgfe0a4d6">
 <p>
 Now, with the way the rendering function is integrated into the process, it is called when going through each Org file found by Org-Export. This introduces O(n<sup>n</sup>) complexity. It's not ideal, but never mind, I will redo it before reaching the 100th post.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbc11995" class="outline-2">
-<h2 id="orgbc11995">Whole config.</h2>
-<div class="outline-text-2" id="text-orgbc11995">
+<div id="outline-container-org6cea35e" class="outline-2">
+<h2 id="org6cea35e">Whole config.</h2>
+<div class="outline-text-2" id="text-org6cea35e">
 <p>
 As usual, between posts, I decided to tackle a whole bunch of small tasks, so here is the entire config. I'm thinking about splitting the exporter into modules and maybe open-sourcing it properly.
 A neat thing I've implemented is a way to filter out unpublished posts using a <code>PUBLISHED</code> property. This allows me to work on drafts without affecting the blog's current state.

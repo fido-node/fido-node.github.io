@@ -2,31 +2,31 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org2ffe406">What is imagemagick</a></li>
-<li><a href="#orge756ba8">Basic idea of this process</a></li>
-<li><a href="#org49530e8">Integrate into build</a></li>
-<li><a href="#orge5b710f">Whats next?</a>
+<li><a href="#orgc956d9d">What is imagemagick</a></li>
+<li><a href="#org9c1fe01">Basic idea of this process</a></li>
+<li><a href="#orgaeb5711">Integrate into build</a></li>
+<li><a href="#org339d491">Whats next?</a>
 <ul>
-<li><a href="#org061294c">Tags</a></li>
-<li><a href="#org2fb8a6a">Post series</a></li>
-<li><a href="#org53f7b49">Adopt/fix htmlize.el</a></li>
-<li><a href="#orgecefc81">Show more meta on posts index page.</a></li>
+<li><a href="#org16f2303">Tags</a></li>
+<li><a href="#org51e0f80">Post series</a></li>
+<li><a href="#org522cabe">Adopt/fix htmlize.el</a></li>
+<li><a href="#org76931a8">Show more meta on posts index page.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org2ffe406" class="outline-2">
-<h2 id="org2ffe406">What is imagemagick</h2>
-<div class="outline-text-2" id="text-org2ffe406">
+<div id="outline-container-orgc956d9d" class="outline-2">
+<h2 id="orgc956d9d">What is imagemagick</h2>
+<div class="outline-text-2" id="text-orgc956d9d">
 <p>
 <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
 </p>
 </div>
 </div>
-<div id="outline-container-orge756ba8" class="outline-2">
-<h2 id="orge756ba8">Basic idea of this process</h2>
-<div class="outline-text-2" id="text-orge756ba8">
+<div id="outline-container-org9c1fe01" class="outline-2">
+<h2 id="org9c1fe01">Basic idea of this process</h2>
+<div class="outline-text-2" id="text-org9c1fe01">
 <p>
 I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:
 </p>
@@ -48,9 +48,9 @@ So I with all these data I can generate my previews with simple script:
 </div>
 </div>
 
-<div id="outline-container-org49530e8" class="outline-2">
-<h2 id="org49530e8">Integrate into build</h2>
-<div class="outline-text-2" id="text-org49530e8">
+<div id="outline-container-orgaeb5711" class="outline-2">
+<h2 id="orgaeb5711">Integrate into build</h2>
+<div class="outline-text-2" id="text-orgaeb5711">
 <p>
 As I already mention I gonna skip file generation when file already here. Here is the whole function. Pretty simple. Just prepare pathes, check some dependencies, create pathes and execute script which calls imagemagick.
 </p>
@@ -113,39 +113,41 @@ You can check whole function in previous post <a href="./improve_code_blocks.htm
 </p>
 </div>
 </div>
-<div id="outline-container-orge5b710f" class="outline-2">
-<h2 id="orge5b710f">Whats next?</h2>
-<div class="outline-text-2" id="text-orge5b710f">
+<div id="outline-container-org339d491" class="outline-2">
+<h2 id="org339d491">Whats next?</h2>
+<div class="outline-text-2" id="text-org339d491">
 </div>
-<div id="outline-container-org061294c" class="outline-3">
-<h3 id="org061294c">Tags</h3>
-<div class="outline-text-3" id="text-org061294c">
+<div id="outline-container-org16f2303" class="outline-3">
+<h3 id="org16f2303">Tags</h3>
+<div class="outline-text-3" id="text-org16f2303">
 <p>
 Show tags, show posts by tag.
+<a href="./blog_index_and_tags_automation.html">Blog index and tags automation</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org2fb8a6a" class="outline-3">
-<h3 id="org2fb8a6a">Post series</h3>
-<div class="outline-text-3" id="text-org2fb8a6a">
+<div id="outline-container-org51e0f80" class="outline-3">
+<h3 id="org51e0f80">Post series</h3>
+<div class="outline-text-3" id="text-org51e0f80">
 <p>
 Dunno how, but I'll figure out something.
 </p>
 </div>
 </div>
-<div id="outline-container-org53f7b49" class="outline-3">
-<h3 id="org53f7b49">Adopt/fix htmlize.el</h3>
-<div class="outline-text-3" id="text-org53f7b49">
+<div id="outline-container-org522cabe" class="outline-3">
+<h3 id="org522cabe">Adopt/fix htmlize.el</h3>
+<div class="outline-text-3" id="text-org522cabe">
 <p>
 I want to highlight code during publishing step.
 </p>
 </div>
 </div>
-<div id="outline-container-orgecefc81" class="outline-3">
-<h3 id="orgecefc81">Show more meta on posts index page.</h3>
-<div class="outline-text-3" id="text-orgecefc81">
+<div id="outline-container-org76931a8" class="outline-3">
+<h3 id="org76931a8">Show more meta on posts index page.</h3>
+<div class="outline-text-3" id="text-org76931a8">
 <p>
 Creation date, preview, tags, whatever.
+<a href="./blog_index_and_tags_automation.html">Blog index and tags automation</a>
 </p>
 </div>
 </div>
