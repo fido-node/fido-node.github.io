@@ -14,8 +14,8 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sun, 07 Jul 2024 07:55:52 +0000</pubDate>
-  <lastBuildDate>Sun, 07 Jul 2024 07:55:52 +0000</lastBuildDate>
+  <pubDate>Sun, 07 Jul 2024 09:10:01 +0000</pubDate>
+  <lastBuildDate>Sun, 07 Jul 2024 09:10:01 +0000</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -26,6 +26,15 @@
 
 
   <item>
+    <title>Tag: @imagemagick</title>
+    <link>https://fidonode.me/tags/@imagemagick.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/tags/@imagemagick.html</guid>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
     <title>Tag: @diy</title>
     <link>https://fidonode.me/tags/@diy.html</link>
     <author>iam@fidonode.me (Alex M)</author>
@@ -35,10 +44,10 @@
     <description><![CDATA[]]></description>
   </item>
   <item>
-    <title>Tag: @imagemagick</title>
-    <link>https://fidonode.me/tags/@imagemagick.html</link>
+    <title>Tag: @org-mode</title>
+    <link>https://fidonode.me/tags/@org-mode.html</link>
     <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@imagemagick.html</guid>
+    <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
     <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
@@ -75,15 +84,6 @@
     <link>https://fidonode.me/tags/@elisp.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@elisp.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @org-mode</title>
-    <link>https://fidonode.me/tags/@org-mode.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
     <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
