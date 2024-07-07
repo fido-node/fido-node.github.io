@@ -14,8 +14,8 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[]]></description>
   <language>en</language>
-  <pubDate>Sat, 06 Jul 2024 15:25:20 +0000</pubDate>
-  <lastBuildDate>Sat, 06 Jul 2024 15:25:20 +0000</lastBuildDate>
+  <pubDate>Sun, 07 Jul 2024 07:55:52 +0000</pubDate>
+  <lastBuildDate>Sun, 07 Jul 2024 07:55:52 +0000</lastBuildDate>
   <generator>Emacs 27.1 Org-mode 9.3</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -30,7 +30,7 @@
     <link>https://fidonode.me/tags/@diy.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@diy.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -39,7 +39,7 @@
     <link>https://fidonode.me/tags/@imagemagick.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@imagemagick.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -48,7 +48,7 @@
     <link>https://fidonode.me/tags/@keeb.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@keeb.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -57,7 +57,7 @@
     <link>https://fidonode.me/tags/@highlightjs.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@highlightjs.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -66,16 +66,7 @@
     <link>https://fidonode.me/tags/@tags.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@tags.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @org-mode</title>
-    <link>https://fidonode.me/tags/@org-mode.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
@@ -84,7 +75,16 @@
     <link>https://fidonode.me/tags/@elisp.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/tags/@elisp.html</guid>
-    <pubDate>Sat, 06 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
+
+    <description><![CDATA[]]></description>
+  </item>
+  <item>
+    <title>Tag: @org-mode</title>
+    <link>https://fidonode.me/tags/@org-mode.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
+    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
 
     <description><![CDATA[]]></description>
   </item>
