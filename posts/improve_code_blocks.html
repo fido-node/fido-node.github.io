@@ -1,34 +1,34 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use highlight.js for code syntax highlighting"/><meta property="og:description" content="Use highlight.js for code syntax highlighting"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta property="og:title" content="Improve code blocks"/><meta name="twitter:description" content="Use highlight.js for code syntax highlighting"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Improve code blocks</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Improve code blocks</h1><p>Use highlight.js for code syntax highlighting</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@highlightjs.html" class="secondary">@highlightjs</a></mark></li></ul></nav></hgroup><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use highlight.js for code syntax highlighting"/><meta property="og:description" content="Use highlight.js for code syntax highlighting"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta property="og:title" content="Improve code blocks"/><meta name="twitter:description" content="Use highlight.js for code syntax highlighting"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Improve code blocks</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Improve code blocks</h1><p>Use highlight.js for code syntax highlighting</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@highlightjs.html" class="secondary">@highlightjs</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf7f6f93">What is the problem with default highlighting?</a></li>
-<li><a href="#org95957be">Highlight.js</a>
+<li><a href="#org3567b5d">What is the problem with default highlighting?</a></li>
+<li><a href="#org1bd0b7d">Highlight.js</a>
 <ul>
-<li><a href="#orgeaa2164">Change code block template</a></li>
-<li><a href="#org0243f67">Plug Highlight.js</a></li>
-<li><a href="#org504e851">Respect prefers-color-scheme</a></li>
+<li><a href="#org0ce0a2e">Change code block template</a></li>
+<li><a href="#org4a7b320">Plug Highlight.js</a></li>
+<li><a href="#orgcb4c7b7">Respect prefers-color-scheme</a></li>
 </ul>
 </li>
-<li><a href="#orgca490d8">Whole config</a></li>
+<li><a href="#org9e61d2d">Whole config</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf7f6f93" class="outline-2">
-<h2 id="orgf7f6f93">What is the problem with default highlighting?</h2>
-<div class="outline-text-2" id="text-orgf7f6f93">
+<div id="outline-container-org3567b5d" class="outline-2">
+<h2 id="org3567b5d">What is the problem with default highlighting?</h2>
+<div class="outline-text-2" id="text-org3567b5d">
 <p>
 Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
 </p>
 </div>
 </div>
-<div id="outline-container-org95957be" class="outline-2">
-<h2 id="org95957be">Highlight.js</h2>
-<div class="outline-text-2" id="text-org95957be">
+<div id="outline-container-org1bd0b7d" class="outline-2">
+<h2 id="org1bd0b7d">Highlight.js</h2>
+<div class="outline-text-2" id="text-org1bd0b7d">
 </div>
-<div id="outline-container-orgeaa2164" class="outline-3">
-<h3 id="orgeaa2164">Change code block template</h3>
-<div class="outline-text-3" id="text-orgeaa2164">
+<div id="outline-container-org0ce0a2e" class="outline-3">
+<h3 id="org0ce0a2e">Change code block template</h3>
+<div class="outline-text-3" id="text-org0ce0a2e">
 <p>
 We need to make small changes in how code blocks are rendered. By default, Org Export exports code blocks as <code>&lt;pre&gt;&lt;/pre&gt;</code>. For Highlight.js, we need <code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code>. Additionally, we need to set the correct language name in the class attribute. Since Highlight.js does not support <code>elisp</code>, I rewrite it to regular <code>lisp</code> using the <code>my/replace-substring</code> function.
 </p>
@@ -40,38 +40,38 @@ We need to make small changes in how code blocks are rendered. By default, Org E
   (let ((output-string input-string))
     (dolist (pair my/lang-substitution-map)
       (let ((old (regexp-quote (car pair)))
-	    (new (cdr pair)))
-	(setq output-string (replace-regexp-in-string old new output-string))))
+            (new (cdr pair)))
+        (setq output-string (replace-regexp-in-string old new output-string))))
     output-string))
 
 (defun my/src-block (src-block contents info)
   &quot;Translate SRC-BLOCK element into HTML.
 CONTENTS is nil. INFO is a plist holding contextual information.&quot;
   (let* (
-	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
-	 (language (my/replace-substrings org-language))
-	 (code (org-element-property :value src-block)))
+         (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+         (language (my/replace-substrings org-language))
+         (code (org-element-property :value src-block)))
     (esxml-to-xml
      `(pre ()
        (code ((class . ,language))
-	     ,(org-html-encode-plain-text code)
-	     ))
+             ,(org-html-encode-plain-text code)
+             ))
      )
     )
   )
 
 (org-export-define-derived-backend &apos;my-html &apos;html
   :translate-alist &apos;(
-		     (template . my/template)
-		     (src-block . my/src-block)
-		     ))
+                     (template . my/template)
+                     (src-block . my/src-block)
+                     ))
 
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org0243f67" class="outline-3">
-<h3 id="org0243f67">Plug Highlight.js</h3>
-<div class="outline-text-3" id="text-org0243f67">
+<div id="outline-container-org4a7b320" class="outline-3">
+<h3 id="org4a7b320">Plug Highlight.js</h3>
+<div class="outline-text-3" id="text-org4a7b320">
 <p>
 I do not want to load Highlight.js on every page, so I need to check if the initial Org file contains code blocks. Depending on this, we will render the part of the tree with JavaScript or not.
 </p>
@@ -84,20 +84,20 @@ I do not want to load Highlight.js on every page, so I need to check if the init
 (defun my/template (contents info)
 
   (let* ((title-str (org-export-data (plist-get info :title) info))
-	 ...
-	 (has-src-blocks (my/org-has-src-blocks-p info)))
+         ...
+         (has-src-blocks (my/org-has-src-blocks-p info)))
 ...
 
 (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
 
 ,(when has-src-blocks
 `(nil ()
-	(link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
-	(script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
-	(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
-	(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
-	(script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
-	)
+        (link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+        (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+        (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+        (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
+        (script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
+        )
 )
 
 (title () ,title-str)
@@ -105,9 +105,9 @@ I do not want to load Highlight.js on every page, so I need to check if the init
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org504e851" class="outline-3">
-<h3 id="org504e851">Respect prefers-color-scheme</h3>
-<div class="outline-text-3" id="text-org504e851">
+<div id="outline-container-orgcb4c7b7" class="outline-3">
+<h3 id="orgcb4c7b7">Respect prefers-color-scheme</h3>
+<div class="outline-text-3" id="text-orgcb4c7b7">
 <p>
 Additionally, I think it's a good idea to respect the <code>prefers-color-scheme</code> property of the user's browser. We can switch CSS files based on this property. We should also subscribe to changes in this property to handle the edge case when it switches while reading the page.
 </p>
@@ -142,9 +142,9 @@ window
 </div>
 </div>
 
-<div id="outline-container-orgca490d8" class="outline-2">
-<h2 id="orgca490d8">Whole config</h2>
-<div class="outline-text-2" id="text-orgca490d8">
+<div id="outline-container-org9e61d2d" class="outline-2">
+<h2 id="org9e61d2d">Whole config</h2>
+<div class="outline-text-2" id="text-org9e61d2d">
 <p>
 In between posts I've switched from <code>sxml</code> to <code>esxml</code> so here is the current config.
 </p>
@@ -157,7 +157,7 @@ In between posts I've switched from <code>sxml</code> to <code>esxml</code> so h
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list &apos;custom-theme-load-path
-	     (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
+             (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
 (add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/base16-theme&quot;))
 (add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/moe-theme&quot;))
 
@@ -189,28 +189,28 @@ In between posts I've switched from <code>sxml</code> to <code>esxml</code> so h
   `(footer ((class .  &quot;footer&quot;))
     (hr () )
     (small ()
-	   (p () &quot;Alex Mikhailov&quot;)
-	   (p () &quot;Built with: &quot;
-	      (a ((href . &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
-	      (a ((href . &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
-	      (a ((href . &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
-	      )
-	   )
+           (p () &quot;Alex Mikhailov&quot;)
+           (p () &quot;Built with: &quot;
+              (a ((href . &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
+              (a ((href . &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
+              (a ((href . &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
+              )
+           )
     ))
 
 (defun my/header (info)
   (let ((title-str (org-export-data (plist-get info :title) info)))
     `(header ((class . &quot;header&quot;))
       (nav ()
-	   (ul ()
-	       (li ()
-		   (strong () ,title-str)))
-	   (ul ()
-	       (li () (a ((href . &quot;/index.html&quot;)) &quot;About&quot;))
-	       (li () (a ((href . &quot;/posts.html&quot;)) &quot;Blog&quot;))
-	       (li () (a ((href . &quot;/rss.xml&quot;)) &quot;RSS&quot;))
-	       )
-	   ))
+           (ul ()
+               (li ()
+                   (strong () ,title-str)))
+           (ul ()
+               (li () (a ((href . &quot;/index.html&quot;)) &quot;About&quot;))
+               (li () (a ((href . &quot;/posts.html&quot;)) &quot;Blog&quot;))
+               (li () (a ((href . &quot;/rss.xml&quot;)) &quot;RSS&quot;))
+               )
+           ))
     )
   )
 
@@ -218,14 +218,14 @@ In between posts I've switched from <code>sxml</code> to <code>esxml</code> so h
   &quot;Translate SRC-BLOCK element into HTML.
 CONTENTS is nil. INFO is a plist holding contextual information.&quot;
   (let* (
-	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
-	 (language (my/replace-substrings org-language))
-	 (code (org-element-property :value src-block)))
+         (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+         (language (my/replace-substrings org-language))
+         (code (org-element-property :value src-block)))
     (esxml-to-xml
      `(pre ()
        (code ((class . ,language))
-	     ,(org-html-encode-plain-text code)
-	     ))
+             ,(org-html-encode-plain-text code)
+             ))
      )
     )
   )
@@ -234,12 +234,12 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 (defun my/template (contents info)
 
   (let* ((title-str (org-export-data (plist-get info :title) info))
-	 (description-str (org-export-data (plist-get info :description) info))
-	 (file-path-str (org-export-data (plist-get info :input-file) info))
-	 (base-directory-str (org-export-data (plist-get info :base-directory) info))
-	 (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
-	 (img-link-str (format &quot;%s/resources/images/%s.png&quot; my/url file-name-str))
-	 (has-src-blocks (my/org-has-src-blocks-p info)))
+         (description-str (org-export-data (plist-get info :description) info))
+         (file-path-str (org-export-data (plist-get info :input-file) info))
+         (base-directory-str (org-export-data (plist-get info :base-directory) info))
+         (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
+         (img-link-str (format &quot;%s/resources/images/%s.png&quot; my/url file-name-str))
+         (has-src-blocks (my/org-has-src-blocks-p info)))
 
     (set-text-properties 0 (length title-str) nil title-str)
     (set-text-properties 0 (length description-str) nil description-str)
@@ -249,57 +249,57 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
      &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;
      (esxml-to-xml
       `(html ((lang . &quot;en&quot;))
-	(head ()
-	      (meta ((charset . &quot;utf-8&quot;)))
-	      (meta ((author . &quot;Alex Mikhailov&quot;)))
-	      (meta ((name . &quot;viewport&quot;)
-		     (content . &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
-	      (meta ((name . &quot;color-scheme&quot;) (content . &quot;light dark&quot;)))
-	      (meta ((http-equiv . &quot;content-language&quot;) (content . &quot;en-us&quot;)))
-	      ;; OG block
-	      ;; &quot;Personal page with a blog about my technical adventures&quot;
-	      (meta ((name . &quot;description&quot;) (content .  ,description-str)))
-	      (meta ((name . &quot;og:description&quot;) (content . ,description-str)))
-	      (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
+        (head ()
+              (meta ((charset . &quot;utf-8&quot;)))
+              (meta ((author . &quot;Alex Mikhailov&quot;)))
+              (meta ((name . &quot;viewport&quot;)
+                     (content . &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
+              (meta ((name . &quot;color-scheme&quot;) (content . &quot;light dark&quot;)))
+              (meta ((http-equiv . &quot;content-language&quot;) (content . &quot;en-us&quot;)))
+              ;; OG block
+              ;; &quot;Personal page with a blog about my technical adventures&quot;
+              (meta ((name . &quot;description&quot;) (content .  ,description-str)))
+              (meta ((name . &quot;og:description&quot;) (content . ,description-str)))
+              (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
 
-	      (meta ((name . &quot;og:image&quot;) (content . ,img-link-str)))
-	      (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
+              (meta ((name . &quot;og:image&quot;) (content . ,img-link-str)))
+              (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
 
-	      (meta ((name . &quot;og:title&quot;) (content . ,title-str)))
-	      (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
+              (meta ((name . &quot;og:title&quot;) (content . ,title-str)))
+              (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
 
-	      (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
+              (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
 
-	      (link ((rel . &quot;icon&quot;) (type . &quot;image/x-icon&quot;) (href . &quot;/resources/favicon.ico&quot;)))
-	      (link ((rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;) (href . &quot;/resources/css/pico.sand.min.css&quot;)))
-	      (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
-	      ,(when has-src-blocks
-		 `(nil ()
-		   (link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
-		   (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
-		   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
-		   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
-		   (script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
-		   )
-		 )
-	      (title () ,title-str)
-	      )
-	(body ()
-	      (main ((class . &quot;container&quot;))
-		    ,(my/header info)
-		    (raw-string ,contents)
-		    ,(my/footer info)
-		    )
-	      ))
+              (link ((rel . &quot;icon&quot;) (type . &quot;image/x-icon&quot;) (href . &quot;/resources/favicon.ico&quot;)))
+              (link ((rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;) (href . &quot;/resources/css/pico.sand.min.css&quot;)))
+              (script ((defer . &quot;true&quot;) (src . &quot;https://umami.dokutsu.xyz/script.js&quot;) (data-website-id . &quot;d52d9af1-0c7d-4531-84c6-0b9c2850011f&quot;)) ())
+              ,(when has-src-blocks
+                 `(nil ()
+                   (link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+                   (script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+                   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+                   (script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
+                   (script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
+                   )
+                 )
+              (title () ,title-str)
+              )
+        (body ()
+              (main ((class . &quot;container&quot;))
+                    ,(my/header info)
+                    (raw-string ,contents)
+                    ,(my/footer info)
+                    )
+              ))
       ))
     ))
 
 
 (org-export-define-derived-backend &apos;my-html &apos;html
   :translate-alist &apos;(
-		     (template . my/template)
-		     (src-block . my/src-block)
-		     ))
+                     (template . my/template)
+                     (src-block . my/src-block)
+                     ))
 
 (defun my/publish-to-html (plist filename pub-dir)
   &quot;Publish an Org file to HTML using the custom backend.&quot;
@@ -312,31 +312,31 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 ENTRY is a file name.  STYLE is either &apos;list&apos; or &apos;tree&apos;.
 PROJECT is the current project.&quot;
   (cond ((not (directory-name-p entry))
-	 (let* ((file (org-publish--expand-file-name entry project))
-		(title (org-publish-find-title entry project))
-		(date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
-		(link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
-	   (with-temp-buffer
-	     (org-mode)
-	     (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
-	     (org-set-property &quot;RSS_PERMALINK&quot; link)
-	     (org-set-property &quot;RSS_TITLE&quot; title)
-	     (org-set-property &quot;PUBDATE&quot; date)
-	     (let ((first-two-lines (with-temp-buffer
-				      (insert-file-contents file)
-				      (buffer-substring-no-properties
-				       (point-min)
-				       (progn (forward-line 2) (point))))))
-	       (if (string-suffix-p &quot;\n&quot; first-two-lines)
-		   (setq first-two-lines (substring first-two-lines 0 -1)))
-	       (insert first-two-lines))
-	     (goto-char (point-max))
-	     (insert &quot;...&quot;)
-	     (buffer-string))))
-	((eq style &apos;tree)
-	 ;; Return only last subdir.
-	 (file-name-nondirectory (directory-file-name entry)))
-	(t entry)))
+         (let* ((file (org-publish--expand-file-name entry project))
+                (title (org-publish-find-title entry project))
+                (date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
+                (link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
+           (with-temp-buffer
+             (org-mode)
+             (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
+             (org-set-property &quot;RSS_PERMALINK&quot; link)
+             (org-set-property &quot;RSS_TITLE&quot; title)
+             (org-set-property &quot;PUBDATE&quot; date)
+             (let ((first-two-lines (with-temp-buffer
+                                      (insert-file-contents file)
+                                      (buffer-substring-no-properties
+                                       (point-min)
+                                       (progn (forward-line 2) (point))))))
+               (if (string-suffix-p &quot;\n&quot; first-two-lines)
+                   (setq first-two-lines (substring first-two-lines 0 -1)))
+               (insert first-two-lines))
+             (goto-char (point-max))
+             (insert &quot;...&quot;)
+             (buffer-string))))
+        ((eq style &apos;tree)
+         ;; Return only last subdir.
+         (file-name-nondirectory (directory-file-name entry)))
+        (t entry)))
 
 (defun my/format-rss-feed (title list)
   &quot;Generate RSS feed, as a string.
@@ -344,8 +344,8 @@ TITLE is the title of the RSS feed.  LIST is an internal
 representation for the files to include, as returned by
 `org-list-to-lisp&apos;.  PROJECT is the current project.&quot;
   (concat &quot;#+TITLE: &quot; title &quot;\n&quot;
-	  &quot;#+STARTUP: showall \n\n&quot;
-	  (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
+          &quot;#+STARTUP: showall \n\n&quot;
+          (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
 
 (defun my/publish-to-rss (plist filename pub-dir)
   &quot;Publish RSS with PLIST, only when FILENAME is &apos;rss.org&apos;.
@@ -387,8 +387,8 @@ PUB-DIR is when the output will be placed.&quot;
   (let ((output-string input-string))
     (dolist (pair my/lang-substitution-map)
       (let ((old (regexp-quote (car pair)))
-	    (new (cdr pair)))
-	(setq output-string (replace-regexp-in-string old new output-string))))
+            (new (cdr pair)))
+        (setq output-string (replace-regexp-in-string old new output-string))))
     output-string))
 
 ;;
@@ -405,45 +405,45 @@ PUB-DIR is when the output will be placed.&quot;
 (setq org-publish-project-alist
       (list
        (list &quot;static&quot;
-	     :base-directory my/blog-src-path
-	     :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
-	     :publishing-directory my/web-export-path
-	     :recursive t
-	     :publishing-function &apos;org-publish-attachment
-	     )
+             :base-directory my/blog-src-path
+             :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
+             :publishing-directory my/web-export-path
+             :recursive t
+             :publishing-function &apos;org-publish-attachment
+             )
        (list &quot;blog&quot;
-	     :recursive t
-	     :base-directory my/blog-src-path
-	     :publishing-directory my/web-export-path
-	     :publishing-function &apos;my/publish-to-html
-	     :html-html5-fancy t
-	     :htmlized-source t
-	     :with-author nil
-	     :with-creator t
-	     :with-toc t
-	     :section-numbers nil
-	     :time-stamp-file nil
-	     )
+             :recursive t
+             :base-directory my/blog-src-path
+             :publishing-directory my/web-export-path
+             :publishing-function &apos;my/publish-to-html
+             :html-html5-fancy t
+             :htmlized-source t
+             :with-author nil
+             :with-creator t
+             :with-toc t
+             :section-numbers nil
+             :time-stamp-file nil
+             )
        (list &quot;blog-rss&quot;
-	     :author &quot;Alex M&quot;
-	     :email &quot;iam@fidonode.me&quot;
-	     :base-directory my/blog-src-path
-	     :base-extension &quot;org&quot;
-	     :recursive t
-	     :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
-	     :publishing-function &apos;my/publish-to-rss
-	     :publishing-directory my/web-export-path
-	     :rss-extension &quot;xml&quot;
-	     :html-link-home my/url
-	     :html-link-use-abs-url t
-	     :html-link-org-files-as-html t
-	     :auto-sitemap t
-	     :sitemap-filename &quot;rss.org&quot;
-	     :sitemap-title &quot;rss&quot;
-	     :sitemap-style &apos;list
-	     :sitemap-sort-files &apos;anti-chronologically
-	     :sitemap-function &apos;my/format-rss-feed
-	     :sitemap-format-entry &apos;my/format-rss-feed-entry)
+             :author &quot;Alex M&quot;
+             :email &quot;iam@fidonode.me&quot;
+             :base-directory my/blog-src-path
+             :base-extension &quot;org&quot;
+             :recursive t
+             :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
+             :publishing-function &apos;my/publish-to-rss
+             :publishing-directory my/web-export-path
+             :rss-extension &quot;xml&quot;
+             :html-link-home my/url
+             :html-link-use-abs-url t
+             :html-link-org-files-as-html t
+             :auto-sitemap t
+             :sitemap-filename &quot;rss.org&quot;
+             :sitemap-title &quot;rss&quot;
+             :sitemap-style &apos;list
+             :sitemap-sort-files &apos;anti-chronologically
+             :sitemap-function &apos;my/format-rss-feed
+             :sitemap-format-entry &apos;my/format-rss-feed-entry)
        ))
 
 

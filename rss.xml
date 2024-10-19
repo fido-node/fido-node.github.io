@@ -9,85 +9,22 @@
      xmlns:georss="http://www.georss.org/georss"
      xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#"
      xmlns:media="http://search.yahoo.com/mrss/"><channel>
-  <title>rss</title>
+  <title>Alex's M Personal Blog</title>
   <atom:link href="https://fidonode.me/rss.xml" rel="self" type="application/rss+xml" />
   <link>https://fidonode.me</link>
-  <description><![CDATA[]]></description>
+  <description><![CDATA[Slice of my technical life]]></description>
   <language>en</language>
-  <pubDate>Sun, 07 Jul 2024 09:10:01 +0000</pubDate>
-  <lastBuildDate>Sun, 07 Jul 2024 09:10:01 +0000</lastBuildDate>
-  <generator>Emacs 27.1 Org-mode 9.3</generator>
+  <pubDate>Sat, 19 Oct 2024 16:09:51 +0000</pubDate>
+  <lastBuildDate>Sat, 19 Oct 2024 16:09:51 +0000</lastBuildDate>
+  <generator>Emacs 29.3 Org-mode 9.6.15</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
-    <url>https://orgmode.org/img/org-mode-unicorn-logo.png</url>
-    <title>rss</title>
+    <url>https://fidonode.me/resources/images/index/avatar.jpg</url>
+    <title>Alex's M Personal Blog</title>
     <link>https://fidonode.me</link>
   </image>
 
 
-  <item>
-    <title>Tag: @imagemagick</title>
-    <link>https://fidonode.me/tags/@imagemagick.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@imagemagick.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @diy</title>
-    <link>https://fidonode.me/tags/@diy.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@diy.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @org-mode</title>
-    <link>https://fidonode.me/tags/@org-mode.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@org-mode.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @keeb</title>
-    <link>https://fidonode.me/tags/@keeb.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@keeb.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @highlightjs</title>
-    <link>https://fidonode.me/tags/@highlightjs.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@highlightjs.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @tags</title>
-    <link>https://fidonode.me/tags/@tags.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@tags.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
-  <item>
-    <title>Tag: @elisp</title>
-    <link>https://fidonode.me/tags/@elisp.html</link>
-    <author>iam@fidonode.me (Alex M)</author>
-    <guid isPermaLink="false">https://fidonode.me/tags/@elisp.html</guid>
-    <pubDate>Sun, 07 Jul 2024 00:00:00 +0000</pubDate>
-
-    <description><![CDATA[]]></description>
-  </item>
   <item>
     <title>Blog index and tags automation</title>
     <link>https://fidonode.me/posts/blog_index_and_tags_automation.html</link>
@@ -95,7 +32,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/blog_index_and_tags_automation.html</guid>
     <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Let's add tags to blog posts
+    </p>
+
+    <p>
+    Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
+    Automate tags....
+    </p>
+    ]]></description>
   </item>
   <item>
     <title>Posts preview</title>
@@ -104,7 +49,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/posts_preview.html</guid>
     <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Add post preview for OpenGraph cards
+    </p>
+
+    <p>
+    <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
+    Basic idea of this process...
+    </p>
+    ]]></description>
   </item>
   <item>
     <title>Improve code blocks</title>
@@ -113,7 +66,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/improve_code_blocks.html</guid>
     <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Use highlight.js for code syntax highlighting
+    </p>
+
+    <p>
+    Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
+    Highlight.js...
+    </p>
+    ]]></description>
   </item>
   <item>
     <title>Org blog with RSS</title>
@@ -122,7 +83,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/add_rss_to_blog.html</guid>
     <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Let's add RSS feed to blog
+    </p>
+
+    <p>
+    RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
+    Add RSS feed...
+    </p>
+    ]]></description>
   </item>
   <item>
     <title>Org to HTML and back</title>
@@ -131,7 +100,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/about_blog.html</guid>
     <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Blog post about publishing my blog with Org Mode
+    </p>
+
+    <p>
+    I'm neither proficient in Org Mode (further on "Org"), nor a good front-end engineer. I think that a simple solution is better than no solution. If you see a mistake, you can contact me via <a href="mailto:iam@fidonode.me">iam@fidonode.me</a>.
+    What is Org?...
+    </p>
+    ]]></description>
   </item>
   <item>
     <title>My keyboard journey</title>
@@ -140,7 +117,15 @@
     <guid isPermaLink="false">https://fidonode.me/posts/keeb.html</guid>
     <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
 
-    <description><![CDATA[]]></description>
+    <description><![CDATA[<p>
+    Blog post about my keyboards
+    </p>
+
+    <p>
+    Sometimes I think about the long journey I've made with keebs. In childhood, I had decent membrane keyboards, most of which had an ergonomic profile like the MS. Not sure if it somehow affected my taste because I started my career with the simplest, cheapest board and typed countless lines of code on such keebs. Then I heard about clickity-clack mechanical keyboards and decided to try one. It was a simple Chinese keeb with a thick metal body, double-shot caps, and Cherry Brown switches. A decent thing to annoy everyone around you. I think this purchase marked my dive into mech keebs
+    I'm not a geeky aficionado who thinks you can fix everything with a new keyboard, but I built a couple of them. I hope I've finally built the last one for quite some time....
+    </p>
+    ]]></description>
   </item>
 </channel>
 </rss>

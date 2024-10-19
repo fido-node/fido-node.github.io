@@ -1,32 +1,32 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Blog index and tags automation</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@tags.html" class="secondary">@tags</a></mark></li></ul></nav></hgroup><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Blog index and tags automation</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@tags.html" class="secondary">@tags</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org178294f">Tags.</a>
+<li><a href="#orgc69b18e">Tags.</a>
 <ul>
-<li><a href="#org5d49955">Automate tags.</a></li>
+<li><a href="#orgb84823f">Automate tags.</a></li>
 </ul>
 </li>
-<li><a href="#org579e8fb">Posts index.</a>
+<li><a href="#org93c6894">Posts index.</a>
 <ul>
-<li><a href="#orgd6ed0d6">Posts index automation.</a></li>
+<li><a href="#org419080d">Posts index automation.</a></li>
 </ul>
 </li>
-<li><a href="#org6126832">Cons.</a></li>
-<li><a href="#org2a98d2f">Whole config.</a></li>
+<li><a href="#org63bc12c">Cons.</a></li>
+<li><a href="#orga13ebc1">Whole config.</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org178294f" class="outline-2">
-<h2 id="org178294f">Tags.</h2>
-<div class="outline-text-2" id="text-org178294f">
+<div id="outline-container-orgc69b18e" class="outline-2">
+<h2 id="orgc69b18e">Tags.</h2>
+<div class="outline-text-2" id="text-orgc69b18e">
 <p>
 Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
 </p>
 </div>
-<div id="outline-container-org5d49955" class="outline-3">
-<h3 id="org5d49955">Automate tags.</h3>
-<div class="outline-text-3" id="text-org5d49955">
+<div id="outline-container-orgb84823f" class="outline-3">
+<h3 id="orgb84823f">Automate tags.</h3>
+<div class="outline-text-3" id="text-orgb84823f">
 <p>
 Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy.
 Let me show you parts of function body.
@@ -51,34 +51,34 @@ Create folder for tags files. Than we go through each file and collect plists wi
   (with-temp-buffer
     (insert-file-contents file)
     (let* ((parsed-info (list :parse-tree (org-element-parse-buffer)))
-	   (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
-	   (title (my/org-get-property &quot;TITLE&quot; parsed-info))
-	   (date (my/org-get-property &quot;DATE&quot; parsed-info))
-	   (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
-	   (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
-	   (preview (with-temp-buffer
-		      (insert-file-contents file)
-		      (my/get-first-two-meaningful-lines)))
-	   )
+           (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
+           (title (my/org-get-property &quot;TITLE&quot; parsed-info))
+           (date (my/org-get-property &quot;DATE&quot; parsed-info))
+           (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
+           (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
+           (preview (with-temp-buffer
+                      (insert-file-contents file)
+                      (my/get-first-two-meaningful-lines)))
+           )
       (if (and published (string= published &quot;true&quot;))
-	  (progn
-	    (setq link-plist
-		  (list
-		   :title title
-		   :description description
-		   :preview preview
-		   :file file
-		   :date date))
+          (progn
+            (setq link-plist
+                  (list
+                   :title title
+                   :description description
+                   :preview preview
+                   :file file
+                   :date date))
 
-	    (push link-plist posts-list)
+            (push link-plist posts-list)
 
-	    (dolist (tag tags)
-	      (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
+            (dolist (tag tags)
+              (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
 
-	    (setq posts-list
-		  (sort posts-list
-			(lambda (a b)
-			  (date-less-p (plist-get b :date) (plist-get a :date))))))))))
+            (setq posts-list
+                  (sort posts-list
+                        (lambda (a b)
+                          (date-less-p (plist-get b :date) (plist-get a :date))))))))))
 </code></pre>
 <p>
 Go through resulting map and render org files for each tag.
@@ -94,17 +94,17 @@ Go through resulting map and render org files for each tag.
        (insert (format &quot;* %s\n&quot; tag))
 
        (dolist (link-plist link-plists)
-	 (let*
-	     ((title (plist-get link-plist :title))
-	      (description (plist-get link-plist :description))
-	      (file (plist-get link-plist :file))
-	      (date (plist-get link-plist :date))
-	      (preview (plist-get link-plist :preview))
-	      (relative-file (file-relative-name file (file-name-directory tag-file))))
-	   (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
-	   (insert (format &quot;%s\n&quot; description))
-	   (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
-	   (insert (format &quot;%s\n&quot; (my/date-format date))))))))
+         (let*
+             ((title (plist-get link-plist :title))
+              (description (plist-get link-plist :description))
+              (file (plist-get link-plist :file))
+              (date (plist-get link-plist :date))
+              (preview (plist-get link-plist :preview))
+              (relative-file (file-relative-name file (file-name-directory tag-file))))
+           (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
+           (insert (format &quot;%s\n&quot; description))
+           (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+           (insert (format &quot;%s\n&quot; (my/date-format date))))))))
  tag-map)
 </code></pre>
 <p>
@@ -113,54 +113,54 @@ Resulting page example: <a href="https://fidonode.me/tags/@org-mode">@org-mode</
 </div>
 </div>
 </div>
-<div id="outline-container-org579e8fb" class="outline-2">
-<h2 id="org579e8fb">Posts index.</h2>
-<div class="outline-text-2" id="text-org579e8fb">
+<div id="outline-container-org93c6894" class="outline-2">
+<h2 id="org93c6894">Posts index.</h2>
+<div class="outline-text-2" id="text-org93c6894">
 <p>
 Previously, I maintained a list of posts manually. Now that I have more than 5 posts, I no longer want to do it by hand. So, after introducing tags, I've decided to automate the page with the list of posts. The same idea, almost the same data, will be integrated into the same file. Pagination has not yet been implemented and is not planned.
 </p>
 </div>
-<div id="outline-container-orgd6ed0d6" class="outline-3">
-<h3 id="orgd6ed0d6">Posts index automation.</h3>
-<div class="outline-text-3" id="text-orgd6ed0d6">
+<div id="outline-container-org419080d" class="outline-3">
+<h3 id="org419080d">Posts index automation.</h3>
+<div class="outline-text-3" id="text-org419080d">
 <p>
 Here is the part of function which renders list of posts and list of tags with number of posts in each tag category.
 </p>
 <pre><code class="language-lisp">(let
-	((index-file (concat base-dir &quot;/posts.org&quot;)))
+        ((index-file (concat base-dir &quot;/posts.org&quot;)))
       (with-temp-file index-file
-	(org-mode)
+        (org-mode)
 
-	(insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
-	(insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
-	(insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
-	(insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+        (insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
+        (insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
+        (insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
+        (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
 
-	(insert &quot;* Posts\n&quot;)
+        (insert &quot;* Posts\n&quot;)
 
-	(dolist (post posts-list)
-	  (let*
-	      ((title (plist-get post :title))
-	       (description (plist-get post :description))
-	       (file (plist-get post :file))
-	       (date (plist-get post :date))
-	       (preview (plist-get post :preview))
-	       (relative-file (file-relative-name file (file-name-directory file))))
+        (dolist (post posts-list)
+          (let*
+              ((title (plist-get post :title))
+               (description (plist-get post :description))
+               (file (plist-get post :file))
+               (date (plist-get post :date))
+               (preview (plist-get post :preview))
+               (relative-file (file-relative-name file (file-name-directory file))))
 
-	    (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
-	    (insert (format &quot;%s\n&quot; description))
-	    (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
-	    (insert (format &quot;%s\n&quot; (my/date-format date)))
-	    )
-	  )
+            (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
+            (insert (format &quot;%s\n&quot; description))
+            (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+            (insert (format &quot;%s\n&quot; (my/date-format date)))
+            )
+          )
 
-	(insert &quot;* Tags\n&quot;)
-	(maphash
-	 (lambda (tag posts)
-	   (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
-	 tag-map
-	 )
-	)
+        (insert &quot;* Tags\n&quot;)
+        (maphash
+         (lambda (tag posts)
+           (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
+         tag-map
+         )
+        )
 
       )
 </code></pre>
@@ -170,17 +170,17 @@ Here is an example of resulting page: <a href="https://fidonode.me/posts">Posts<
 </div>
 </div>
 </div>
-<div id="outline-container-org6126832" class="outline-2">
-<h2 id="org6126832">Cons.</h2>
-<div class="outline-text-2" id="text-org6126832">
+<div id="outline-container-org63bc12c" class="outline-2">
+<h2 id="org63bc12c">Cons.</h2>
+<div class="outline-text-2" id="text-org63bc12c">
 <p>
 Now, with the way the rendering function is integrated into the process, it is called when going through each Org file found by Org-Export. This introduces O(n<sup>2</sup>) complexity. It's not ideal, but never mind, I will redo it before reaching the 100th post.
 </p>
 </div>
 </div>
-<div id="outline-container-org2a98d2f" class="outline-2">
-<h2 id="org2a98d2f">Whole config.</h2>
-<div class="outline-text-2" id="text-org2a98d2f">
+<div id="outline-container-orga13ebc1" class="outline-2">
+<h2 id="orga13ebc1">Whole config.</h2>
+<div class="outline-text-2" id="text-orga13ebc1">
 <p>
 As usual, between posts, I decided to tackle a whole bunch of small tasks, so here is the entire config. I'm thinking about splitting the exporter into modules and maybe open-sourcing it properly.
 A neat thing I've implemented is a way to filter out unpublished posts using a <code>PUBLISHED</code> property. This allows me to work on drafts without affecting the blog's current state.
@@ -201,7 +201,7 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
   (normal-top-level-add-subdirs-to-load-path))
 
 (add-to-list &apos;custom-theme-load-path
-	     (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
+             (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/doom-themes&quot;))
 (add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/base16-theme&quot;))
 (add-to-list &apos;custom-theme-load-path (concat &quot;~/.config/emacs/.local/straight/build-&quot; emacs-version &quot;/moe-theme&quot;))
 
@@ -232,71 +232,71 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
 (defun my/footer (info)
   `(footer ((class .  &quot;footer&quot;))
     (div ((class . &quot;container&quot;))
-	 (hr () )
-	 (small ()
-		(p () &quot;Alex Mikhailov&quot;)
-		(p () &quot;Built with: &quot;
-		   (a ((href . &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
-		   (a ((href . &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
-		   (a ((href . &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
-		   )))))
+         (hr () )
+         (small ()
+                (p () &quot;Alex Mikhailov&quot;)
+                (p () &quot;Built with: &quot;
+                   (a ((href . &quot;https://www.gnu.org/software/emacs/&quot;)) &quot;GNU Emacs&quot;) &quot; &quot;
+                   (a ((href . &quot;https://orgmode.org/&quot;)) &quot;Org Mode&quot;) &quot; &quot;
+                   (a ((href . &quot;https://picocss.com/&quot;)) &quot;picocss&quot;)
+                   )))))
 
 (defun my/header (info)
   (let ((title-str (org-export-data (plist-get info :title) info)))
     `(header ((class . &quot;header&quot;))
       (div ((class . &quot;container&quot;))
-	   (nav ()
-		(ul ()
-		    (li ()
-			(strong () ,&quot;Alex Mikhailov&quot;)))
-		(ul ()
-		    (li () (a ((href . &quot;/index.html&quot;)) &quot;About&quot;))
-		    (li () (a ((href . &quot;/posts.html&quot;)) &quot;Blog&quot;))
-		    (li () (a ((href . &quot;/rss.xml&quot;)) &quot;RSS&quot;))
-		    ))))))
+           (nav ()
+                (ul ()
+                    (li ()
+                        (strong () ,&quot;Alex Mikhailov&quot;)))
+                (ul ()
+                    (li () (a ((href . &quot;/index.html&quot;)) &quot;About&quot;))
+                    (li () (a ((href . &quot;/posts.html&quot;)) &quot;Blog&quot;))
+                    (li () (a ((href . &quot;/rss.xml&quot;)) &quot;RSS&quot;))
+                    ))))))
 
 (defun my/src-block (src-block contents info)
   &quot;Translate SRC-BLOCK element into HTML.
  CONTENTS is nil. INFO is a plist holding contextual information.&quot;
   (let* (
-	 (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
-	 (language (my/replace-substrings org-language))
-	 (code (org-element-property :value src-block)))
+         (org-language (format &quot;language-%s&quot; (org-element-property :language src-block)))
+         (language (my/replace-substrings org-language))
+         (code (org-element-property :value src-block)))
     (esxml-to-xml
      `(pre ()
        (code ((class . ,language))
-	     ,(org-html-encode-plain-text code)
-	     )))))
+             ,(org-html-encode-plain-text code)
+             )))))
 
 (defun my/render-preview (file-name title description)
   (let* ((has-imagemagick (executable-find &quot;magick&quot;))
-	 (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
-	 (file-dir (file-name-directory full-file-path))
-	 (has-dir (file-directory-p file-dir))
-	 (has-file (file-exists-p full-file-path))
-	 (path-to-script-root (format &quot;%shelpers&quot; script-directory))
-	 (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
+         (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
+         (file-dir (file-name-directory full-file-path))
+         (has-dir (file-directory-p file-dir))
+         (has-file (file-exists-p full-file-path))
+         (path-to-script-root (format &quot;%shelpers&quot; script-directory))
+         (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
     (if (and has-imagemagick
-	     (and description (not (string= description &quot;&quot;))))
-	(progn
-	  (when (not has-file)
-	    (progn
-	      (when (not has-dir)
-		(make-directory file-dir t))
-	      (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
-	      )
-	    ))
+             (and description (not (string= description &quot;&quot;))))
+        (progn
+          (when (not has-file)
+            (progn
+              (when (not has-dir)
+                (make-directory file-dir t))
+              (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
+              )
+            ))
       (message &quot;Imagemagick is not installed. Preview generation skipped.&quot;)
       )))
 
 (defun my/html-header (info)
   (let* ((title-str (org-export-data (plist-get info :title) info))
-	 (description-str (org-export-data (plist-get info :description) info))
-	 (file-path-str (org-export-data (plist-get info :input-file) info))
-	 (base-directory-str (org-export-data (plist-get info :base-directory) info))
-	 (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
-	 (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
-	 (has-src-blocks (my/org-has-src-blocks-p info)))
+         (description-str (org-export-data (plist-get info :description) info))
+         (file-path-str (org-export-data (plist-get info :input-file) info))
+         (base-directory-str (org-export-data (plist-get info :base-directory) info))
+         (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
+         (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
+         (has-src-blocks (my/org-has-src-blocks-p info)))
 
     (my/render-preview file-name-str title-str description-str)
 
@@ -309,7 +309,7 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
       (meta ((charset . &quot;utf-8&quot;)))
       (meta ((author . &quot;Alex Mikhailov&quot;)))
       (meta ((name . &quot;viewport&quot;)
-	     (content . &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
+             (content . &quot;width=device-width, initial-scale=1, shrink-to-fit=no&quot;)))
       (meta ((name . &quot;color-scheme&quot;) (content . &quot;light dark&quot;)))
       (meta ((http-equiv . &quot;content-language&quot;) (content . &quot;en-us&quot;)))
       ;; OG block
@@ -329,13 +329,13 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
       (title () ,title-str)
 
       ,@(when has-src-blocks
-	  (list
-	   `(link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
-	   `(script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
-	   `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
-	   `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
-	   `(script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
-	   )))))
+          (list
+           `(link ((id . &quot;highlight-theme&quot;) (rel . &quot;stylesheet&quot;) (type . &quot;text/css&quot;)))
+           `(script ((src . &quot;https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js&quot;)) ())
+           `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js&quot;)) ())
+           `(script ((src . &quot;https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js&quot;)) ())
+           `(script ((src . &quot;/resources/js/theme-selector.js&quot;)) ())
+           )))))
 
 (defun my/regular-template (contents info)
   `(main ((class . &quot;container&quot;))
@@ -343,18 +343,18 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
 
 (defun my/blog-post-template (contents info)
   (let* ((title-str (org-export-data (plist-get info :title) info))
-	 (description-str (org-export-data (plist-get info :description) info))
-	 (tags (split-string  (my/org-get-property &quot;TAGS&quot; info)))
-	 (tags-html (cl-map &apos;list (lambda (tag)
-				    `(li () (mark () (a ((href . ,(format  &quot;/tags/%s.html&quot; tag)) (class . &quot;secondary&quot;)) ,(format &quot;%s&quot; tag))))) tags))
-	 )
+         (description-str (org-export-data (plist-get info :description) info))
+         (tags (split-string  (my/org-get-property &quot;TAGS&quot; info)))
+         (tags-html (cl-map &apos;list (lambda (tag)
+                                    `(li () (mark () (a ((href . ,(format  &quot;/tags/%s.html&quot; tag)) (class . &quot;secondary&quot;)) ,(format &quot;%s&quot; tag))))) tags))
+         )
     `(main ((class . &quot;container blog-post&quot;))
       (hgroup ()
-	      (h1 () ,title-str)
-	      (p () ,description-str)
-	      (nav () (ul () (li () &quot;Tags:&quot;) ,@tags-html))
+              (h1 () ,title-str)
+              (p () ,description-str)
+              (nav () (ul () (li () &quot;Tags:&quot;) ,@tags-html))
 
-	      )
+              )
       (raw-string ,contents)
       )))
 
@@ -366,21 +366,21 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
      &quot;&amp;lt;!DOCTYPE html&amp;gt;&quot;
      (esxml-to-xml
       `(html ((lang . &quot;en&quot;))
-	,(my/html-header info)
-	(body ()
-	      ,(my/header info)
-	      ,(if (string-match-p &quot;\/posts\/&quot; file-path-str)
-		   (my/blog-post-template contents info)
-		 (my/regular-template contents info))
-	      ,(my/footer info)
-	      ))))))
+        ,(my/html-header info)
+        (body ()
+              ,(my/header info)
+              ,(if (string-match-p &quot;\/posts\/&quot; file-path-str)
+                   (my/blog-post-template contents info)
+                 (my/regular-template contents info))
+              ,(my/footer info)
+              ))))))
 
 
 (org-export-define-derived-backend &apos;my-html &apos;html
   :translate-alist &apos;(
-		     (template . my/template)
-		     (src-block . my/src-block)
-		     ))
+                     (template . my/template)
+                     (src-block . my/src-block)
+                     ))
 
 (defun my/publish-to-html (plist filename pub-dir)
   &quot;Publish an Org file to HTML using the custom backend.&quot;
@@ -394,12 +394,12 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
   &quot;Process all Org files in &apos;posts&apos; and &apos;tags&apos; directories, create index file, and insert links.&quot;
 
   (let* ((base-dir (plist-get plist :base-directory) )
-	 (tag-dir (concat base-dir &quot;/tags/&quot;))
-	 (posts-dir (concat base-dir &quot;/posts&quot;))
-	 (post-org-files (directory-files-recursively posts-dir &quot;\\.org$&quot;))
-	 (tag-map (make-hash-table :test &apos;equal))
-	 (posts-list (list))
-	 )
+         (tag-dir (concat base-dir &quot;/tags/&quot;))
+         (posts-dir (concat base-dir &quot;/posts&quot;))
+         (post-org-files (directory-files-recursively posts-dir &quot;\\.org$&quot;))
+         (tag-map (make-hash-table :test &apos;equal))
+         (posts-list (list))
+         )
 
     ;; Ensure tag directory exists
     (unless (file-directory-p tag-dir)
@@ -408,72 +408,72 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
     ;; Scan all org files and collect tags
     (dolist (file post-org-files)
       (with-temp-buffer
-	(insert-file-contents file)
-	(let* ((parsed-info (list :parse-tree (org-element-parse-buffer)))
-	       (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
-	       (title (my/org-get-property &quot;TITLE&quot; parsed-info))
-	       (date (my/org-get-property &quot;DATE&quot; parsed-info))
-	       (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
-	       (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
-	       (preview (with-temp-buffer
-			  (insert-file-contents file)
-			  (my/get-first-two-meaningful-lines)))
-	       )
-	  (if (and published (string= published &quot;true&quot;))
-	      (progn
-		(setq link-plist
-		      (list
-		       :title title
-		       :description description
-		       :preview preview
-		       :file file
-		       :date date))
+        (insert-file-contents file)
+        (let* ((parsed-info (list :parse-tree (org-element-parse-buffer)))
+               (tags (split-string (my/org-get-property &quot;TAGS&quot; parsed-info)))
+               (title (my/org-get-property &quot;TITLE&quot; parsed-info))
+               (date (my/org-get-property &quot;DATE&quot; parsed-info))
+               (description (my/org-get-property &quot;DESCRIPTION&quot; parsed-info))
+               (published (my/org-get-property &quot;PUBLISHED&quot; parsed-info))
+               (preview (with-temp-buffer
+                          (insert-file-contents file)
+                          (my/get-first-two-meaningful-lines)))
+               )
+          (if (and published (string= published &quot;true&quot;))
+              (progn
+                (setq link-plist
+                      (list
+                       :title title
+                       :description description
+                       :preview preview
+                       :file file
+                       :date date))
 
-		(push link-plist posts-list)
+                (push link-plist posts-list)
 
-		(dolist (tag tags)
-		  (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
+                (dolist (tag tags)
+                  (puthash tag (cons link-plist (gethash tag tag-map)) tag-map))
 
-		(setq posts-list
-		      (sort posts-list
-			    (lambda (a b)
-			      (date-less-p (plist-get b :date) (plist-get a :date))))))))))
+                (setq posts-list
+                      (sort posts-list
+                            (lambda (a b)
+                              (date-less-p (plist-get b :date) (plist-get a :date))))))))))
 
     (let
-	((index-file (concat base-dir &quot;/posts.org&quot;)))
+        ((index-file (concat base-dir &quot;/posts.org&quot;)))
       (with-temp-file index-file
-	(org-mode)
+        (org-mode)
 
-	(insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
-	(insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
-	(insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
-	(insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+        (insert &quot;#+TITLE: Alex Mikhailov - Blog\n&quot;)
+        (insert &quot;#+AUTHOR: Aleksandr Mikhailov\n&quot;)
+        (insert &quot;#+DESCRIPTION: Index page for my blog\n&quot;)
+        (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
 
-	(insert &quot;* Posts\n&quot;)
+        (insert &quot;* Posts\n&quot;)
 
-	(dolist (post posts-list)
-	  (let*
-	      ((title (plist-get post :title))
-	       (description (plist-get post :description))
-	       (file (plist-get post :file))
-	       (date (plist-get post :date))
-	       (preview (plist-get post :preview))
-	       (relative-file (file-relative-name file (file-name-directory file))))
+        (dolist (post posts-list)
+          (let*
+              ((title (plist-get post :title))
+               (description (plist-get post :description))
+               (file (plist-get post :file))
+               (date (plist-get post :date))
+               (preview (plist-get post :preview))
+               (relative-file (file-relative-name file (file-name-directory file))))
 
-	    (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
-	    (insert (format &quot;%s\n&quot; description))
-	    (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
-	    (insert (format &quot;%s\n&quot; (my/date-format date)))
-	    )
-	  )
+            (insert (format &quot;** [[file:./posts/%s][%s]]\n&quot; relative-file title))
+            (insert (format &quot;%s\n&quot; description))
+            (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+            (insert (format &quot;%s\n&quot; (my/date-format date)))
+            )
+          )
 
-	(insert &quot;* Tags\n&quot;)
-	(maphash
-	 (lambda (tag posts)
-	   (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
-	 tag-map
-	 )
-	)
+        (insert &quot;* Tags\n&quot;)
+        (maphash
+         (lambda (tag posts)
+           (insert (format &quot;** [[file:./tags/%s.org][%s]] (%d) \n&quot; tag tag (length posts)))          )
+         tag-map
+         )
+        )
 
       )
 
@@ -481,24 +481,24 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
     (maphash
      (lambda (tag link-plists)
        (let
-	   ((tag-file (concat tag-dir tag &quot;.org&quot;)))
-	 (with-temp-file tag-file
-	   (insert (format &quot;#+TITLE: Tag: %s\n&quot; tag))
-	   (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
-	   (insert (format &quot;* %s\n&quot; tag))
+           ((tag-file (concat tag-dir tag &quot;.org&quot;)))
+         (with-temp-file tag-file
+           (insert (format &quot;#+TITLE: Tag: %s\n&quot; tag))
+           (insert &quot;#+OPTIONS: toc:nil\n\n&quot;)
+           (insert (format &quot;* %s\n&quot; tag))
 
-	   (dolist (link-plist link-plists)
-	     (let*
-		 ((title (plist-get link-plist :title))
-		  (description (plist-get link-plist :description))
-		  (file (plist-get link-plist :file))
-		  (date (plist-get link-plist :date))
-		  (preview (plist-get link-plist :preview))
-		  (relative-file (file-relative-name file (file-name-directory tag-file))))
-	       (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
-	       (insert (format &quot;%s\n&quot; description))
-	       (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
-	       (insert (format &quot;%s\n&quot; (my/date-format date))))))))
+           (dolist (link-plist link-plists)
+             (let*
+                 ((title (plist-get link-plist :title))
+                  (description (plist-get link-plist :description))
+                  (file (plist-get link-plist :file))
+                  (date (plist-get link-plist :date))
+                  (preview (plist-get link-plist :preview))
+                  (relative-file (file-relative-name file (file-name-directory tag-file))))
+               (insert (format &quot;** [[file:%s][%s]]\n&quot; relative-file title))
+               (insert (format &quot;%s\n&quot; description))
+               (insert (format &quot;#+BEGIN_QUOTE\n%s ...\n#+END_QUOTE\n&quot; preview))
+               (insert (format &quot;%s\n&quot; (my/date-format date))))))))
      tag-map)
     )
   )
@@ -511,31 +511,31 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
  ENTRY is a file name.  STYLE is either &apos;list&apos; or &apos;tree&apos;.
  PROJECT is the current project.&quot;
   (cond ((not (directory-name-p entry))
-	 (let* ((file (org-publish--expand-file-name entry project))
-		(title (org-publish-find-title entry project))
-		(date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
-		(link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
-	   (with-temp-buffer
-	     (org-mode)
-	     (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
-	     (org-set-property &quot;RSS_PERMALINK&quot; link)
-	     (org-set-property &quot;RSS_TITLE&quot; title)
-	     (org-set-property &quot;PUBDATE&quot; date)
-	     (let ((first-two-lines (with-temp-buffer
-				      (insert-file-contents file)
-				      (buffer-substring-no-properties
-				       (point-min)
-				       (progn (forward-line 2) (point))))))
-	       (if (string-suffix-p &quot;\n&quot; first-two-lines)
-		   (setq first-two-lines (substring first-two-lines 0 -1)))
-	       (insert first-two-lines))
-	     (goto-char (point-max))
-	     (insert &quot;...&quot;)
-	     (buffer-string))))
-	((eq style &apos;tree)
-	 ;; Return only last subdir.
-	 (file-name-nondirectory (directory-file-name entry)))
-	(t entry)))
+         (let* ((file (org-publish--expand-file-name entry project))
+                (title (org-publish-find-title entry project))
+                (date (format-time-string &quot;%Y-%m-%d&quot; (org-publish-find-date entry project)))
+                (link (concat (file-name-sans-extension entry) &quot;.html&quot;)))
+           (with-temp-buffer
+             (org-mode)
+             (insert (format &quot;* [[file:%s][%s]]\n&quot; file title))
+             (org-set-property &quot;RSS_PERMALINK&quot; link)
+             (org-set-property &quot;RSS_TITLE&quot; title)
+             (org-set-property &quot;PUBDATE&quot; date)
+             (let ((first-two-lines (with-temp-buffer
+                                      (insert-file-contents file)
+                                      (buffer-substring-no-properties
+                                       (point-min)
+                                       (progn (forward-line 2) (point))))))
+               (if (string-suffix-p &quot;\n&quot; first-two-lines)
+                   (setq first-two-lines (substring first-two-lines 0 -1)))
+               (insert first-two-lines))
+             (goto-char (point-max))
+             (insert &quot;...&quot;)
+             (buffer-string))))
+        ((eq style &apos;tree)
+         ;; Return only last subdir.
+         (file-name-nondirectory (directory-file-name entry)))
+        (t entry)))
 
 (defun my/format-rss-feed (title list)
   &quot;Generate RSS feed, as a string.
@@ -543,8 +543,8 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
  representation for the files to include, as returned by
  `org-list-to-lisp&apos;.  PROJECT is the current project.&quot;
   (concat &quot;#+TITLE: &quot; title &quot;\n&quot;
-	  &quot;#+STARTUP: showall \n\n&quot;
-	  (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
+          &quot;#+STARTUP: showall \n\n&quot;
+          (org-list-to-subtree list 1 &apos;(:icount &quot;&quot; :istart &quot;&quot;))))
 
 (defun my/publish-to-rss (plist filename pub-dir)
   &quot;Publish RSS with PLIST, only when FILENAME is &apos;rss.org&apos;.
@@ -573,24 +573,24 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
     ;; Now read and return the first two meaningful lines
 
     (cleanup-org-line (buffer-substring-no-properties
-		       (point)
-		       (progn (forward-line 2) (point)))
-		      ))
+                       (point)
+                       (progn (forward-line 2) (point)))
+                      ))
   )
 
 (defun date-less-p (date1 date2)
   &quot;Return t if DATE1 is less than DATE2.
  DATE1 and DATE2 should be strings in the format &amp;lt;YYYY-MM-DD Day&amp;gt;.&quot;
   (let* ((date1 (substring date1 1 11))  ; Extract the date part
-	 (date2 (substring date2 1 11))
-	 (time1 (apply &apos;encode-time (parse-time-string (concat date1 &quot; 00:00:00&quot;))))
-	 (time2 (apply &apos;encode-time (parse-time-string (concat date2 &quot; 00:00:00&quot;)))))
+         (date2 (substring date2 1 11))
+         (time1 (apply &apos;encode-time (parse-time-string (concat date1 &quot; 00:00:00&quot;))))
+         (time2 (apply &apos;encode-time (parse-time-string (concat date2 &quot; 00:00:00&quot;)))))
     (time-less-p time1 time2)))
 
 (defun my/date-format (org-date)
   &quot;Convert an Org-mode date string ORG-DATE to a formatted date string.&quot;
   (let* ((parsed-time (org-parse-time-string org-date))
-	 (time (apply &apos;encode-time parsed-time)))
+         (time (apply &apos;encode-time parsed-time)))
     (format-time-string &quot;posted on %Y-%m-%d&quot; time)))
 
 (defun my/format-date-subtitle (file project)
@@ -618,7 +618,7 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
   (org-element-map (plist-get info :parse-tree) &apos;keyword
     (lambda (keyword)
       (when (string= (org-element-property :key keyword) property)
-	(org-element-property :value keyword)))
+        (org-element-property :value keyword)))
     nil t))
 
 (defun my/org-has-src-blocks-p (info)
@@ -632,8 +632,8 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
   (let ((output-string input-string))
     (dolist (pair my/lang-substitution-map)
       (let ((old (regexp-quote (car pair)))
-	    (new (cdr pair)))
-	(setq output-string (replace-regexp-in-string old new output-string))))
+            (new (cdr pair)))
+        (setq output-string (replace-regexp-in-string old new output-string))))
     output-string))
 
 ;;
@@ -650,51 +650,51 @@ A neat thing I've implemented is a way to filter out unpublished posts using a <
 (setq org-publish-project-alist
       (list
        (list &quot;blog-index&quot;
-	     :base-directory my/blog-src-path
-	     :base-extension &quot;org&quot;
-	     :recursive t
-	     :publishing-directory my/web-export-path
-	     :publishing-function &apos;my/publish-blog-index)
+             :base-directory my/blog-src-path
+             :base-extension &quot;org&quot;
+             :recursive t
+             :publishing-directory my/web-export-path
+             :publishing-function &apos;my/publish-blog-index)
        (list &quot;static&quot;
-	     :base-directory my/blog-src-path
-	     :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
-	     :publishing-directory my/web-export-path
-	     :recursive t
-	     :publishing-function &apos;org-publish-attachment
-	     )
+             :base-directory my/blog-src-path
+             :base-extension &quot;css\\|js\\|png\\|jpg\\|jpeg\\|gif\\|pdf\\|ico\\|txt&quot;
+             :publishing-directory my/web-export-path
+             :recursive t
+             :publishing-function &apos;org-publish-attachment
+             )
        (list &quot;blog&quot;
-	     :recursive t
-	     :base-directory my/blog-src-path
-	     :publishing-directory my/web-export-path
-	     :publishing-function &apos;my/publish-to-html
-	     :html-html5-fancy t
-	     :htmlized-source t
-	     :with-author nil
-	     :with-creator t
-	     :with-toc t
-	     :section-numbers nil
-	     :time-stamp-file nil
-	     )
+             :recursive t
+             :base-directory my/blog-src-path
+             :publishing-directory my/web-export-path
+             :publishing-function &apos;my/publish-to-html
+             :html-html5-fancy t
+             :htmlized-source t
+             :with-author nil
+             :with-creator t
+             :with-toc t
+             :section-numbers nil
+             :time-stamp-file nil
+             )
        (list &quot;blog-rss&quot;
-	     :author &quot;Alex M&quot;
-	     :email &quot;iam@fidonode.me&quot;
-	     :base-directory my/blog-src-path
-	     :base-extension &quot;org&quot;
-	     :recursive t
-	     :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
-	     :publishing-function &apos;my/publish-to-rss
-	     :publishing-directory my/web-export-path
-	     :rss-extension &quot;xml&quot;
-	     :html-link-home my/url
-	     :html-link-use-abs-url t
-	     :html-link-org-files-as-html t
-	     :auto-sitemap t
-	     :sitemap-filename &quot;rss.org&quot;
-	     :sitemap-title &quot;rss&quot;
-	     :sitemap-style &apos;list
-	     :sitemap-sort-files &apos;anti-chronologically
-	     :sitemap-function &apos;my/format-rss-feed
-	     :sitemap-format-entry &apos;my/format-rss-feed-entry)
+             :author &quot;Alex M&quot;
+             :email &quot;iam@fidonode.me&quot;
+             :base-directory my/blog-src-path
+             :base-extension &quot;org&quot;
+             :recursive t
+             :exclude (regexp-opt &apos;(&quot;rss.org&quot; &quot;index.org&quot; &quot;404.org&quot; &quot;posts.org&quot;))
+             :publishing-function &apos;my/publish-to-rss
+             :publishing-directory my/web-export-path
+             :rss-extension &quot;xml&quot;
+             :html-link-home my/url
+             :html-link-use-abs-url t
+             :html-link-org-files-as-html t
+             :auto-sitemap t
+             :sitemap-filename &quot;rss.org&quot;
+             :sitemap-title &quot;rss&quot;
+             :sitemap-style &apos;list
+             :sitemap-sort-files &apos;anti-chronologically
+             :sitemap-function &apos;my/format-rss-feed
+             :sitemap-format-entry &apos;my/format-rss-feed-entry)
        ))
 
 

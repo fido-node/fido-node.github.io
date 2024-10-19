@@ -1,32 +1,32 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Add post preview for OpenGraph cards"/><meta property="og:description" content="Add post preview for OpenGraph cards"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta property="og:title" content="Posts preview"/><meta name="twitter:description" content="Add post preview for OpenGraph cards"/><meta name="twitter:title" content="Posts preview"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Posts preview</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Posts preview</h1><p>Add post preview for OpenGraph cards</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@imagemagick.html" class="secondary">@imagemagick</a></mark></li></ul></nav></hgroup><div id="table-of-contents">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Add post preview for OpenGraph cards"/><meta property="og:description" content="Add post preview for OpenGraph cards"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta property="og:title" content="Posts preview"/><meta name="twitter:description" content="Add post preview for OpenGraph cards"/><meta name="twitter:title" content="Posts preview"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/posts_preview.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Posts preview</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Posts preview</h1><p>Add post preview for OpenGraph cards</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@imagemagick.html" class="secondary">@imagemagick</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
-<div id="text-table-of-contents">
+<div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd56a941">What is imagemagick</a></li>
-<li><a href="#org453a689">Basic idea of this process</a></li>
-<li><a href="#orgf2af64f">Integrate into build</a></li>
-<li><a href="#org245c7d6">Whats next?</a>
+<li><a href="#orgd9023df">What is imagemagick</a></li>
+<li><a href="#org0a8dc9a">Basic idea of this process</a></li>
+<li><a href="#org49ae5aa">Integrate into build</a></li>
+<li><a href="#org6fa54e8">Whats next?</a>
 <ul>
-<li><a href="#org53411a1">Tags</a></li>
-<li><a href="#org4f4168c">Post series</a></li>
-<li><a href="#orgff1333a">Adopt/fix htmlize.el</a></li>
-<li><a href="#org35ab4a0">Show more meta on posts index page.</a></li>
+<li><a href="#org6687a34">Tags</a></li>
+<li><a href="#orgba5a520">Post series</a></li>
+<li><a href="#org486f0a7">Adopt/fix htmlize.el</a></li>
+<li><a href="#org6d2d4a6">Show more meta on posts index page.</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd56a941" class="outline-2">
-<h2 id="orgd56a941">What is imagemagick</h2>
-<div class="outline-text-2" id="text-orgd56a941">
+<div id="outline-container-orgd9023df" class="outline-2">
+<h2 id="orgd9023df">What is imagemagick</h2>
+<div class="outline-text-2" id="text-orgd9023df">
 <p>
 <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
 </p>
 </div>
 </div>
-<div id="outline-container-org453a689" class="outline-2">
-<h2 id="org453a689">Basic idea of this process</h2>
-<div class="outline-text-2" id="text-org453a689">
+<div id="outline-container-org0a8dc9a" class="outline-2">
+<h2 id="org0a8dc9a">Basic idea of this process</h2>
+<div class="outline-text-2" id="text-org0a8dc9a">
 <p>
 I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:
 </p>
@@ -48,30 +48,30 @@ So I with all these data I can generate my previews with simple script:
 </div>
 </div>
 
-<div id="outline-container-orgf2af64f" class="outline-2">
-<h2 id="orgf2af64f">Integrate into build</h2>
-<div class="outline-text-2" id="text-orgf2af64f">
+<div id="outline-container-org49ae5aa" class="outline-2">
+<h2 id="org49ae5aa">Integrate into build</h2>
+<div class="outline-text-2" id="text-org49ae5aa">
 <p>
 As I already mention I gonna skip file generation when file already here. Here is the whole function. Pretty simple. Just prepare pathes, check some dependencies, create pathes and execute script which calls imagemagick.
 </p>
 <pre><code class="language-lisp">(defun my/render-preview (file-name title description)
   (let* ((has-imagemagick (executable-find &quot;magick&quot;))
-	 (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
-	 (file-dir (file-name-directory full-file-path))
-	 (has-dir (file-directory-p file-dir))
-	 (has-file (file-exists-p full-file-path))
-	 (path-to-script-root (format &quot;%shelpers&quot; script-directory))
-	 (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
+         (full-file-path (file-truename(format &quot;%s%s/resources/images/preview/%s.png&quot; script-directory my/blog-src-path file-name )))
+         (file-dir (file-name-directory full-file-path))
+         (has-dir (file-directory-p file-dir))
+         (has-file (file-exists-p full-file-path))
+         (path-to-script-root (format &quot;%shelpers&quot; script-directory))
+         (path-to-script (format &quot;%s/og_image_gen.sh&quot; path-to-script-root)))
     (if (and has-imagemagick
-	     (and description (not (string= description &quot;&quot;))))
-	(progn
-	  (when (not has-file)
-	    (progn
-	      (when (not has-dir)
-		(make-directory file-dir t))
-	      (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
-	      )
-	    ))
+             (and description (not (string= description &quot;&quot;))))
+        (progn
+          (when (not has-file)
+            (progn
+              (when (not has-dir)
+                (make-directory file-dir t))
+              (shell-command (format &quot;bash &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos; &apos;%s&apos;&quot; path-to-script title description full-file-path path-to-script-root))
+              )
+            ))
       (message &quot;Imagemagick is not installed. Preview generation skipped.&quot;)
       )))
 </code></pre>
@@ -82,11 +82,11 @@ And here is the part of <code>my/template</code> function related to OpenGraph m
 <pre><code class="language-lisp">(defun my/template (contents info)
 
   (let* ((title-str (org-export-data (plist-get info :title) info))
-	 (description-str (org-export-data (plist-get info :description) info))
-	 (file-path-str (org-export-data (plist-get info :input-file) info))
-	 (base-directory-str (org-export-data (plist-get info :base-directory) info))
-	 (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
-	 (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
+         (description-str (org-export-data (plist-get info :description) info))
+         (file-path-str (org-export-data (plist-get info :input-file) info))
+         (base-directory-str (org-export-data (plist-get info :base-directory) info))
+         (file-name-str (file-relative-name file-path-str (format &quot;%s/%s&quot; script-directory base-directory-str)))
+         (img-link-str (format &quot;%s/resources/images/preview/%s.png&quot; my/url file-name-str))
 
     (my/render-preview file-name-str title-str description-str)
 
@@ -94,18 +94,18 @@ And here is the part of <code>my/template</code> function related to OpenGraph m
     (set-text-properties 0 (length description-str) nil description-str)
     (set-text-properties 0 (length img-link-str) nil img-link-str)
 ...
-	      ;; OG block
-	      (meta ((name . &quot;description&quot;) (content .  ,description-str)))
-	      (meta ((name . &quot;og:description&quot;) (content . ,description-str)))
-	      (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
+              ;; OG block
+              (meta ((name . &quot;description&quot;) (content .  ,description-str)))
+              (meta ((name . &quot;og:description&quot;) (content . ,description-str)))
+              (meta ((name . &quot;twitter:description&quot;) (content . ,description-str)))
 
-	      (meta ((name . &quot;og:image&quot;) (content . ,img-link-str)))
-	      (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
+              (meta ((name . &quot;og:image&quot;) (content . ,img-link-str)))
+              (meta ((name . &quot;twitter:image&quot;) (content . ,img-link-str)))
 
-	      (meta ((name . &quot;og:title&quot;) (content . ,title-str)))
-	      (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
+              (meta ((name . &quot;og:title&quot;) (content . ,title-str)))
+              (meta ((name . &quot;twitter:title&quot;) (content . ,title-str)))
 
-	      (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
+              (meta ((name . &quot;twitter:card&quot;) (content . &quot;summary_large_image&quot;)))
 
 </code></pre>
 <p>
@@ -113,38 +113,38 @@ You can check whole function in previous post <a href="./improve_code_blocks.htm
 </p>
 </div>
 </div>
-<div id="outline-container-org245c7d6" class="outline-2">
-<h2 id="org245c7d6">Whats next?</h2>
-<div class="outline-text-2" id="text-org245c7d6">
+<div id="outline-container-org6fa54e8" class="outline-2">
+<h2 id="org6fa54e8">Whats next?</h2>
+<div class="outline-text-2" id="text-org6fa54e8">
 </div>
-<div id="outline-container-org53411a1" class="outline-3">
-<h3 id="org53411a1">Tags</h3>
-<div class="outline-text-3" id="text-org53411a1">
+<div id="outline-container-org6687a34" class="outline-3">
+<h3 id="org6687a34">Tags</h3>
+<div class="outline-text-3" id="text-org6687a34">
 <p>
 Show tags, show posts by tag.
 <a href="./blog_index_and_tags_automation.html">Blog index and tags automation</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org4f4168c" class="outline-3">
-<h3 id="org4f4168c">Post series</h3>
-<div class="outline-text-3" id="text-org4f4168c">
+<div id="outline-container-orgba5a520" class="outline-3">
+<h3 id="orgba5a520">Post series</h3>
+<div class="outline-text-3" id="text-orgba5a520">
 <p>
 Dunno how, but I'll figure out something.
 </p>
 </div>
 </div>
-<div id="outline-container-orgff1333a" class="outline-3">
-<h3 id="orgff1333a">Adopt/fix htmlize.el</h3>
-<div class="outline-text-3" id="text-orgff1333a">
+<div id="outline-container-org486f0a7" class="outline-3">
+<h3 id="org486f0a7">Adopt/fix htmlize.el</h3>
+<div class="outline-text-3" id="text-org486f0a7">
 <p>
 I want to highlight code during publishing step.
 </p>
 </div>
 </div>
-<div id="outline-container-org35ab4a0" class="outline-3">
-<h3 id="org35ab4a0">Show more meta on posts index page.</h3>
-<div class="outline-text-3" id="text-org35ab4a0">
+<div id="outline-container-org6d2d4a6" class="outline-3">
+<h3 id="org6d2d4a6">Show more meta on posts index page.</h3>
+<div class="outline-text-3" id="text-org6d2d4a6">
 <p>
 Creation date, preview, tags, whatever.
 <a href="./blog_index_and_tags_automation.html">Blog index and tags automation</a>
