@@ -2,91 +2,97 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org5e745d5">Blog index and tags automation</a></li>
-<li><a href="#org630a1df">Posts preview</a></li>
-<li><a href="#orgec123c4">Improve code blocks</a></li>
-<li><a href="#orgdb75fda">Org blog with RSS</a></li>
-<li><a href="#org2dd3caf">Org to HTML and back</a></li>
-<li><a href="#org285ca55">My keyboard journey</a></li>
+<li><a href="#orga77fa60">Blog index and tags automation</a></li>
+<li><a href="#orgeb9b390">Posts preview</a></li>
+<li><a href="#orgeffa8b7">Improve code blocks</a></li>
+<li><a href="#org63053a3">Org blog with RSS</a></li>
+<li><a href="#org052185a">Org to HTML and back</a></li>
+<li><a href="#orgae00ef6">My keyboard journey</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org5e745d5" class="outline-2">
-<h2 id="org5e745d5"><a href="file:///home/fido-node/org/home/05 Blog/posts/blog_index_and_tags_automation.html">Blog index and tags automation</a></h2>
-<div class="outline-text-2" id="text-org5e745d5">
+<div id="outline-container-orga77fa60" class="outline-2">
+<h2 id="orga77fa60"><a href="file:///home/fido-node/org/home/05 Blog/posts/blog_index_and_tags_automation.html">Blog index and tags automation</a></h2>
+<div class="outline-text-2" id="text-orga77fa60">
 <p>
 Let's add tags to blog posts
 </p>
 
 <p>
 Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
-Automate tags&#x2026;.
+Automate tags.
+Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy&#x2026;.
 </p>
 </div>
 </div>
-<div id="outline-container-org630a1df" class="outline-2">
-<h2 id="org630a1df"><a href="file:///home/fido-node/org/home/05 Blog/posts/posts_preview.html">Posts preview</a></h2>
-<div class="outline-text-2" id="text-org630a1df">
+<div id="outline-container-orgeb9b390" class="outline-2">
+<h2 id="orgeb9b390"><a href="file:///home/fido-node/org/home/05 Blog/posts/posts_preview.html">Posts preview</a></h2>
+<div class="outline-text-2" id="text-orgeb9b390">
 <p>
 Add post preview for OpenGraph cards
 </p>
 
 <p>
 <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
-Basic idea of this process&#x2026;
+Basic idea of this process
+I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-orgec123c4" class="outline-2">
-<h2 id="orgec123c4"><a href="file:///home/fido-node/org/home/05 Blog/posts/improve_code_blocks.html">Improve code blocks</a></h2>
-<div class="outline-text-2" id="text-orgec123c4">
+<div id="outline-container-orgeffa8b7" class="outline-2">
+<h2 id="orgeffa8b7"><a href="file:///home/fido-node/org/home/05 Blog/posts/improve_code_blocks.html">Improve code blocks</a></h2>
+<div class="outline-text-2" id="text-orgeffa8b7">
 <p>
 Use highlight.js for code syntax highlighting
 </p>
 
 <p>
 Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
-Highlight.js&#x2026;
+Highlight.js
+Change code block template&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-orgdb75fda" class="outline-2">
-<h2 id="orgdb75fda"><a href="file:///home/fido-node/org/home/05 Blog/posts/add_rss_to_blog.html">Org blog with RSS</a></h2>
-<div class="outline-text-2" id="text-orgdb75fda">
+<div id="outline-container-org63053a3" class="outline-2">
+<h2 id="org63053a3"><a href="file:///home/fido-node/org/home/05 Blog/posts/add_rss_to_blog.html">Org blog with RSS</a></h2>
+<div class="outline-text-2" id="text-org63053a3">
 <p>
 Let's add RSS feed to blog
 </p>
 
 <p>
 RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
-Add RSS feed&#x2026;
+Add RSS feed
+So, what's happening here? Let's start by integrating our templating functions into the build&#x2026;.
 </p>
 </div>
 </div>
-<div id="outline-container-org2dd3caf" class="outline-2">
-<h2 id="org2dd3caf"><a href="file:///home/fido-node/org/home/05 Blog/posts/about_blog.html">Org to HTML and back</a></h2>
-<div class="outline-text-2" id="text-org2dd3caf">
+<div id="outline-container-org052185a" class="outline-2">
+<h2 id="org052185a"><a href="file:///home/fido-node/org/home/05 Blog/posts/about_blog.html">Org to HTML and back</a></h2>
+<div class="outline-text-2" id="text-org052185a">
 <p>
 Blog post about publishing my blog with Org Mode
 </p>
 
 <p>
 I'm neither proficient in Org Mode (further on "Org"), nor a good front-end engineer. I think that a simple solution is better than no solution. If you see a mistake, you can contact me via <a href="mailto:iam@fidonode.me">iam@fidonode.me</a>.
-What is Org?&#x2026;
+What is Org?
+#+begin<sub>quote</sub>&#x2026;
 </p>
 </div>
 </div>
-<div id="outline-container-org285ca55" class="outline-2">
-<h2 id="org285ca55"><a href="file:///home/fido-node/org/home/05 Blog/posts/keeb.html">My keyboard journey</a></h2>
-<div class="outline-text-2" id="text-org285ca55">
+<div id="outline-container-orgae00ef6" class="outline-2">
+<h2 id="orgae00ef6"><a href="file:///home/fido-node/org/home/05 Blog/posts/keeb.html">My keyboard journey</a></h2>
+<div class="outline-text-2" id="text-orgae00ef6">
 <p>
 Blog post about my keyboards
 </p>
 
 <p>
 Sometimes I think about the long journey I've made with keebs. In childhood, I had decent membrane keyboards, most of which had an ergonomic profile like the MS. Not sure if it somehow affected my taste because I started my career with the simplest, cheapest board and typed countless lines of code on such keebs. Then I heard about clickity-clack mechanical keyboards and decided to try one. It was a simple Chinese keeb with a thick metal body, double-shot caps, and Cherry Brown switches. A decent thing to annoy everyone around you. I think this purchase marked my dive into mech keebs
-I'm not a geeky aficionado who thinks you can fix everything with a new keyboard, but I built a couple of them. I hope I've finally built the last one for quite some time&#x2026;.
+I'm not a geeky aficionado who thinks you can fix everything with a new keyboard, but I built a couple of them. I hope I've finally built the last one for quite some time.
+Dactyl manuform&#x2026;
 </p>
 </div>
 </div>

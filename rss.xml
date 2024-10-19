@@ -14,8 +14,8 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[Slice of my technical life]]></description>
   <language>en</language>
-  <pubDate>Sat, 19 Oct 2024 16:09:51 +0000</pubDate>
-  <lastBuildDate>Sat, 19 Oct 2024 16:09:51 +0000</lastBuildDate>
+  <pubDate>Sat, 19 Oct 2024 16:28:58 +0000</pubDate>
+  <lastBuildDate>Sat, 19 Oct 2024 16:28:58 +0000</lastBuildDate>
   <generator>Emacs 29.3 Org-mode 9.6.15</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
@@ -38,7 +38,8 @@
 
     <p>
     Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
-    Automate tags....
+    Automate tags.
+    Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy....
     </p>
     ]]></description>
   </item>
@@ -55,7 +56,8 @@
 
     <p>
     <a href="https://imagemagick.org">Imagemagick</a> is a ffmpeg of the image world. You can do a lot of fun things with it. For example you can take a picture, cut corners on it, place it on top of another image, add some text and get final result. So it is looks like a good tool for making previews from code.
-    Basic idea of this process...
+    Basic idea of this process
+    I want to hook a process of rendering post. Since this function called on each run of publishing and for each post it is a good idea to cache resulting images. I gonna simply check presence of preview image and use it as guard for running image generation. After that I gonna extract <code>#+TITLE</code> and <code>#+DESCRIPTION</code> properties from Org file. Each Org file I have, has next header:...
     </p>
     ]]></description>
   </item>
@@ -72,7 +74,8 @@
 
     <p>
     Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
-    Highlight.js...
+    Highlight.js
+    Change code block template...
     </p>
     ]]></description>
   </item>
@@ -89,7 +92,8 @@
 
     <p>
     RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
-    Add RSS feed...
+    Add RSS feed
+    So, what's happening here? Let's start by integrating our templating functions into the build....
     </p>
     ]]></description>
   </item>
@@ -106,7 +110,8 @@
 
     <p>
     I'm neither proficient in Org Mode (further on "Org"), nor a good front-end engineer. I think that a simple solution is better than no solution. If you see a mistake, you can contact me via <a href="mailto:iam@fidonode.me">iam@fidonode.me</a>.
-    What is Org?...
+    What is Org?
+    #+begin<sub>quote</sub>...
     </p>
     ]]></description>
   </item>
@@ -123,7 +128,8 @@
 
     <p>
     Sometimes I think about the long journey I've made with keebs. In childhood, I had decent membrane keyboards, most of which had an ergonomic profile like the MS. Not sure if it somehow affected my taste because I started my career with the simplest, cheapest board and typed countless lines of code on such keebs. Then I heard about clickity-clack mechanical keyboards and decided to try one. It was a simple Chinese keeb with a thick metal body, double-shot caps, and Cherry Brown switches. A decent thing to annoy everyone around you. I think this purchase marked my dive into mech keebs
-    I'm not a geeky aficionado who thinks you can fix everything with a new keyboard, but I built a couple of them. I hope I've finally built the last one for quite some time....
+    I'm not a geeky aficionado who thinks you can fix everything with a new keyboard, but I built a couple of them. I hope I've finally built the last one for quite some time.
+    Dactyl manuform...
     </p>
     ]]></description>
   </item>
