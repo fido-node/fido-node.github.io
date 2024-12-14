@@ -2,33 +2,33 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgf6a2b41">What is the problem with default highlighting?</a></li>
-<li><a href="#org8b0df94">Highlight.js</a>
+<li><a href="#org0d495e1">What is the problem with default highlighting?</a></li>
+<li><a href="#org041e9f0">Highlight.js</a>
 <ul>
-<li><a href="#org16cdd95">Change code block template</a></li>
-<li><a href="#org48c66c9">Plug Highlight.js</a></li>
-<li><a href="#org13b0d0b">Respect prefers-color-scheme</a></li>
+<li><a href="#org146f40b">Change code block template</a></li>
+<li><a href="#org876ce84">Plug Highlight.js</a></li>
+<li><a href="#org52b1ba4">Respect prefers-color-scheme</a></li>
 </ul>
 </li>
-<li><a href="#org8fcd416">Whole config</a></li>
+<li><a href="#orgaf1d5e0">Whole config</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf6a2b41" class="outline-2">
-<h2 id="orgf6a2b41">What is the problem with default highlighting?</h2>
-<div class="outline-text-2" id="text-orgf6a2b41">
+<div id="outline-container-org0d495e1" class="outline-2">
+<h2 id="org0d495e1">What is the problem with default highlighting?</h2>
+<div class="outline-text-2" id="text-org0d495e1">
 <p>
 Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
 </p>
 </div>
 </div>
-<div id="outline-container-org8b0df94" class="outline-2">
-<h2 id="org8b0df94">Highlight.js</h2>
-<div class="outline-text-2" id="text-org8b0df94">
+<div id="outline-container-org041e9f0" class="outline-2">
+<h2 id="org041e9f0">Highlight.js</h2>
+<div class="outline-text-2" id="text-org041e9f0">
 </div>
-<div id="outline-container-org16cdd95" class="outline-3">
-<h3 id="org16cdd95">Change code block template</h3>
-<div class="outline-text-3" id="text-org16cdd95">
+<div id="outline-container-org146f40b" class="outline-3">
+<h3 id="org146f40b">Change code block template</h3>
+<div class="outline-text-3" id="text-org146f40b">
 <p>
 We need to make small changes in how code blocks are rendered. By default, Org Export exports code blocks as <code>&lt;pre&gt;&lt;/pre&gt;</code>. For Highlight.js, we need <code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code>. Additionally, we need to set the correct language name in the class attribute. Since Highlight.js does not support <code>elisp</code>, I rewrite it to regular <code>lisp</code> using the <code>my/replace-substring</code> function.
 </p>
@@ -69,9 +69,9 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org48c66c9" class="outline-3">
-<h3 id="org48c66c9">Plug Highlight.js</h3>
-<div class="outline-text-3" id="text-org48c66c9">
+<div id="outline-container-org876ce84" class="outline-3">
+<h3 id="org876ce84">Plug Highlight.js</h3>
+<div class="outline-text-3" id="text-org876ce84">
 <p>
 I do not want to load Highlight.js on every page, so I need to check if the initial Org file contains code blocks. Depending on this, we will render the part of the tree with JavaScript or not.
 </p>
@@ -105,9 +105,9 @@ I do not want to load Highlight.js on every page, so I need to check if the init
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org13b0d0b" class="outline-3">
-<h3 id="org13b0d0b">Respect prefers-color-scheme</h3>
-<div class="outline-text-3" id="text-org13b0d0b">
+<div id="outline-container-org52b1ba4" class="outline-3">
+<h3 id="org52b1ba4">Respect prefers-color-scheme</h3>
+<div class="outline-text-3" id="text-org52b1ba4">
 <p>
 Additionally, I think it's a good idea to respect the <code>prefers-color-scheme</code> property of the user's browser. We can switch CSS files based on this property. We should also subscribe to changes in this property to handle the edge case when it switches while reading the page.
 </p>
@@ -141,9 +141,9 @@ window
 </div>
 </div>
 </div>
-<div id="outline-container-org8fcd416" class="outline-2">
-<h2 id="org8fcd416">Whole config</h2>
-<div class="outline-text-2" id="text-org8fcd416">
+<div id="outline-container-orgaf1d5e0" class="outline-2">
+<h2 id="orgaf1d5e0">Whole config</h2>
+<div class="outline-text-2" id="text-orgaf1d5e0">
 <p>
 In between posts I've switched from <code>sxml</code> to <code>esxml</code> so here is the current config.
 </p>
