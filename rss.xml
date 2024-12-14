@@ -14,9 +14,9 @@
   <link>https://fidonode.me</link>
   <description><![CDATA[Slice of my technical life]]></description>
   <language>en</language>
-  <pubDate>Sat, 09 Nov 2024 20:10:37 +0000</pubDate>
-  <lastBuildDate>Sat, 09 Nov 2024 20:10:37 +0000</lastBuildDate>
-  <generator>Emacs 29.3 Org-mode 9.6.15</generator>
+  <pubDate>Sat, 14 Dec 2024 17:03:33 +0200</pubDate>
+  <lastBuildDate>Sat, 14 Dec 2024 17:03:33 +0200</lastBuildDate>
+  <generator>Emacs 30.0 Org-mode 9.7.11</generator>
   <webMaster>iam@fidonode.me (Alex M)</webMaster>
   <image>
     <url>https://fidonode.me/resources/images/index/avatar.jpg</url>
@@ -24,13 +24,28 @@
     <link>https://fidonode.me</link>
   </image>
 
+  <item>
+    <title>Managing small nix fleet</title>
+    <link>https://fidonode.me/posts/managing-small-nix-fleet.html</link>
+    <author>iam@fidonode.me (Alex M)</author>
+    <guid isPermaLink="false">https://fidonode.me/posts/managing-small-nix-fleet.html</guid>
+    <pubDate>Sat, 14 Dec 2024 00:00:00 +0200</pubDate>
 
+    <description><![CDATA[<p>
+    How I've commited to nixos and what I feel now.
+    </p>
+
+    <p>
+    ...
+    </p>
+    ]]></description>
+  </item>
   <item>
     <title>Blog index and tags automation</title>
     <link>https://fidonode.me/posts/blog_index_and_tags_automation.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/blog_index_and_tags_automation.html</guid>
-    <pubDate>Fri, 05 Jul 2024 00:00:00 +0000</pubDate>
+    <pubDate>Fri, 05 Jul 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Let's add tags to blog posts
@@ -48,7 +63,7 @@
     <link>https://fidonode.me/posts/posts_preview.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/posts_preview.html</guid>
-    <pubDate>Fri, 28 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Fri, 28 Jun 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Add post preview for OpenGraph cards
@@ -66,7 +81,7 @@
     <link>https://fidonode.me/posts/improve_code_blocks.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/improve_code_blocks.html</guid>
-    <pubDate>Tue, 25 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Tue, 25 Jun 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Use highlight.js for code syntax highlighting
@@ -84,7 +99,7 @@
     <link>https://fidonode.me/posts/add_rss_to_blog.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/add_rss_to_blog.html</guid>
-    <pubDate>Sun, 23 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sun, 23 Jun 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Let's add RSS feed to blog
@@ -102,7 +117,7 @@
     <link>https://fidonode.me/posts/about_blog.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/about_blog.html</guid>
-    <pubDate>Sat, 22 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Sat, 22 Jun 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Blog post about publishing my blog with Org Mode
@@ -120,7 +135,7 @@
     <link>https://fidonode.me/posts/keeb.html</link>
     <author>iam@fidonode.me (Alex M)</author>
     <guid isPermaLink="false">https://fidonode.me/posts/keeb.html</guid>
-    <pubDate>Wed, 05 Jun 2024 00:00:00 +0000</pubDate>
+    <pubDate>Wed, 05 Jun 2024 00:00:00 +0300</pubDate>
 
     <description><![CDATA[<p>
     Blog post about my keyboards

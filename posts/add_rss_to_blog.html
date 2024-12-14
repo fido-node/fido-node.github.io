@@ -2,34 +2,34 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1f81ef0">Why do you even need RSS?</a></li>
-<li><a href="#orgd8cf0e3">Add RSS feed</a>
+<li><a href="#org49455e1">Why do you even need RSS?</a></li>
+<li><a href="#orga380aa1">Add RSS feed</a>
 <ul>
-<li><a href="#orgf1fa9c5">Use sitemap backend in the build</a></li>
-<li><a href="#org8913545">Publishing and formatting functions</a></li>
+<li><a href="#org832e90a">Use sitemap backend in the build</a></li>
+<li><a href="#org9867c7f">Publishing and formatting functions</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org1f81ef0" class="outline-2">
-<h2 id="org1f81ef0">Why do you even need RSS?</h2>
-<div class="outline-text-2" id="text-org1f81ef0">
+<div id="outline-container-org49455e1" class="outline-2">
+<h2 id="org49455e1">Why do you even need RSS?</h2>
+<div class="outline-text-2" id="text-org49455e1">
 <p>
 RSS might seem like an outdated, marginal thing. But it still has at least one benefit—you can use an RSS feed as a sitemap for search engines. Plus, it's pretty geeky.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd8cf0e3" class="outline-2">
-<h2 id="orgd8cf0e3">Add RSS feed</h2>
-<div class="outline-text-2" id="text-orgd8cf0e3">
+<div id="outline-container-orga380aa1" class="outline-2">
+<h2 id="orga380aa1">Add RSS feed</h2>
+<div class="outline-text-2" id="text-orga380aa1">
 <p>
 So, what's happening here? Let's start by integrating our templating functions into the build.
 </p>
 </div>
-<div id="outline-container-orgf1fa9c5" class="outline-3">
-<h3 id="orgf1fa9c5">Use sitemap backend in the build</h3>
-<div class="outline-text-3" id="text-orgf1fa9c5">
+<div id="outline-container-org832e90a" class="outline-3">
+<h3 id="org832e90a">Use sitemap backend in the build</h3>
+<div class="outline-text-3" id="text-org832e90a">
 <pre><code class="language-lisp">(setq org-publish-project-alist
       (list
        (list &quot;blog-rss&quot;
@@ -59,9 +59,9 @@ How does it work? As you can see, we use the default sitemap generator from Org 
 </p>
 </div>
 </div>
-<div id="outline-container-org8913545" class="outline-3">
-<h3 id="org8913545">Publishing and formatting functions</h3>
-<div class="outline-text-3" id="text-org8913545">
+<div id="outline-container-org9867c7f" class="outline-3">
+<h3 id="org9867c7f">Publishing and formatting functions</h3>
+<div class="outline-text-3" id="text-org9867c7f">
 <p>
 We need a mandatory dependency because we don't want to mess with forming correct XML by ourselves.
 </p>
