@@ -1,32 +1,32 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Blog index and tags automation</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@tags.html" class="secondary">@tags</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Let&apos;s add tags to blog posts"/><meta property="og:description" content="Let&apos;s add tags to blog posts"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta property="og:title" content="Blog index and tags automation"/><meta name="twitter:description" content="Let&apos;s add tags to blog posts"/><meta name="twitter:title" content="Blog index and tags automation"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/blog_index_and_tags_automation.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://cloud.umami.is/script.js" data-website-id="447933ff-316a-4da2-b12f-e0cab130afed"></script><title>Blog index and tags automation</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Blog index and tags automation</h1><p>Let&apos;s add tags to blog posts</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@tags.html" class="secondary">@tags</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgd02dab9">Tags.</a>
+<li><a href="#org8215749">Tags.</a>
 <ul>
-<li><a href="#org08cd158">Automate tags.</a></li>
+<li><a href="#org35e5cae">Automate tags.</a></li>
 </ul>
 </li>
-<li><a href="#orgd87a8ba">Posts index.</a>
+<li><a href="#org8ee1bc2">Posts index.</a>
 <ul>
-<li><a href="#orge474200">Posts index automation.</a></li>
+<li><a href="#org6f0fd07">Posts index automation.</a></li>
 </ul>
 </li>
-<li><a href="#org85a7167">Cons.</a></li>
-<li><a href="#org7c041f1">Whole config.</a></li>
+<li><a href="#org14f65e9">Cons.</a></li>
+<li><a href="#org73a4ce8">Whole config.</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd02dab9" class="outline-2">
-<h2 id="orgd02dab9">Tags.</h2>
-<div class="outline-text-2" id="text-orgd02dab9">
+<div id="outline-container-org8215749" class="outline-2">
+<h2 id="org8215749">Tags.</h2>
+<div class="outline-text-2" id="text-org8215749">
 <p>
 Tags are a nice and easy way to organize posts without explicit search. In the simplest way, you have a list of tags in posts, and each tag links to a page with all posts having the corresponding tag. It is also helpful to have a page with all tags available in the blog. And, of course, I don't want to maintain the list of tags manually.
 </p>
 </div>
-<div id="outline-container-org08cd158" class="outline-3">
-<h3 id="org08cd158">Automate tags.</h3>
-<div class="outline-text-3" id="text-org08cd158">
+<div id="outline-container-org35e5cae" class="outline-3">
+<h3 id="org35e5cae">Automate tags.</h3>
+<div class="outline-text-3" id="text-org35e5cae">
 <p>
 Simple idea - go through all files, collect titles, dates and descriptions, render into org files. Easy peazy lemon squezy.
 Let me show you parts of function body.
@@ -113,16 +113,16 @@ Resulting page example: <a href="https://fidonode.me/tags/@org-mode">@org-mode</
 </div>
 </div>
 </div>
-<div id="outline-container-orgd87a8ba" class="outline-2">
-<h2 id="orgd87a8ba">Posts index.</h2>
-<div class="outline-text-2" id="text-orgd87a8ba">
+<div id="outline-container-org8ee1bc2" class="outline-2">
+<h2 id="org8ee1bc2">Posts index.</h2>
+<div class="outline-text-2" id="text-org8ee1bc2">
 <p>
 Previously, I maintained a list of posts manually. Now that I have more than 5 posts, I no longer want to do it by hand. So, after introducing tags, I've decided to automate the page with the list of posts. The same idea, almost the same data, will be integrated into the same file. Pagination has not yet been implemented and is not planned.
 </p>
 </div>
-<div id="outline-container-orge474200" class="outline-3">
-<h3 id="orge474200">Posts index automation.</h3>
-<div class="outline-text-3" id="text-orge474200">
+<div id="outline-container-org6f0fd07" class="outline-3">
+<h3 id="org6f0fd07">Posts index automation.</h3>
+<div class="outline-text-3" id="text-org6f0fd07">
 <p>
 Here is the part of function which renders list of posts and list of tags with number of posts in each tag category.
 </p>
@@ -170,17 +170,17 @@ Here is an example of resulting page: <a href="https://fidonode.me/posts">Posts<
 </div>
 </div>
 </div>
-<div id="outline-container-org85a7167" class="outline-2">
-<h2 id="org85a7167">Cons.</h2>
-<div class="outline-text-2" id="text-org85a7167">
+<div id="outline-container-org14f65e9" class="outline-2">
+<h2 id="org14f65e9">Cons.</h2>
+<div class="outline-text-2" id="text-org14f65e9">
 <p>
 Now, with the way the rendering function is integrated into the process, it is called when going through each Org file found by Org-Export. This introduces O(n<sup>2</sup>) complexity. It's not ideal, but never mind, I will redo it before reaching the 100th post.
 </p>
 </div>
 </div>
-<div id="outline-container-org7c041f1" class="outline-2">
-<h2 id="org7c041f1">Whole config.</h2>
-<div class="outline-text-2" id="text-org7c041f1">
+<div id="outline-container-org73a4ce8" class="outline-2">
+<h2 id="org73a4ce8">Whole config.</h2>
+<div class="outline-text-2" id="text-org73a4ce8">
 <p>
 As usual, between posts, I decided to tackle a whole bunch of small tasks, so here is the entire config. I'm thinking about splitting the exporter into modules and maybe open-sourcing it properly.
 A neat thing I've implemented is a way to filter out unpublished posts using a <code>PUBLISHED</code> property. This allows me to work on drafts without affecting the blog's current state.

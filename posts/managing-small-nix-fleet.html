@@ -1,4 +1,185 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta property="og:title" content="Managing small nix fleet"/><meta name="twitter:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta name="twitter:title" content="Managing small nix fleet"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.dokutsu.xyz/script.js" data-website-id="d52d9af1-0c7d-4531-84c6-0b9c2850011f"></script><title>Managing small nix fleet</title></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Managing small nix fleet</h1><p>How I&apos;ve commited to nixos and what I feel now.</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@nixos.html" class="secondary">@nixos</a></mark></li></ul></nav></hgroup><p>
-*
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta property="og:title" content="Managing small nix fleet"/><meta name="twitter:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta name="twitter:title" content="Managing small nix fleet"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://cloud.umami.is/script.js" data-website-id="447933ff-316a-4da2-b12f-e0cab130afed"></script><title>Managing small nix fleet</title></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Managing small nix fleet</h1><p>How I&apos;ve commited to nixos and what I feel now.</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@nixos.html" class="secondary">@nixos</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org95a11a7">Prelude</a></li>
+<li><a href="#org62b0a50">Things I'm glad to have</a>
+<ul>
+<li><a href="#org49e74e6">Rich declarative configuration out of the box</a></li>
+<li><a href="#org32b039c">Community driven configuration modules</a></li>
+<li><a href="#org635103d">Devshell</a></li>
+<li><a href="#org42d91d0">Overlays and you own apps</a></li>
+</ul>
+</li>
+<li><a href="#orgb76c8e8">Things I'm not impressed with</a>
+<ul>
+<li><a href="#orgb8b7081">Stability</a></li>
+<li><a href="#org3323db9">Systemd</a></li>
+</ul>
+</li>
+<li><a href="#org5c12871">Things I hate</a>
+<ul>
+<li><a href="#orgea3cfe4">Language</a></li>
+<li><a href="#orgc51b2c7">Runtime/execution</a></li>
+</ul>
+</li>
+<li><a href="#org6f345c5">What is next</a></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org95a11a7" class="outline-2">
+<h2 id="org95a11a7">Prelude</h2>
+<div class="outline-text-2" id="text-org95a11a7">
+<p>
+Over the last six months, I’ve deeply immersed myself in Nix, NixOS, and its ecosystem and tooling.
 </p>
+
+<p>
+Since then, I’ve been managing 3 aarch64 SBCs, 3 aarch64 servers, 1 laptop, and 1 PC — all using NixOS.
+</p>
+
+<p>
+My current setup is a single repository acting as a snowflake, describing all these systems. Deploying configurations is seamless with the excellent <a href="https://github.com/serokell/deploy-rs">deploy-rs</a>. Alternatively, configurations can be deployed locally by cloning the repository and running the standard <code>sudo nixos-rebuild test --flake .#</code>. For new systems, I can render an SD/SSD image and flash it directly to the target storage using dd.
+</p>
+
+<p>
+I primarily use the laptop for coding and the PC for gaming and compiling large projects. The servers, of course, do server things: two of them host my self-hosted apps and their databases—no Kubernetes, no Docker, just pure applications with Nginx as a reverse proxy. One server provides a VPN for my relatives and friends living in dystopian countries with harsh online censorship.
+</p>
+
+<p>
+Among the SBCs, one is a Grafana kiosk, another runs *arr services and Jellyfin, and the third acts as a low-fidelity staging environment where I can safely break things.
+</p>
+
+<p>
+So with all this diverse range of applications, I think I may have oppinion or two.
+</p>
+</div>
+</div>
+<div id="outline-container-org62b0a50" class="outline-2">
+<h2 id="org62b0a50">Things I'm glad to have</h2>
+<div class="outline-text-2" id="text-org62b0a50">
+</div>
+<div id="outline-container-org49e74e6" class="outline-3">
+<h3 id="org49e74e6">Rich declarative configuration out of the box</h3>
+<div class="outline-text-3" id="text-org49e74e6">
+<p>
+NixOS comes with a huge set of options to configure the system declaratively. It covers all base needs — bootloader, fstab, display managers, Mesa drivers, and everything else required for a fully functional system that meets daily needs. No magic happens here: if you can't make your workflow fit a regular Ubuntu setup, Nix won’t save you.
+</p>
+
+<p>
+Additionally, NixOS offers versatile configurations for different services. Be it Nginx, PostgreSQL, Redis, *arr, Wakapi, Docker, Gitea, Grafana, Prometheus, or Nextcloud — you name it. Support quality varies across services. In the best case, you get rich, typed configurations; on average, you get a predefined systemd service and the ability to inject your configuration as a Nix-lang key-value map. Worst case? You still have Docker, which Nix supports quite well — allowing you to define containers similarly to Docker Compose but with Nix syntax.
+</p>
+</div>
+</div>
+<div id="outline-container-org32b039c" class="outline-3">
+<h3 id="org32b039c">Community driven configuration modules</h3>
+<div class="outline-text-3" id="text-org32b039c">
+<p>
+Community involvement is crucial for any large project, and the Nix community delivers great tools.
+</p>
+
+<p>
+I use not so much things in my daily workflow, but here is a list:
+</p>
+<ul class="org-ul">
+<li><a href="https://github.com/danth/stylix">stylix</a> awesome package for applying system wide styling. Like you don't need to go through all supported apps and change color scheme. Pick one of base16 and you will get theme almost everywhere.</li>
+<li><a href="https://github.com/nix-community/home-manager/">Home Manage</a> Simple explanation but it do not explain depth of module: "It is like nixos but for your user home folder". Manage your user personal belongings in a nix way. Install apps only for this user, configure Sway, Firefox, git, gpg, ssh, shell.</li>
+<li><a href="https://github.com/Mic92/sops-nix">sops-nix</a> Provide secrets on machine or user level. It may work for you too.</li>
+<li><a href="https://gitlab.com/rycee/nur-expressions">nur-expressions</a> I use it to manage addons for my firefox.</li>
+<li><a href="https://github.com/NixOS/nixos-hardware">nixos-hardware</a> Self explanatory. Bits for fast prototyping hardware configuration.</li>
+<li><a href="https://github.com/serokell/deploy-rs">deploy-rs</a> Spread your flakes on your fleet. Designed for remote provision, but works for local too.</li>
+<li><a href="https://github.com/ryan4yin/nixos-rk3588">nixos-rk3588</a> Usefull set of modules for RK3588 SBCs. Sadly it is archived now.</li>
+<li><a href="https://github.com/elitak/nixos-infect">nixos-infect</a> Infect machine from your cloud provider with Nixos.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org635103d" class="outline-3">
+<h3 id="org635103d">Devshell</h3>
+<div class="outline-text-3" id="text-org635103d">
+<p>
+For me it is a huge deal. I use it both at work and for personal projects. Combining flakes, direnv, and nix-direnv gives me ready-to-use development environments instantly. If you’re curious, read Amos's excellent series: <a href="https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10">https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10</a>
+</p>
+</div>
+</div>
+<div id="outline-container-org42d91d0" class="outline-3">
+<h3 id="org42d91d0">Overlays and you own apps</h3>
+<div class="outline-text-3" id="text-org42d91d0">
+<p>
+Nix makes it simple to package apps if they use common build systems like Meson. I build a couple of 3rd party forks of mpp, ffmpeg and libmali myself. Works fine. Also you can modify any package from nixpkgs with reach overlay system.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgb76c8e8" class="outline-2">
+<h2 id="orgb76c8e8">Things I'm not impressed with</h2>
+<div class="outline-text-2" id="text-orgb76c8e8">
+</div>
+<div id="outline-container-orgb8b7081" class="outline-3">
+<h3 id="orgb8b7081">Stability</h3>
+<div class="outline-text-3" id="text-orgb8b7081">
+<p>
+I’m used to rolling-release distros, so I understand "stability" in my own way: I don’t update systems during the workweek, only on Friday evenings.
+Tbh, this stability is good enough. Paired with generations and away to rollback on boot you get a robust system.
+</p>
+
+<p>
+However, configuration stability is a mixed bag. Even on release branches of <a href="https://github.com/NixOS/nixpkgs">nixpkgs</a>, I occasionally encounter breaking changes in configuration options over short timeframes. Community-driven modules are less stable.
+</p>
+
+<p>
+I don’t blame anyone—this is just how decentralized projects work. Pinning module versions and updating them sparingly helps manage this pain point.
+</p>
+</div>
+</div>
+<div id="outline-container-org3323db9" class="outline-3">
+<h3 id="org3323db9">Systemd</h3>
+<div class="outline-text-3" id="text-org3323db9">
+<p>
+Welp, it’s too late to blame systemd for everything, but in NixOS, services, hooks, and one-time jobs all rely exclusively on systemd units. That’s it. I’m not a fan.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5c12871" class="outline-2">
+<h2 id="org5c12871">Things I hate</h2>
+<div class="outline-text-2" id="text-org5c12871">
+</div>
+<div id="outline-container-orgea3cfe4" class="outline-3">
+<h3 id="orgea3cfe4">Language</h3>
+<div class="outline-text-3" id="text-orgea3cfe4">
+<blockquote>
+<p>
+Nix is a pure, functional, lazy, declarative, and reproducible programming language.
+</p>
+</blockquote>
+<p>
+Just keep in mind that it is not general purpose programming language. If you used to something mainstream you will suffer. And LSP would not make your life easier.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc51b2c7" class="outline-3">
+<h3 id="orgc51b2c7">Runtime/execution</h3>
+<div class="outline-text-3" id="text-orgc51b2c7">
+<p>
+The first time you hit <code>infinite recursion encountered</code>, you’ll start appreciating Rust’s compiler errors. Nix being pure and lazy means you can’t simply scatter logs for debugging without jumping through hoops.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org6f345c5" class="outline-2">
+<h2 id="org6f345c5">What is next</h2>
+<div class="outline-text-2" id="text-org6f345c5">
+<p>
+With this pain points I don't see myself using nixos in distant future. I've heard that community works on a new language — let’s see how that turns out.
+</p>
+
+<p>
+For now I will keep my flakes for fleet since it mostly works and do the job. Ofcourse I will use dev shell direnv integration everywhere I can. But I don't feel a joy using nixos and what is the point of investing your time in things do not make your happy. Now I look into gnu/guix. I like s-expr language and think that guix way of managing running services is a breethe of fresh air.
+</p>
+
+<p>
+So long.
+</p>
+</div>
+</div>
 </main><footer class="footer"><div class="container"><hr/><small><p>Alex Mikhailov</p><p>Built with: <a href="https://www.gnu.org/software/emacs/">GNU Emacs</a> <a href="https://orgmode.org/">Org Mode</a> <a href="https://picocss.com/">picocss</a></p></small></div></footer></body></html>
