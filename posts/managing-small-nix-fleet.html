@@ -2,34 +2,34 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org95a11a7">Prelude</a></li>
-<li><a href="#org62b0a50">Things I'm glad to have</a>
+<li><a href="#orgc5e2a11">Prelude</a></li>
+<li><a href="#orgfdf4bf0">Things I'm glad to have</a>
 <ul>
-<li><a href="#org49e74e6">Rich declarative configuration out of the box</a></li>
-<li><a href="#org32b039c">Community driven configuration modules</a></li>
-<li><a href="#org635103d">Devshell</a></li>
-<li><a href="#org42d91d0">Overlays and you own apps</a></li>
+<li><a href="#orgdc4523e">Rich declarative configuration out of the box</a></li>
+<li><a href="#org73cea51">Community driven configuration modules</a></li>
+<li><a href="#org6076ad6">Devshell</a></li>
+<li><a href="#orgba96696">Overlays and you own apps</a></li>
 </ul>
 </li>
-<li><a href="#orgb76c8e8">Things I'm not impressed with</a>
+<li><a href="#org217d29e">Things I'm not impressed with</a>
 <ul>
-<li><a href="#orgb8b7081">Stability</a></li>
-<li><a href="#org3323db9">Systemd</a></li>
+<li><a href="#org2d49a55">Stability</a></li>
+<li><a href="#orgb6a9315">Systemd</a></li>
 </ul>
 </li>
-<li><a href="#org5c12871">Things I hate</a>
+<li><a href="#orgd34ba3a">Things I hate</a>
 <ul>
-<li><a href="#orgea3cfe4">Language</a></li>
-<li><a href="#orgc51b2c7">Runtime/execution</a></li>
+<li><a href="#orgbc4f777">Language</a></li>
+<li><a href="#orgfc6382a">Runtime/execution</a></li>
 </ul>
 </li>
-<li><a href="#org6f345c5">What is next</a></li>
+<li><a href="#org7baec54">What is next</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org95a11a7" class="outline-2">
-<h2 id="org95a11a7">Prelude</h2>
-<div class="outline-text-2" id="text-org95a11a7">
+<div id="outline-container-orgc5e2a11" class="outline-2">
+<h2 id="orgc5e2a11">Prelude</h2>
+<div class="outline-text-2" id="text-orgc5e2a11">
 <p>
 Over the last six months, I’ve deeply immersed myself in Nix, NixOS, and its ecosystem and tooling.
 </p>
@@ -55,13 +55,13 @@ So with all this diverse range of applications, I think I may have oppinion or t
 </p>
 </div>
 </div>
-<div id="outline-container-org62b0a50" class="outline-2">
-<h2 id="org62b0a50">Things I'm glad to have</h2>
-<div class="outline-text-2" id="text-org62b0a50">
+<div id="outline-container-orgfdf4bf0" class="outline-2">
+<h2 id="orgfdf4bf0">Things I'm glad to have</h2>
+<div class="outline-text-2" id="text-orgfdf4bf0">
 </div>
-<div id="outline-container-org49e74e6" class="outline-3">
-<h3 id="org49e74e6">Rich declarative configuration out of the box</h3>
-<div class="outline-text-3" id="text-org49e74e6">
+<div id="outline-container-orgdc4523e" class="outline-3">
+<h3 id="orgdc4523e">Rich declarative configuration out of the box</h3>
+<div class="outline-text-3" id="text-orgdc4523e">
 <p>
 NixOS comes with a huge set of options to configure the system declaratively. It covers all base needs — bootloader, fstab, display managers, Mesa drivers, and everything else required for a fully functional system that meets daily needs. No magic happens here: if you can't make your workflow fit a regular Ubuntu setup, Nix won’t save you.
 </p>
@@ -71,9 +71,9 @@ Additionally, NixOS offers versatile configurations for different services. Be i
 </p>
 </div>
 </div>
-<div id="outline-container-org32b039c" class="outline-3">
-<h3 id="org32b039c">Community driven configuration modules</h3>
-<div class="outline-text-3" id="text-org32b039c">
+<div id="outline-container-org73cea51" class="outline-3">
+<h3 id="org73cea51">Community driven configuration modules</h3>
+<div class="outline-text-3" id="text-org73cea51">
 <p>
 Community involvement is crucial for any large project, and the Nix community delivers great tools.
 </p>
@@ -93,30 +93,30 @@ I use not so much things in my daily workflow, but here is a list:
 </ul>
 </div>
 </div>
-<div id="outline-container-org635103d" class="outline-3">
-<h3 id="org635103d">Devshell</h3>
-<div class="outline-text-3" id="text-org635103d">
+<div id="outline-container-org6076ad6" class="outline-3">
+<h3 id="org6076ad6">Devshell</h3>
+<div class="outline-text-3" id="text-org6076ad6">
 <p>
 For me it is a huge deal. I use it both at work and for personal projects. Combining flakes, direnv, and nix-direnv gives me ready-to-use development environments instantly. If you’re curious, read Amos's excellent series: <a href="https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10">https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10</a>
 </p>
 </div>
 </div>
-<div id="outline-container-org42d91d0" class="outline-3">
-<h3 id="org42d91d0">Overlays and you own apps</h3>
-<div class="outline-text-3" id="text-org42d91d0">
+<div id="outline-container-orgba96696" class="outline-3">
+<h3 id="orgba96696">Overlays and you own apps</h3>
+<div class="outline-text-3" id="text-orgba96696">
 <p>
 Nix makes it simple to package apps if they use common build systems like Meson. I build a couple of 3rd party forks of mpp, ffmpeg and libmali myself. Works fine. Also you can modify any package from nixpkgs with reach overlay system.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb76c8e8" class="outline-2">
-<h2 id="orgb76c8e8">Things I'm not impressed with</h2>
-<div class="outline-text-2" id="text-orgb76c8e8">
+<div id="outline-container-org217d29e" class="outline-2">
+<h2 id="org217d29e">Things I'm not impressed with</h2>
+<div class="outline-text-2" id="text-org217d29e">
 </div>
-<div id="outline-container-orgb8b7081" class="outline-3">
-<h3 id="orgb8b7081">Stability</h3>
-<div class="outline-text-3" id="text-orgb8b7081">
+<div id="outline-container-org2d49a55" class="outline-3">
+<h3 id="org2d49a55">Stability</h3>
+<div class="outline-text-3" id="text-org2d49a55">
 <p>
 I’m used to rolling-release distros, so I understand "stability" in my own way: I don’t update systems during the workweek, only on Friday evenings.
 Tbh, this stability is good enough. Paired with generations and away to rollback on boot you get a robust system.
@@ -131,22 +131,22 @@ I don’t blame anyone—this is just how decentralized projects work. Pinning m
 </p>
 </div>
 </div>
-<div id="outline-container-org3323db9" class="outline-3">
-<h3 id="org3323db9">Systemd</h3>
-<div class="outline-text-3" id="text-org3323db9">
+<div id="outline-container-orgb6a9315" class="outline-3">
+<h3 id="orgb6a9315">Systemd</h3>
+<div class="outline-text-3" id="text-orgb6a9315">
 <p>
 Welp, it’s too late to blame systemd for everything, but in NixOS, services, hooks, and one-time jobs all rely exclusively on systemd units. That’s it. I’m not a fan.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org5c12871" class="outline-2">
-<h2 id="org5c12871">Things I hate</h2>
-<div class="outline-text-2" id="text-org5c12871">
+<div id="outline-container-orgd34ba3a" class="outline-2">
+<h2 id="orgd34ba3a">Things I hate</h2>
+<div class="outline-text-2" id="text-orgd34ba3a">
 </div>
-<div id="outline-container-orgea3cfe4" class="outline-3">
-<h3 id="orgea3cfe4">Language</h3>
-<div class="outline-text-3" id="text-orgea3cfe4">
+<div id="outline-container-orgbc4f777" class="outline-3">
+<h3 id="orgbc4f777">Language</h3>
+<div class="outline-text-3" id="text-orgbc4f777">
 <blockquote>
 <p>
 Nix is a pure, functional, lazy, declarative, and reproducible programming language.
@@ -157,18 +157,18 @@ Just keep in mind that it is not general purpose programming language. If you us
 </p>
 </div>
 </div>
-<div id="outline-container-orgc51b2c7" class="outline-3">
-<h3 id="orgc51b2c7">Runtime/execution</h3>
-<div class="outline-text-3" id="text-orgc51b2c7">
+<div id="outline-container-orgfc6382a" class="outline-3">
+<h3 id="orgfc6382a">Runtime/execution</h3>
+<div class="outline-text-3" id="text-orgfc6382a">
 <p>
 The first time you hit <code>infinite recursion encountered</code>, you’ll start appreciating Rust’s compiler errors. Nix being pure and lazy means you can’t simply scatter logs for debugging without jumping through hoops.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org6f345c5" class="outline-2">
-<h2 id="org6f345c5">What is next</h2>
-<div class="outline-text-2" id="text-org6f345c5">
+<div id="outline-container-org7baec54" class="outline-2">
+<h2 id="org7baec54">What is next</h2>
+<div class="outline-text-2" id="text-org7baec54">
 <p>
 With this pain points I don't see myself using nixos in distant future. I've heard that community works on a new language — let’s see how that turns out.
 </p>
