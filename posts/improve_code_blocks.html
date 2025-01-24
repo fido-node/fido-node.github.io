@@ -1,34 +1,34 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use highlight.js for code syntax highlighting"/><meta property="og:description" content="Use highlight.js for code syntax highlighting"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta property="og:title" content="Improve code blocks"/><meta name="twitter:description" content="Use highlight.js for code syntax highlighting"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://cloud.umami.is/script.js" data-website-id="447933ff-316a-4da2-b12f-e0cab130afed"></script><title>Improve code blocks</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Improve code blocks</h1><p>Use highlight.js for code syntax highlighting</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@highlightjs.html" class="secondary">@highlightjs</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="Use highlight.js for code syntax highlighting"/><meta property="og:description" content="Use highlight.js for code syntax highlighting"/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta property="og:title" content="Improve code blocks"/><meta name="twitter:description" content="Use highlight.js for code syntax highlighting"/><meta name="twitter:title" content="Improve code blocks"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/improve_code_blocks.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.fidonode.me/script.js" data-website-id="6bbde577-7a84-4015-b590-6b8caaa1a5c6"></script><title>Improve code blocks</title><link id="highlight-theme" rel="stylesheet" type="text/css"/><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/bash.min.js"></script><script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/languages/lisp.min.js"></script><script src="/resources/js/theme-selector.js"></script></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Improve code blocks</h1><p>Use highlight.js for code syntax highlighting</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@org-mode.html" class="secondary">@org-mode</a></mark></li><li><mark><a href="/tags/@elisp.html" class="secondary">@elisp</a></mark></li><li><mark><a href="/tags/@highlightjs.html" class="secondary">@highlightjs</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org6c80d42">What is the problem with default highlighting?</a></li>
-<li><a href="#orgbd28561">Highlight.js</a>
+<li><a href="#orge148465">What is the problem with default highlighting?</a></li>
+<li><a href="#org15a8510">Highlight.js</a>
 <ul>
-<li><a href="#orgf0c0396">Change code block template</a></li>
-<li><a href="#org6c8b1ba">Plug Highlight.js</a></li>
-<li><a href="#org9813170">Respect prefers-color-scheme</a></li>
+<li><a href="#org3a32adb">Change code block template</a></li>
+<li><a href="#org84cfbb9">Plug Highlight.js</a></li>
+<li><a href="#org19f8627">Respect prefers-color-scheme</a></li>
 </ul>
 </li>
-<li><a href="#org7b6fed2">Whole config</a></li>
+<li><a href="#org51d5eb6">Whole config</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6c80d42" class="outline-2">
-<h2 id="org6c80d42">What is the problem with default highlighting?</h2>
-<div class="outline-text-2" id="text-org6c80d42">
+<div id="outline-container-orge148465" class="outline-2">
+<h2 id="orge148465">What is the problem with default highlighting?</h2>
+<div class="outline-text-2" id="text-orge148465">
 <p>
 Htmlize works poorly with headless publishing. It lacks extensibility, including features like line numbers, a copy button, and the ability to highlight predefined parts of the code.
 </p>
 </div>
 </div>
-<div id="outline-container-orgbd28561" class="outline-2">
-<h2 id="orgbd28561">Highlight.js</h2>
-<div class="outline-text-2" id="text-orgbd28561">
+<div id="outline-container-org15a8510" class="outline-2">
+<h2 id="org15a8510">Highlight.js</h2>
+<div class="outline-text-2" id="text-org15a8510">
 </div>
-<div id="outline-container-orgf0c0396" class="outline-3">
-<h3 id="orgf0c0396">Change code block template</h3>
-<div class="outline-text-3" id="text-orgf0c0396">
+<div id="outline-container-org3a32adb" class="outline-3">
+<h3 id="org3a32adb">Change code block template</h3>
+<div class="outline-text-3" id="text-org3a32adb">
 <p>
 We need to make small changes in how code blocks are rendered. By default, Org Export exports code blocks as <code>&lt;pre&gt;&lt;/pre&gt;</code>. For Highlight.js, we need <code>&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;</code>. Additionally, we need to set the correct language name in the class attribute. Since Highlight.js does not support <code>elisp</code>, I rewrite it to regular <code>lisp</code> using the <code>my/replace-substring</code> function.
 </p>
@@ -69,9 +69,9 @@ CONTENTS is nil. INFO is a plist holding contextual information.&quot;
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org6c8b1ba" class="outline-3">
-<h3 id="org6c8b1ba">Plug Highlight.js</h3>
-<div class="outline-text-3" id="text-org6c8b1ba">
+<div id="outline-container-org84cfbb9" class="outline-3">
+<h3 id="org84cfbb9">Plug Highlight.js</h3>
+<div class="outline-text-3" id="text-org84cfbb9">
 <p>
 I do not want to load Highlight.js on every page, so I need to check if the initial Org file contains code blocks. Depending on this, we will render the part of the tree with JavaScript or not.
 </p>
@@ -105,9 +105,9 @@ I do not want to load Highlight.js on every page, so I need to check if the init
 </code></pre>
 </div>
 </div>
-<div id="outline-container-org9813170" class="outline-3">
-<h3 id="org9813170">Respect prefers-color-scheme</h3>
-<div class="outline-text-3" id="text-org9813170">
+<div id="outline-container-org19f8627" class="outline-3">
+<h3 id="org19f8627">Respect prefers-color-scheme</h3>
+<div class="outline-text-3" id="text-org19f8627">
 <p>
 Additionally, I think it's a good idea to respect the <code>prefers-color-scheme</code> property of the user's browser. We can switch CSS files based on this property. We should also subscribe to changes in this property to handle the edge case when it switches while reading the page.
 </p>
@@ -141,9 +141,9 @@ window
 </div>
 </div>
 </div>
-<div id="outline-container-org7b6fed2" class="outline-2">
-<h2 id="org7b6fed2">Whole config</h2>
-<div class="outline-text-2" id="text-org7b6fed2">
+<div id="outline-container-org51d5eb6" class="outline-2">
+<h2 id="org51d5eb6">Whole config</h2>
+<div class="outline-text-2" id="text-org51d5eb6">
 <p>
 In between posts I've switched from <code>sxml</code> to <code>esxml</code> so here is the current config.
 </p>

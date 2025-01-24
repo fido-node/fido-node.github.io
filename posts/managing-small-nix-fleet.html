@@ -1,35 +1,35 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta property="og:title" content="Managing small nix fleet"/><meta name="twitter:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta name="twitter:title" content="Managing small nix fleet"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://cloud.umami.is/script.js" data-website-id="447933ff-316a-4da2-b12f-e0cab130afed"></script><title>Managing small nix fleet</title></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Managing small nix fleet</h1><p>How I&apos;ve commited to nixos and what I feel now.</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@nixos.html" class="secondary">@nixos</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta author="Alex Mikhailov"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="color-scheme" content="light dark"/><meta http-equiv="content-language" content="en-us"/><meta name="description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta property="og:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta property="og:title" content="Managing small nix fleet"/><meta name="twitter:description" content="How I&apos;ve commited to nixos and what I feel now."/><meta name="twitter:title" content="Managing small nix fleet"/><meta name="twitter:image" content="https://fidonode.me/resources/images/preview/posts/managing-small-nix-fleet.org.png"/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/x-icon" href="/resources/favicon.ico"/><link rel="stylesheet" type="text/css" href="/resources/css/pico.sand.min.css"/><script defer="true" src="https://umami.fidonode.me/script.js" data-website-id="6bbde577-7a84-4015-b590-6b8caaa1a5c6"></script><title>Managing small nix fleet</title></head><body><header class="header"><div class="container"><nav><ul><li><strong>Alex Mikhailov</strong></li></ul><ul><li><a href="/index.html">About</a></li><li><a href="/posts.html">Blog</a></li><li><a href="/rss.xml">RSS</a></li></ul></nav></div></header><main class="container blog-post"><hgroup><h1>Managing small nix fleet</h1><p>How I&apos;ve commited to nixos and what I feel now.</p><nav><ul><li>Tags:</li><li><mark><a href="/tags/@nixos.html" class="secondary">@nixos</a></mark></li></ul></nav></hgroup><div id="table-of-contents" role="doc-toc">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgc5e2a11">Prelude</a></li>
-<li><a href="#orgfdf4bf0">Things I'm glad to have</a>
+<li><a href="#org1f6a7b3">Prelude</a></li>
+<li><a href="#orgda3901f">Things I'm glad to have</a>
 <ul>
-<li><a href="#orgdc4523e">Rich declarative configuration out of the box</a></li>
-<li><a href="#org73cea51">Community driven configuration modules</a></li>
-<li><a href="#org6076ad6">Devshell</a></li>
-<li><a href="#orgba96696">Overlays and you own apps</a></li>
+<li><a href="#orgf6613e1">Rich declarative configuration out of the box</a></li>
+<li><a href="#orgff6991e">Community driven configuration modules</a></li>
+<li><a href="#org3361dd3">Devshell</a></li>
+<li><a href="#org4226f0c">Overlays and you own apps</a></li>
 </ul>
 </li>
-<li><a href="#org217d29e">Things I'm not impressed with</a>
+<li><a href="#org0c9a024">Things I'm not impressed with</a>
 <ul>
-<li><a href="#org2d49a55">Stability</a></li>
-<li><a href="#orgb6a9315">Systemd</a></li>
+<li><a href="#org8343356">Stability</a></li>
+<li><a href="#org3fdbe0f">Systemd</a></li>
 </ul>
 </li>
-<li><a href="#orgd34ba3a">Things I hate</a>
+<li><a href="#orge225b99">Things I hate</a>
 <ul>
-<li><a href="#orgbc4f777">Language</a></li>
-<li><a href="#orgfc6382a">Runtime/execution</a></li>
+<li><a href="#org86c31d4">Language</a></li>
+<li><a href="#orgaf6faf1">Runtime/execution</a></li>
 </ul>
 </li>
-<li><a href="#org7baec54">What is next</a></li>
+<li><a href="#org34c6fdf">What is next</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgc5e2a11" class="outline-2">
-<h2 id="orgc5e2a11">Prelude</h2>
-<div class="outline-text-2" id="text-orgc5e2a11">
+<div id="outline-container-org1f6a7b3" class="outline-2">
+<h2 id="org1f6a7b3">Prelude</h2>
+<div class="outline-text-2" id="text-org1f6a7b3">
 <p>
 Over the last six months, I’ve deeply immersed myself in Nix, NixOS, and its ecosystem and tooling.
 </p>
@@ -55,13 +55,13 @@ So with all this diverse range of applications, I think I may have oppinion or t
 </p>
 </div>
 </div>
-<div id="outline-container-orgfdf4bf0" class="outline-2">
-<h2 id="orgfdf4bf0">Things I'm glad to have</h2>
-<div class="outline-text-2" id="text-orgfdf4bf0">
+<div id="outline-container-orgda3901f" class="outline-2">
+<h2 id="orgda3901f">Things I'm glad to have</h2>
+<div class="outline-text-2" id="text-orgda3901f">
 </div>
-<div id="outline-container-orgdc4523e" class="outline-3">
-<h3 id="orgdc4523e">Rich declarative configuration out of the box</h3>
-<div class="outline-text-3" id="text-orgdc4523e">
+<div id="outline-container-orgf6613e1" class="outline-3">
+<h3 id="orgf6613e1">Rich declarative configuration out of the box</h3>
+<div class="outline-text-3" id="text-orgf6613e1">
 <p>
 NixOS comes with a huge set of options to configure the system declaratively. It covers all base needs — bootloader, fstab, display managers, Mesa drivers, and everything else required for a fully functional system that meets daily needs. No magic happens here: if you can't make your workflow fit a regular Ubuntu setup, Nix won’t save you.
 </p>
@@ -71,9 +71,9 @@ Additionally, NixOS offers versatile configurations for different services. Be i
 </p>
 </div>
 </div>
-<div id="outline-container-org73cea51" class="outline-3">
-<h3 id="org73cea51">Community driven configuration modules</h3>
-<div class="outline-text-3" id="text-org73cea51">
+<div id="outline-container-orgff6991e" class="outline-3">
+<h3 id="orgff6991e">Community driven configuration modules</h3>
+<div class="outline-text-3" id="text-orgff6991e">
 <p>
 Community involvement is crucial for any large project, and the Nix community delivers great tools.
 </p>
@@ -93,30 +93,30 @@ I use not so much things in my daily workflow, but here is a list:
 </ul>
 </div>
 </div>
-<div id="outline-container-org6076ad6" class="outline-3">
-<h3 id="org6076ad6">Devshell</h3>
-<div class="outline-text-3" id="text-org6076ad6">
+<div id="outline-container-org3361dd3" class="outline-3">
+<h3 id="org3361dd3">Devshell</h3>
+<div class="outline-text-3" id="text-org3361dd3">
 <p>
 For me it is a huge deal. I use it both at work and for personal projects. Combining flakes, direnv, and nix-direnv gives me ready-to-use development environments instantly. If you’re curious, read Amos's excellent series: <a href="https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10">https://fasterthanli.me/series/building-a-rust-service-with-nix/part-10</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgba96696" class="outline-3">
-<h3 id="orgba96696">Overlays and you own apps</h3>
-<div class="outline-text-3" id="text-orgba96696">
+<div id="outline-container-org4226f0c" class="outline-3">
+<h3 id="org4226f0c">Overlays and you own apps</h3>
+<div class="outline-text-3" id="text-org4226f0c">
 <p>
 Nix makes it simple to package apps if they use common build systems like Meson. I build a couple of 3rd party forks of mpp, ffmpeg and libmali myself. Works fine. Also you can modify any package from nixpkgs with reach overlay system.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org217d29e" class="outline-2">
-<h2 id="org217d29e">Things I'm not impressed with</h2>
-<div class="outline-text-2" id="text-org217d29e">
+<div id="outline-container-org0c9a024" class="outline-2">
+<h2 id="org0c9a024">Things I'm not impressed with</h2>
+<div class="outline-text-2" id="text-org0c9a024">
 </div>
-<div id="outline-container-org2d49a55" class="outline-3">
-<h3 id="org2d49a55">Stability</h3>
-<div class="outline-text-3" id="text-org2d49a55">
+<div id="outline-container-org8343356" class="outline-3">
+<h3 id="org8343356">Stability</h3>
+<div class="outline-text-3" id="text-org8343356">
 <p>
 I’m used to rolling-release distros, so I understand "stability" in my own way: I don’t update systems during the workweek, only on Friday evenings.
 Tbh, this stability is good enough. Paired with generations and away to rollback on boot you get a robust system.
@@ -131,22 +131,22 @@ I don’t blame anyone—this is just how decentralized projects work. Pinning m
 </p>
 </div>
 </div>
-<div id="outline-container-orgb6a9315" class="outline-3">
-<h3 id="orgb6a9315">Systemd</h3>
-<div class="outline-text-3" id="text-orgb6a9315">
+<div id="outline-container-org3fdbe0f" class="outline-3">
+<h3 id="org3fdbe0f">Systemd</h3>
+<div class="outline-text-3" id="text-org3fdbe0f">
 <p>
 Welp, it’s too late to blame systemd for everything, but in NixOS, services, hooks, and one-time jobs all rely exclusively on systemd units. That’s it. I’m not a fan.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgd34ba3a" class="outline-2">
-<h2 id="orgd34ba3a">Things I hate</h2>
-<div class="outline-text-2" id="text-orgd34ba3a">
+<div id="outline-container-orge225b99" class="outline-2">
+<h2 id="orge225b99">Things I hate</h2>
+<div class="outline-text-2" id="text-orge225b99">
 </div>
-<div id="outline-container-orgbc4f777" class="outline-3">
-<h3 id="orgbc4f777">Language</h3>
-<div class="outline-text-3" id="text-orgbc4f777">
+<div id="outline-container-org86c31d4" class="outline-3">
+<h3 id="org86c31d4">Language</h3>
+<div class="outline-text-3" id="text-org86c31d4">
 <blockquote>
 <p>
 Nix is a pure, functional, lazy, declarative, and reproducible programming language.
@@ -157,18 +157,18 @@ Just keep in mind that it is not general purpose programming language. If you us
 </p>
 </div>
 </div>
-<div id="outline-container-orgfc6382a" class="outline-3">
-<h3 id="orgfc6382a">Runtime/execution</h3>
-<div class="outline-text-3" id="text-orgfc6382a">
+<div id="outline-container-orgaf6faf1" class="outline-3">
+<h3 id="orgaf6faf1">Runtime/execution</h3>
+<div class="outline-text-3" id="text-orgaf6faf1">
 <p>
 The first time you hit <code>infinite recursion encountered</code>, you’ll start appreciating Rust’s compiler errors. Nix being pure and lazy means you can’t simply scatter logs for debugging without jumping through hoops.
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org7baec54" class="outline-2">
-<h2 id="org7baec54">What is next</h2>
-<div class="outline-text-2" id="text-org7baec54">
+<div id="outline-container-org34c6fdf" class="outline-2">
+<h2 id="org34c6fdf">What is next</h2>
+<div class="outline-text-2" id="text-org34c6fdf">
 <p>
 With this pain points I don't see myself using nixos in distant future. I've heard that community works on a new language — let’s see how that turns out.
 </p>
